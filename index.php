@@ -30,6 +30,250 @@
                     sessionStorage.removeItem("codiceFiscale");
                 }
             });
+
+            window.login = function() {
+
+                var cf = document.getElementById("cf").value;
+                var password = document.getElementById("password").value;
+                if (cf.length == 0) {
+                    document.getElementById("alertErrore").innerHTML = "Inserire un <strong>codice fiscale</strong>.";
+                    document.getElementById("alertErrore").hidden = false;
+                    return;
+                } else if (password.length == 0) {
+                    document.getElementById("alertErrore").innerHTML = "Inserire una <strong>password</strong>.";
+                    document.getElementById("alertErrore").hidden = false;
+                    return;
+
+                } else {
+
+                    //DA ELIMINARE
+                    window.location = "riepilogo.php"; //Sostituire con pagina utente
+
+                    var httpReq = new XMLHttpRequest();
+                    httpReq.onreadystatechange = function () {
+
+
+                        if (httpReq.readyState == 4 && httpReq.status == 200) {
+                            console.log(parseInt(httpReq.responseText)+"");
+                            switch (parseInt(httpReq.responseText)) {
+                                case 0:
+                                    localStorage.setItem("cittadinApp", cf);
+                                    window.location = "formSegnalazioneUtente.php"; //Sostituire con pagina utente
+                                    break;
+                                case 1:
+                                    localStorage.setItem("codiceFiscale", cf);
+                                    localStorage.setItem("tipoUtente", 1);
+                                    window.location = "riepilogo.php"; //sostituire con pagina operatore
+                                    break;
+                                case 2:
+                                    localStorage.setItem("codiceFiscale", cf);
+                                    localStorage.setItem("tipoUtente", 2);
+                                    window.location = "riepilogo.php"; //Rimuovere? Non ci saranno più di due tipologie di utenti
+                                    break;
+                                case - 1:
+                                    document.getElementById("alertErrore").innerHTML = "Codice fiscale <strong>NON PRESENTE</strong> nel database.";
+                                    document.getElementById("alertErrore").hidden = false;
+                                    break;
+                                case - 2:
+                                    document.getElementById("alertErrore").innerHTML = "<strong>Password inserita errata</strong>.";
+                                    document.getElementById("alertErrore").hidden = false;
+                                    break;
+                            }
+                        }
+                    };
+
+                    httpReq.open("POST", "operazioniUtente.php", true);
+                    httpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    httpReq.send("cfLogin=" + cf + "&passwordLogin=" + password);
+                }
+            };
+
+            function inviaMail() {
+
+                document.getElementById("alertErroreRecuperoMail").hidden = true;
+
+                var mail = document.getElementById("mail").value;
+
+                if (!validazione_email(mail)) {
+                    document.getElementById("alertErroreRecuperoMail").innerHTML = "Indirizzo mail <strong>non valido</strong>.";
+                    document.getElementById("alertErroreRecuperoMail").hidden = false;
+                    return;
+                }
+
+
+                var httpReq = new XMLHttpRequest();
+                httpReq.onreadystatechange = function () {
+
+                    if (httpReq.readyState == 4 && httpReq.status == 200) {
+                        console.log(httpReq.responseText);
+                        var response = parseInt(httpReq.responseText);
+                        switch (response) {
+                            case - 1:
+                                document.getElementById("alertErroreRecuperoMail").innerHTML = "<strong>Indirizzo email</strong> non associato ad un account.";
+                                document.getElementById("alertErroreRecuperoMail").hidden = false;
+                                break;
+                            case - 2:
+                                document.getElementById("alertErroreRecuperoMail").innerHTML = "Errore invio mail.";
+                                document.getElementById("alertErroreRecuperoMail").hidden = false;
+                                break;
+                            case 1:
+                                alert("Riceverai una mail con la password.");
+                                $('#recuperoPassword').modal('hide');
+                                break;
+
+                        }
+                    }
+                };
+                httpReq.open("POST", "operazioniUtente.php", true);
+                httpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                httpReq.send("emailRecupero=" + mail);
+            }
+
+            function nuovoUtente() {
+
+                document.getElementById("alertErroreDialog").hidden = true;
+
+                var nome = document.getElementById("nome").value;
+                var cognome = document.getElementById("cognome").value;
+                var dataNascita = document.getElementById("dataNascita").value;
+                var cfNuovoUtente = document.getElementById("cfNuovo").value;
+                var mailNuovoUtente = document.getElementById("mailNuovo").value;
+                var pass1 = document.getElementById("pass1").value;
+                var pass2 = document.getElementById("pass2").value;
+                var via = document.getElementById("via").value;
+                var citta = document.getElementById("citta").value;
+                var provincia = document.getElementById("provincia").value;
+                var regione = document.getElementById("regione").value;
+                var cap = document.getElementById("cap").value;
+
+                // CONTROLLO INSERIMENTO VALORI
+                if (cfNuovoUtente.length == 0 || cfNuovoUtente.length != 16) {
+                    document.getElementById("alertErroreDialog").innerHTML = "Controllare il <strong>codice fiscale</strong>.";
+                    document.getElementById("alertErroreDialog").hidden = false;
+                    return;
+
+                } else if (nome.length == 0) {
+                    document.getElementById("alertErroreDialog").innerHTML = "Inserire un <strong>nome</strong>.";
+                    document.getElementById("alertErroreDialog").hidden = false;
+                    return;
+
+                } else if (cognome.length == 0) {
+                    document.getElementById("alertErroreDialog").innerHTML = "Inserire un <strong>cognome</strong>.";
+                    document.getElementById("alertErroreDialog").hidden = false;
+                    return;
+
+                } else if (dataNascita.length == 0) {
+                    document.getElementById("alertErroreDialog").innerHTML = "Inserire una <strong>data di nascita</strong>.";
+                    document.getElementById("alertErroreDialog").hidden = false;
+                    return;
+
+                } else if (via.length == 0) {
+                    document.getElementById("alertErroreDialog").innerHTML = "Inserire un <strong>indirizzo</strong>.";
+                    document.getElementById("alertErroreDialog").hidden = false;
+                    return;
+
+                } else if (citta.length == 0) {
+                    document.getElementById("alertErroreDialog").innerHTML = "Inserire una <strong>città</strong>.";
+                    document.getElementById("alertErroreDialog").hidden = false;
+                    return;
+
+                } else if (regione == 'default' || provincia == 'default') {
+                    document.getElementById("alertErroreDialog").innerHTML = "Inserire una <strong>regione</strong> o una <strong>provincia</strong>.";
+                    document.getElementById("alertErroreDialog").hidden = false;
+                    return;
+
+                } else if (cap.length == 0 || cap.length != 5) {
+                    document.getElementById("alertErroreDialog").innerHTML = "Controllare il <strong>CAP</strong>.";
+                    document.getElementById("alertErroreDialog").hidden = false;
+                    return;
+
+                } else if (mailNuovoUtente.length == 0) {
+                    document.getElementById("alertErroreDialog").innerHTML = "Inserire un <strong>indirizzo mail</strong>.";
+                    document.getElementById("alertErroreDialog").hidden = false;
+                    return;
+
+                } else if (!validazione_email(mailNuovoUtente)) {
+                    document.getElementById("alertErroreDialog").innerHTML = "Indirizzo mail <strong>non valido</strong>.";
+                    document.getElementById("alertErroreDialog").hidden = false;
+                    return;
+
+                } else if (pass1.length == 0 || pass2.length == 0) {
+                    document.getElementById("alertErroreDialog").innerHTML = "Verificare i campi <strong>password</strong>.";
+                    document.getElementById("alertErroreDialog").hidden = false;
+                    return;
+
+                } else if (pass1 !== pass2) {
+                    document.getElementById("alertErroreDialog").innerHTML = "Le due password <strong>non corrispondono</strong>.";
+                    document.getElementById("alertErroreDialog").hidden = false;
+                    return;
+
+                } else if (!validazione_data(dataNascita)) {
+                    document.getElementById("alertErroreDialog").innerHTML = "Formato data <strong>non valido</strong>.";
+                    document.getElementById("alertErroreDialog").hidden = false;
+                    return;
+
+                }
+
+                var httpReq = new XMLHttpRequest();
+                httpReq.onreadystatechange = function () {
+
+                    if (httpReq.readyState == 4 && httpReq.status == 200) {
+
+                        var response = parseInt(httpReq.responseText);
+
+                        switch (response) {
+                            case 1:
+                                alert("Riceverai una mail per completare la procedura di registrazione.");
+                                $('#primoAccesso').modal('hide');
+                                break;
+                            case - 1:
+                                document.getElementById("alertErroreDialog").innerHTML = "Il <strong>codice fiscale</strong> inserito risulta già registrato.";
+                                document.getElementById("alertErroreDialog").hidden = false;
+                                break;
+                            case - 2:
+                                document.getElementById("alertErroreDialog").innerHTML = "<strong>L'indirizzo email</strong> inserito è già associato ad un account.";
+                                document.getElementById("alertErroreDialog").hidden = false;
+                                break;
+                            case - 3:
+                                document.getElementById("alertErroreDialog").innerHTML = "Errore nell'invio della mail di conferma.";
+                                document.getElementById("alertErroreDialog").hidden = false;
+                                break;
+                            case - 4:
+                                document.getElementById("alertErroreDialog").innerHTML = "Errore generico";
+                                document.getElementById("alertErroreDialog").hidden = false;
+                                break;
+
+                        }
+                    }
+                };
+
+
+
+                httpReq.open("POST", "operazioniUtente.php", true);
+                httpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                httpReq.send("nome=" + nome + "&cognome=" + cognome +
+                    "&dataNascita=" + dataNascita + "&cf=" + cfNuovoUtente +
+                    "&mail=" + mailNuovoUtente + "&password=" + pass1 + "&via=" + via +
+                    "&citta=" + citta + "&provincia=" + provincia + "&regione=" + regione + "&cap=" + cap);
+
+            }
+
+            function validazione_email(email) {
+                var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+                if (!reg.test(email))
+                    return false;
+                else
+                    return true;
+            }
+
+            function validazione_data(data) {
+                var espressione = /^[0-9]{4}\-[0-9]{1,2}\-[0-9]{1,2}/;
+                if (!espressione.test(data))
+                    return false;
+                else
+                    return true;
+            }
+
         </script>
 
         <?php
@@ -230,253 +474,7 @@
         </div>
 
         <div class="space" style="height: 30px" ></div>
-
-        <script type="text/javascript">
- 
-            function login() {
-
-                var cf = document.getElementById("cf").value;
-                var password = document.getElementById("password").value;
-                if (cf.length == 0) {
-                    document.getElementById("alertErrore").innerHTML = "Inserire un <strong>codice fiscale</strong>.";
-                    document.getElementById("alertErrore").hidden = false;
-                    return;
-                } else if (password.length == 0) {
-                    document.getElementById("alertErrore").innerHTML = "Inserire una <strong>password</strong>.";
-                    document.getElementById("alertErrore").hidden = false;
-                    return;
-
-                } else {
-
-                    //DA ELIMINARE
-                    window.location = "riepilogo.php"; //Sostituire con pagina utente
-
-                    var httpReq = new XMLHttpRequest();
-                    httpReq.onreadystatechange = function () {
-
-
-                        if (httpReq.readyState == 4 && httpReq.status == 200) {
-                            console.log(parseInt(httpReq.responseText)+"");
-                            switch (parseInt(httpReq.responseText)) {
-                                case 0:
-                                    localStorage.setItem("cittadinApp", cf);
-                                    window.location = "formSegnalazioneUtente.php"; //Sostituire con pagina utente
-                                    break;
-                                case 1:
-                                    localStorage.setItem("codiceFiscale", cf);
-                                    localStorage.setItem("tipoUtente", 1);
-                                    window.location = "riepilogo.php"; //sostituire con pagina operatore
-                                    break;
-                                case 2:
-                                    localStorage.setItem("codiceFiscale", cf);
-                                    localStorage.setItem("tipoUtente", 2);
-                                    window.location = "riepilogo.php"; //Rimuovere? Non ci saranno più di due tipologie di utenti
-                                    break;
-                                case - 1:
-                                    document.getElementById("alertErrore").innerHTML = "Codice fiscale <strong>NON PRESENTE</strong> nel database.";
-                                    document.getElementById("alertErrore").hidden = false;
-                                    break;
-                                case - 2:
-                                    document.getElementById("alertErrore").innerHTML = "<strong>Password inserita errata</strong>.";
-                                    document.getElementById("alertErrore").hidden = false;
-                                    break;
-                            }
-                        }
-                    };
-
-                    httpReq.open("POST", "operazioniUtente.php", true);
-                    httpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                    httpReq.send("cfLogin=" + cf + "&passwordLogin=" + password);
-                }
-            }
-
-            function inviaMail() {
-
-                document.getElementById("alertErroreRecuperoMail").hidden = true;
-
-                var mail = document.getElementById("mail").value;
-
-                if (!validazione_email(mail)) {
-                    document.getElementById("alertErroreRecuperoMail").innerHTML = "Indirizzo mail <strong>non valido</strong>.";
-                    document.getElementById("alertErroreRecuperoMail").hidden = false;
-                    return;
-                }
-
-
-                var httpReq = new XMLHttpRequest();
-                httpReq.onreadystatechange = function () {
-
-                    if (httpReq.readyState == 4 && httpReq.status == 200) {
-                        console.log(httpReq.responseText);
-                        var response = parseInt(httpReq.responseText);
-                        switch (response) {
-                            case - 1:
-                                document.getElementById("alertErroreRecuperoMail").innerHTML = "<strong>Indirizzo email</strong> non associato ad un account.";
-                                document.getElementById("alertErroreRecuperoMail").hidden = false;
-                                break;
-                            case - 2:
-                                document.getElementById("alertErroreRecuperoMail").innerHTML = "Errore invio mail.";
-                                document.getElementById("alertErroreRecuperoMail").hidden = false;
-                                break;
-                            case 1:
-                                alert("Riceverai una mail con la password.");
-                                $('#recuperoPassword').modal('hide');
-                                break;
-
-                        }
-                    }
-                };
-                httpReq.open("POST", "operazioniUtente.php", true);
-                httpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                httpReq.send("emailRecupero=" + mail);
-            }
-
-            function nuovoUtente() {
-
-                document.getElementById("alertErroreDialog").hidden = true;
-
-                var nome = document.getElementById("nome").value;
-                var cognome = document.getElementById("cognome").value;
-                var dataNascita = document.getElementById("dataNascita").value;
-                var cfNuovoUtente = document.getElementById("cfNuovo").value;
-                var mailNuovoUtente = document.getElementById("mailNuovo").value;
-                var pass1 = document.getElementById("pass1").value;
-                var pass2 = document.getElementById("pass2").value;
-                var via = document.getElementById("via").value;
-                var citta = document.getElementById("citta").value;
-                var provincia = document.getElementById("provincia").value;
-                var regione = document.getElementById("regione").value;
-                var cap = document.getElementById("cap").value;
-
-                // CONTROLLO INSERIMENTO VALORI
-                if (cfNuovoUtente.length == 0 || cfNuovoUtente.length != 16) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Controllare il <strong>codice fiscale</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (nome.length == 0) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Inserire un <strong>nome</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (cognome.length == 0) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Inserire un <strong>cognome</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (dataNascita.length == 0) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Inserire una <strong>data di nascita</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (via.length == 0) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Inserire un <strong>indirizzo</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (citta.length == 0) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Inserire una <strong>città</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (regione == 'default' || provincia == 'default') {
-                    document.getElementById("alertErroreDialog").innerHTML = "Inserire una <strong>regione</strong> o una <strong>provincia</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (cap.length == 0 || cap.length != 5) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Controllare il <strong>CAP</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (mailNuovoUtente.length == 0) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Inserire un <strong>indirizzo mail</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (!validazione_email(mailNuovoUtente)) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Indirizzo mail <strong>non valido</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (pass1.length == 0 || pass2.length == 0) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Verificare i campi <strong>password</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (pass1 !== pass2) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Le due password <strong>non corrispondono</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (!validazione_data(dataNascita)) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Formato data <strong>non valido</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                }
-
-                var httpReq = new XMLHttpRequest();
-                httpReq.onreadystatechange = function () {
-
-                    if (httpReq.readyState == 4 && httpReq.status == 200) {
-
-                        var response = parseInt(httpReq.responseText);
-
-                        switch (response) {
-                            case 1:
-                                alert("Riceverai una mail per completare la procedura di registrazione.");
-                                $('#primoAccesso').modal('hide');
-                                break;
-                            case - 1:
-                                document.getElementById("alertErroreDialog").innerHTML = "Il <strong>codice fiscale</strong> inserito risulta già registrato.";
-                                document.getElementById("alertErroreDialog").hidden = false;
-                                break;
-                            case - 2:
-                                document.getElementById("alertErroreDialog").innerHTML = "<strong>L'indirizzo email</strong> inserito è già associato ad un account.";
-                                document.getElementById("alertErroreDialog").hidden = false;
-                                break;
-                            case - 3:
-                                document.getElementById("alertErroreDialog").innerHTML = "Errore nell'invio della mail di conferma.";
-                                document.getElementById("alertErroreDialog").hidden = false;
-                                break;
-                            case - 4:
-                                document.getElementById("alertErroreDialog").innerHTML = "Errore generico";
-                                document.getElementById("alertErroreDialog").hidden = false;
-                                break;
-
-                        }
-                    }
-                };
-
-
-
-                httpReq.open("POST", "operazioniUtente.php", true);
-                httpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                httpReq.send("nome=" + nome + "&cognome=" + cognome +
-                        "&dataNascita=" + dataNascita + "&cf=" + cfNuovoUtente +
-                        "&mail=" + mailNuovoUtente + "&password=" + pass1 + "&via=" + via +
-                        "&citta=" + citta + "&provincia=" + provincia + "&regione=" + regione + "&cap=" + cap);
-
-            }
-
-            function validazione_email(email) {
-                var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-                if (!reg.test(email))
-                    return false;
-                else
-                    return true;
-            }
-
-            function validazione_data(data) {
-                var espressione = /^[0-9]{4}\-[0-9]{1,2}\-[0-9]{1,2}/;
-                if (!espressione.test(data))
-                    return false;
-                else
-                    return true;
-            }
-
-        </script>
+    
     </body>
 </html>
 
