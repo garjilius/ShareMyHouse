@@ -248,6 +248,9 @@
 
                 } else {
 
+                    //DA ELIMINARE
+                    window.location = "riepilogo.php"; //Sostituire con pagina utente
+
                     var httpReq = new XMLHttpRequest();
                     httpReq.onreadystatechange = function () {
 
@@ -257,17 +260,17 @@
                             switch (parseInt(httpReq.responseText)) {
                                 case 0:
                                     localStorage.setItem("cittadinApp", cf);
-                                    window.location = "formSegnalazioneUtente.php";
+                                    window.location = "formSegnalazioneUtente.php"; //Sostituire con pagina utente
                                     break;
                                 case 1:
                                     localStorage.setItem("codiceFiscale", cf);
                                     localStorage.setItem("tipoUtente", 1);
-                                    window.location = "riepilogo.php";
+                                    window.location = "riepilogo.php"; //sostituire con pagina operatore
                                     break;
                                 case 2:
                                     localStorage.setItem("codiceFiscale", cf);
                                     localStorage.setItem("tipoUtente", 2);
-                                    window.location = "riepilogo.php";
+                                    window.location = "riepilogo.php"; //Rimuovere? Non ci saranno più di due tipologie di utenti
                                     break;
                                 case - 1:
                                     document.getElementById("alertErrore").innerHTML = "Codice fiscale <strong>NON PRESENTE</strong> nel database.";
