@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        <title>CittadinAPP</title>
+        <title>ShareMyHouse</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-Equiv="Cache-Control" Content="no-cache">
@@ -13,12 +13,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-        <link href="apple-touch-icon.png" rel="apple-touch-icon" />
-        <link href="apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
-        <link href="apple-touch-icon-167x167.png" rel="apple-touch-icon" sizes="167x167" />
-        <link href="apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180" />
-
-
+        <link href="/images/SHARE_MY_HOUSE.png" rel="apple-touch-icon" />
+        <link href="/images/SHARE_MY_HOUSE_180x180.png" rel="apple-touch-icon" sizes="152x152" />
+        <link href="/images/SHARE_MY_HOUSE_167x167.png" rel="apple-touch-icon" sizes="167x167" />
+        <link href="/images/SHARE_MY_HOUSE_180x180.png" rel="apple-touch-icon" sizes="180x180" />
 
         <script type="text/javascript">
 
@@ -48,7 +46,7 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.php">CittadinAPP</a>
+                    <a class="navbar-brand" href="index.php">ShareMyHouse</a>
                 </div>
             </div>
         </nav>
