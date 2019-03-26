@@ -55,18 +55,18 @@
 
                         if (httpReq.readyState == 4 && httpReq.status == 200) {
                             console.log(parseInt(httpReq.responseText)+"");
+                            localStorage.setItem("codiceFiscale", cf);
+
                             switch (parseInt(httpReq.responseText)) {
                                 case 0:
                                     localStorage.setItem("cittadinApp", cf);
                                     window.location = "formSegnalazioneUtente.php"; //Sostituire con pagina utente
                                     break;
                                 case 1:
-                                    localStorage.setItem("codiceFiscale", cf);
                                     localStorage.setItem("tipoUtente", 1);
                                     window.location = "riepilogo.php"; //sostituire con pagina operatore
                                     break;
                                 case 2:
-                                    localStorage.setItem("codiceFiscale", cf);
                                     localStorage.setItem("tipoUtente", 2);
                                     window.location = "riepilogo.php"; //Rimuovere? Non ci saranno più di due tipologie di utenti
                                     break;
@@ -82,9 +82,9 @@
                         }
                     };
 
-                    httpReq.open("POST", "operazioniUtente.php", true);
+                    httpReq.open("POST", "/utility/login.php", true);
                     httpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                    httpReq.send("cfLogin=" + cf + "&passwordLogin=" + password);
+                    httpReq.send("cf=" + cf + "&password=" + password);
                 }
             };
 
@@ -474,7 +474,7 @@
         </div>
 
         <div class="space" style="height: 30px" ></div>
-    
+
     </body>
 </html>
 

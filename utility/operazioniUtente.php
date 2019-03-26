@@ -123,7 +123,7 @@ if (isset($_POST['cfLogin']) && isset($_POST['passwordLogin'])) {
     $password = $_POST['passwordLogin'];
 
     $query = "SELECT * FROM Utente WHERE CF = '" . $cf . "'";
-    $result = mysql_query($query);
+    $result = mysqli_query($db,$query);
 
     if (mysqli_num_rows($result) > 0) {
 
