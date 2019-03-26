@@ -162,15 +162,15 @@
                                     <div class="col-xs-8 col-sm-8 col-lg-8">
                                         <select id="regione" name="regione" class="form-control">
                                             <?php
-                                            require_once './databaseconnection.php';
+                                            require_once './utility/databaseconnection.php';
 
                                             $query = "SELECT nome FROM Regione";
-                                            $result = mysql_query($query);
-                                            $numRighe = mysql_num_rows($result);
+                                            $result = mysqli_query($db,$query);
+                                            $numRighe = mysqli_num_rows($result);
 
                                             echo '<option value="default">--------------------</option>';
                                             for ($i = 0; $i < $numRighe; $i++) {
-                                                $regioni = mysql_fetch_row($result);
+                                                $regioni = mysqli_fetch_row($result);
                                                 $tmp = $regioni[0];
                                                 echo '<option value="' . $tmp . '">' . $tmp . '</option>';
                                             }
@@ -182,12 +182,12 @@
                                         <select id="provincia" name="provincia" class="form-control">
                                             <?php
                                             $query = "SELECT sigla FROM province";
-                                            $result = mysql_query($query);
-                                            $numRighe = mysql_num_rows($result);
+                                            $result = mysqli_query($db,$query);
+                                            $numRighe = mysqli_num_rows($result);
 
                                             echo '<option value="default">--------------------</option>';
                                             for ($i = 0; $i < $numRighe; $i++) {
-                                                $province = mysql_fetch_row($result);
+                                                $province = mysqli_fetch_row($result);
                                                 $tmp = $province[0];
                                                 echo '<option value="' . $tmp . '">' . $tmp . '</option>';
                                             }
