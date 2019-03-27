@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
     <head>
-        <title>ShareMyHouse</title>
+        <title>CittadinAPP</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-Equiv="Cache-Control" Content="no-cache">
@@ -25,7 +25,7 @@
     </head>
     <body>
 
-        <?php include './utility/databaseconnection.php' ?>
+        <?php include './databaseconnection.php' ?>
 
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -323,7 +323,6 @@
             window.location = "errorPage.php";
         }
     }); */
-    //DA REINSERIRE una volta reimplementata la logica di login
 
 
 </SCRIPT>
