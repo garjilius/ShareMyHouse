@@ -25,7 +25,7 @@
     </head>
     <body>
 
-        <?php /*include './utility/databaseconnection.php' */ ?>
+        <?php include './utility/databaseconnection.php'  ?>
 
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">

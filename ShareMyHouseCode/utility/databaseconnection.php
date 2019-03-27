@@ -1,7 +1,7 @@
 <?php
 	$username = "";
 	$host = "";
-    $database = "my_emanuelegargiulo";
+    $database = "my_sharemyhouse";
     $password = "";
     $myip = $_SERVER["REMOTE_ADDR"];
 
