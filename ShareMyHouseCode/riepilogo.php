@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
     <head>
-        <title>CittadinAPP</title>
+        <title>ShareMyHouse</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-Equiv="Cache-Control" Content="no-cache">
@@ -55,14 +55,14 @@
         
         <div class="container-fluid text-center">    
             <div class="container">
-                <h2>Riepilogo Segnalazioni<BR></h2>
+                <h2>Riepilogo<BR></h2>
                 <button id ="buttonStatistiche" onclick="window.location.href = 'statistiche.php'" type="button" class="btn btn-primary btn-lg">Visualizza Statistiche</button>
             </div>
         </div></div>
         
 
     <div class="container form-group">
-        <label for="sel1">Filtra per livello di allerta</label>
+        <label for="sel1">Filtra per *criterio x*</label>
         <select class="form-control" id="filtroAllerta" onchange="comboAllerta(this)">
             <option value = "default">Tutti</option>
             <option value = "1">Attenzione</option>
@@ -99,13 +99,13 @@
         </div>
     </div>
 
-    <div class="container legenda">
+   <!-- <div class="container legenda">
         <h5>LEGENDA</h5>
         <h6 class=bg-info>Blu: Livello non disponibile </h6>
         <h6 class=bg-success>Verde: Livello di attenzione</h6>
         <h6 class=bg-warning>Giallo: Livello di preallarme</h6>
         <h6 class=bg-danger>Rosso: Livello di allarme</h6>
-    </div>
+    </div> -->
 
 </body>
 
@@ -323,6 +323,7 @@
             window.location = "errorPage.php";
         }
     }); */
+    //Da Riattivare quando funzionerà la logica di login
 
 
 </SCRIPT>
