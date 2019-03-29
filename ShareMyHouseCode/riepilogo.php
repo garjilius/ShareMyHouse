@@ -306,7 +306,7 @@
     //VERIFICA LOGIN
     function logout() {
         localStorage.removeItem("codiceFiscale");
-        window.location = "https://sharemyhouse.altervista.org/index.php";
+        window.location = "index.php";
     }
 
     /*
