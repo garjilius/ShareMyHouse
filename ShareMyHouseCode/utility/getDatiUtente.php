@@ -5,14 +5,16 @@ if (isset($_POST['cf'])) {
 
     $cf = $_POST['cf'];
 
-    $query = "SELECT * FROM Utente JOIN InfoUtente ON CF WHERE CF = '" . $cf . "'";
-    $result = mysqli_query($db, $query) or die("La query è fallita");
+   // $query = "SELECT * FROM Utente JOIN userinfo ON Utente.CF = userinfo.CF WHERE Utente.CF = '" . $cf . "'";
+    $query ="Select * FROM userinfo";
+    $result = mysqli_query($db, $query) or die(mysqli_error($db));
 
+    echo $query;
     echo '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
-
-
+    echo mysqli_num_rows($result);
     echo '<dati>';
     while ($riga = mysqli_fetch_assoc($result)) {
+
         echo '<Utente>';
 
         echo '<cf>' . $riga["CF"] . '</cf>';
@@ -30,8 +32,9 @@ if (isset($_POST['cf'])) {
 
         echo '</Utente>';
 
-        echo '</dati>';
 
     }
+    echo '</dati>';
+
 }
 ?>

@@ -27,10 +27,15 @@ function modificaInfoUtente() {
 function getDatiUtente(cf) {
     var httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
+        if (httpReq.readyState === 4 && httpReq.status === 200) {
+            let xmlDoc = httpReq.responseXML.documentElement;
+            //console.log(xmlDoc.getElementsByTagName("Nome"));
+        }
+    }
 
-    };
-    httpReq.open("POST", "/utility/getDatiUtente.php", true);
-    httpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    httpReq.send("cf=" + cf);
+        httpReq.open("POST", "/utility/getDatiUtente.php?v=12", true);
+        httpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        httpReq.send("cf=" + cf);
+
 }
 

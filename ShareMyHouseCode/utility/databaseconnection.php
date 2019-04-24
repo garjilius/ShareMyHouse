@@ -7,11 +7,11 @@
 
     $db = mysqli_connect($host, $username,$password, $database) or die("Errore durante la connessione al database");
 
-    /*
+/*
 if (mysqli_ping($db)) {
    echo "Connection is ok!";
 }
 else  {
     echo "Error: ". mysqli_error($db);
-} */
+}*/
 ?>
