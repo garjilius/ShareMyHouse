@@ -16,6 +16,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript" src="/utility/checklogin.js"></script>
+    <script type="text/javascript" src="/utility/logout.js"></script>
+
+
 
     <?php
     header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.

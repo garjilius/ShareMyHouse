@@ -15,6 +15,12 @@
         <link href="/images/SHARE_MY_HOUSE_180x180.png" rel="apple-touch-icon" sizes="180x180" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <script type="text/javascript" src="/utility/checklogin.js"></script>
+        <script type="text/javascript" src="/utility/logout.js"></script>
+
+
+
 
         <?php
         header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
@@ -56,7 +62,6 @@
         <div class="container-fluid text-center">    
             <div class="container">
                 <h2>Riepilogo<BR></h2>
-                <button id ="buttonStatistiche" onclick="window.location.href = 'statistiche.php'" type="button" class="btn btn-primary btn-lg">Visualizza Statistiche</button>
             </div>
         </div></div>
         
@@ -303,27 +308,7 @@
     sessionStorage.setItem("statoRichiesto", 1);
     createTable(getRightQuery());
 
-    //VERIFICA LOGIN
-    function logout() {
-        localStorage.removeItem("codiceFiscale");
-        window.location = "index.php";
-    }
 
-    /*
-
-    $(document).ready(function () {
-        //NASCONDE IL BOTTONE STATISTICHE SE NON E' UN DECISORE
-        if ((localStorage.getItem("tipoUtente") != 2)) {
-            document.getElementById("buttonStatistiche").style.display = "none";
-        }
-        if (!localStorage.codiceFiscale) {
-            while (document.firstChild) {
-                document.removeChild(document.firstChild);
-            }
-            window.location = "errorPage.php";
-        }
-    }); */
-    //Da Riattivare quando funzionerà la logica di login
 
 
 </SCRIPT>

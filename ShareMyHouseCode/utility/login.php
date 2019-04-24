@@ -8,11 +8,11 @@ if (isset($_POST['cf']) && isset($_POST['password'])) {
 
     $query = "SELECT * FROM Utente WHERE CF = '" . $cf . "'";
     $result = mysqli_query($db,$query);
-    $segnalazione = mysqli_fetch_assoc($result);
+    $risposta = mysqli_fetch_assoc($result);
 
-    if (strcmp($password, $segnalazione['password']) == 0) {
+    if (strcmp($password, $risposta['password']) == 0) {
         
-        $tipo = $segnalazione["tipoUtente"];
+        $tipo = $risposta["tipoutente"];
       /*  if ($tipo == 0) {
             echo 0;
         } else if ($tipo == 1) {
