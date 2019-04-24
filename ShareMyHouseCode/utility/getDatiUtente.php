@@ -5,8 +5,8 @@ if (isset($_POST['cf'])) {
 
     $cf = $_POST['cf'];
 
-   // $query = "SELECT * FROM Utente JOIN userinfo ON Utente.CF = userinfo.CF WHERE Utente.CF = '" . $cf . "'";
-    $query ="Select * FROM userinfo";
+   // $query = "SELECT * FROM Utente JOIN extraUtenti ON Utente.CF = extraUtenti.CF WHERE Utente.CF = '" . $cf . "'";
+    $query ="Select * FROM extraUtenti";
     $result = mysqli_query($db, $query) or die(mysqli_error($db));
 
     echo $query;
