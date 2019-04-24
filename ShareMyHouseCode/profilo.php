@@ -54,26 +54,24 @@
    <h2 id = "titoloNomeUtente">Benvenuto, Nome Utente</h2>
     <h3>Le Tue Informazioni</h3><BR><BR>
     <h4><i class="fa fa-user"> Utente</i></h4>
-    <h5>Nome Utente</h5>
+    <h5 id="userName">Nome Utente</h5>
     <BR>
-    <h4><i class="fa fa-id-card"> CODICE FISCALE</i>E</h4>
-    <h5>CODICEFISCALE1</h5>
+    <h4><i class="fa fa-id-card"> CODICE FISCALE</i></h4>
+    <h5 id="cfUser">CODICEFISCALE1</h5>
     <BR>
     <h4><i class="fa fa-map-pin"> Indirizzo</i></h4>
-    <h5>Via Vecchia Delle Vie, 5, NA</h5>
+    <h5 ="addressUser">Via Vecchia Delle Vie, 5, NA</h5>
     <BR>
     <h4><i class="fa fa-phone"> Telefono</i></h4>
-    <h5>03471584988</h5>
+    <h5 id="phoneUser">03471584988</h5>
     <BR>
     <h4><i class="fa fa-envelope-o"> eMail</i></h4>
-    <h5>posta@elettronica.it</h5>
-    <BR>
+    <h5 id="emailUser">posta@elettronica.it</h5>
+    <BR><BR><BR>
+    <button type="button" class="btn btn-primary">Modifica</button>
+
 
 </div>
 
 </body>
-
-
-
-
 </html>

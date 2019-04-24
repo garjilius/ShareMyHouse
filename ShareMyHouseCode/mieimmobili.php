@@ -51,19 +51,66 @@
 </nav>
 
 
+<div class="container">
+    <BR><BR>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Immobile 1 - Villetta a Barletta</a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <p>Posti Occupati: 3/4</p>
+                    <p>Disponibile fino al: 19/09/2020</p>
+                    <p>Idoneità: SI</p>
+                    <button type="button" class="btn btn-primary">Modifica</button>
 
-
-
-
-
-
-
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2. How do I track my orders and payment?</a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>After logging into your account, the status of your checkout history can be found under Order History. For orders via registered postage, a tracking number (article tracking number) will be given to you <a href="#">Learn more about tracking number.</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3. What are the payment method available? </a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>At the moment, we only accept Credit/Debit cards and Paypal payments. <a href="#">Learn more about major banks accepting card transactions.</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">4. How can I change my shipping address?</a>
+                </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>By default, the last used shipping address will be saved into your Sample Store account. When you are checking out your order, the default shipping address will be displayed and you have the option to amend it if you need to. <a href="#">More about shipping addresses.</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p><strong>Note:</strong> Click on the linked heading text to expand or collapse accordion panels.</p>
+</div>
 
 
 
 </body>
-
-
-
-
 </html>
