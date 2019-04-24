@@ -15,6 +15,7 @@
     <link href="/images/SHARE_MY_HOUSE_180x180.png" rel="apple-touch-icon" sizes="180x180" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <?php
     header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
@@ -49,16 +50,26 @@
     </div>
 </nav>
 
+<div class="container-fluid text-center">
+   <h2 id = "titoloNomeUtente">Benvenuto, Nome Utente</h2>
+    <h3>Le Tue Informazioni</h3><BR><BR>
+    <h4><i class="fa fa-user"> Utente</i></h4>
+    <h5>Nome Utente</h5>
+    <BR>
+    <h4><i class="fa fa-id-card"> CODICE FISCALE</i>E</h4>
+    <h5>CODICEFISCALE1</h5>
+    <BR>
+    <h4><i class="fa fa-map-pin"> Indirizzo</i></h4>
+    <h5>Via Vecchia Delle Vie, 5, NA</h5>
+    <BR>
+    <h4><i class="fa fa-phone"> Telefono</i></h4>
+    <h5>03471584988</h5>
+    <BR>
+    <h4><i class="fa fa-envelope-o"> eMail</i></h4>
+    <h5>posta@elettronica.it</h5>
+    <BR>
 
-
-
-
-
-
-
-
-
-
+</div>
 
 </body>
 
