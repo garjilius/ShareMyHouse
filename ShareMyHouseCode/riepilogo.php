@@ -9,10 +9,10 @@
         <meta http-Equiv="Expires" Content="0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/CSS/extra.css?<?php echo date('l jS \of F Y h:i:s A'); ?>" />
-        <link href="apple-touch-icon.png" rel="apple-touch-icon" />
-        <link href="apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
-        <link href="apple-touch-icon-167x167.png" rel="apple-touch-icon" sizes="167x167" />
-        <link href="apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180" />
+        <link href="/images/SHARE_MY_HOUSE.png" rel="apple-touch-icon" />
+        <link href="/images/SHARE_MY_HOUSE_180x180.png" rel="apple-touch-icon" sizes="152x152" />
+        <link href="/images/SHARE_MY_HOUSE_167x167.png" rel="apple-touch-icon" sizes="167x167" />
+        <link href="/images/SHARE_MY_HOUSE_180x180.png" rel="apple-touch-icon" sizes="180x180" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
