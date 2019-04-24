@@ -17,7 +17,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="/utility/checklogin.js"></script>
-    <script type="text/javascript" src="/utility/logout.js"></script>
+    <script type="text/javascript" src="/utility/JS_Utilities.js?v=99927"></script>
+
 
 
 
@@ -58,24 +59,30 @@
    <h2 id = "titoloNomeUtente">Benvenuto, Nome Utente</h2>
     <h3>Le Tue Informazioni</h3><BR><BR>
     <h4><i class="fa fa-user"> Utente</i></h4>
-    <h5 id="userName">Nome Utente</h5>
+    <h5><input disabled id="userName" type="text" class="infoutente" name="NomeCognome" value="Mario Rossi"></h5>
     <BR>
     <h4><i class="fa fa-id-card"> CODICE FISCALE</i></h4>
-    <h5 id="cfUser">CODICEFISCALE1</h5>
+    <h5><input disabled id="cfUser" type="text" class="infoutente" name="CF" value="CODICEFISCALEEEEE"></h5>
+    <BR>
+    <h4><i class="fa fa-calendar">Data Di Nascita</i></h4>
+    <h5><input disabled id="dataNascitaUser" type="text" class="infoutente" name="dataNascita" value="22/22/22"></h5>
     <BR>
     <h4><i class="fa fa-map-pin"> Indirizzo</i></h4>
-    <h5 ="addressUser">Via Vecchia Delle Vie, 5, NA</h5>
+    <h5><input disabled id="addressUser" type="text" class="infoutente" name="Indirizzo" value="Via Via Via 5"></h5>
     <BR>
     <h4><i class="fa fa-phone"> Telefono</i></h4>
-    <h5 id="phoneUser">03471584988</h5>
+    <h5><input disabled id="telUtente" type="text" class="infoutente" name="TelUtente" value="0123456789"></h5>
     <BR>
     <h4><i class="fa fa-envelope-o"> eMail</i></h4>
-    <h5 id="emailUser">posta@elettronica.it</h5>
+    <h5 ><input disabled id="emailUser" type="text" class="infoutente" name="mail" value="posta@elettronica.com"></h5>
     <BR><BR><BR>
-    <button type="button" class="btn btn-primary">Modifica</button>
+    <button id="buttonModifica" type="button" onclick="modificaInfoUtente()" class="btn btn-primary">Modifica</button>
+
 
 
 </div>
-
+<script>
+getDatiUtente(localStorage.cf);
+</script>
 </body>
 </html>
