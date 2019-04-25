@@ -58,7 +58,6 @@ function getDatiUtente(cf) {
 
         httpReq.open("POST", "/utility/getDatiUtenteJSON.php?v=9o0o10o2", true);
         httpReq.setRequestHeader('Content-Type', 'application/json');
-        //httpReq.responseType = "document";
         httpReq.send(cf);
 
 }
@@ -67,13 +66,12 @@ function getImmobili(cf) {
     var httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
         if (httpReq.readyState === 4 && httpReq.status === 200) {
-            xmlDoc = httpReq.responseXML;
+            xmlDoc = httpReq.responseText;
         }
     }
 
-    httpReq.open("POST", "/utility/getImmobili.php?v=1", true);
+    httpReq.open("POST", "/utility/getImmobiliJSON.php?v=2", true);
     httpReq.setRequestHeader('Content-Type', 'application/json');
-    console.log("GetImmobiliCF "+cf);
     httpReq.send(cf);
 
 }
