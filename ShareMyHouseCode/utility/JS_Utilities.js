@@ -4,7 +4,7 @@ function logout() {
 }
 
 function modificaInfoUtente() {
-    let infoUtente = document.getElementsByClassName("infoutente");
+    let infoUtente = document.getElementsByClassName("infoutenteModificabile");
     let button = document.getElementById("buttonModifica")
 
     if (infoUtente[0].disabled) {
