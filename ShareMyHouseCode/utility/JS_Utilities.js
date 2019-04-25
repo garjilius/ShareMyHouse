@@ -59,7 +59,7 @@ function getDatiUtente(cf) {
         httpReq.responseType = "document";
         cfToSend = "<xml><query><cf>"+cf+"</cf></query></xml>"
         //console.log(cfToSend);
-        httpReq.send(cfToSend);
+        httpReq.send(cf);
 
 }
 

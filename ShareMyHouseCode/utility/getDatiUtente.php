@@ -5,11 +5,8 @@ header('Pragma: public');
 header('Cache-control: private');
 header('Expires: -1');
 
-    $xmlCF = file_get_contents('php://input');
-    //echo $xmlCF;
-    $cf = simplexml_load_string($xmlCF);
-    $cf = $cf->query[0]->cf;;
-    //echo $cf;
+    $cf = file_get_contents('php://input');
+
 
     $query = "SELECT * FROM Utente JOIN InfoUtente ON Utente.CF = InfoUtente.CF WHERE Utente.CF = '" . $cf . "'";
     $result = mysqli_query($db, $query) or die(mysqli_error($db));
