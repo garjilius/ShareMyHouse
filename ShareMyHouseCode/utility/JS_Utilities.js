@@ -20,8 +20,20 @@ function modificaInfoUtente() {
         for(i = 0; i<infoUtente.length; i++) {
             infoUtente[i].disabled = true;
         }
+        updateDatiUtente();
         return;
     }
+}
+
+function updateDatiUtente() {
+    cf = document.getElementById("cfUser").value;
+    mail = document.getElementById("emailUser").value;
+    tel = document.getElementById("telUtente").value;
+    addr = document.getElementById("addressUser").value;
+    //console.log(mail+tel+addr)
+    query = "UPDATE InfoUtente SET mail ='"+mail+"', telefono ='"+tel+"', Indirizzo ='"+addr+ "' WHERE CF ='"+ cf+"'";
+    console.log(query);
+    ajaxConnect(query);
 }
 
 function getDatiUtente(cf) {
@@ -51,5 +63,10 @@ function getDatiUtente(cf) {
 
 }
 
-
+//AJAX UNIVERSALE PER INVIARE QUERY AL DB
+function ajaxConnect(query) {
+    xhr = new XMLHttpRequest();
+    xhr.open("POST", "/utility/dbquery.php", true);
+    xhr.send(query);
+}
 
