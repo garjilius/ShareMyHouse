@@ -40,22 +40,25 @@ function getDatiUtente(cf) {
     var httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
         if (httpReq.readyState === 4 && httpReq.status === 200) {
-            xmlDoc = httpReq.responseXML;
-            //Benvenuto
-            document.getElementById("titoloNomeUtente").innerText = "Benvenuto, "+ xmlDoc.getElementsByTagName("nome")[0].firstChild.nodeValue+" "+xmlDoc.getElementsByTagName("cognome")[0].firstChild.nodeValue;
+            if(httpReq.responseText!==false) {
+                utenti = JSON.parse(httpReq.responseText);
+                //Benvenuto
 
-            document.getElementById("cfUser").value = xmlDoc.getElementsByTagName("cf")[0].firstChild.nodeValue;
-            document.getElementById("userName").value = xmlDoc.getElementsByTagName("nome")[0].firstChild.nodeValue+" "+xmlDoc.getElementsByTagName("cognome")[0].firstChild.nodeValue;
-            document.getElementById("dataNascitaUser").value = xmlDoc.getElementsByTagName("dataNascita")[0].firstChild.nodeValue;
-            document.getElementById("addressUser").value = xmlDoc.getElementsByTagName("Indirizzo")[0].firstChild.nodeValue;
-            document.getElementById("telUtente").value = xmlDoc.getElementsByTagName("tel")[0].firstChild.nodeValue;
-            document.getElementById("emailUser").value = xmlDoc.getElementsByTagName("mail")[0].firstChild.nodeValue;
+                document.getElementById("titoloNomeUtente").innerText = "Benvenuto, " + utenti[0].nome;
+
+                document.getElementById("cfUser").value = utenti[0].cf;
+                document.getElementById("userName").value = utenti[0].nome;
+                document.getElementById("dataNascitaUser").value = utenti[0].dataNascita;
+                document.getElementById("addressUser").value = utenti[0].indirizzo;
+                document.getElementById("telUtente").value = utenti[0].telefono;
+                document.getElementById("emailUser").value = utenti[0].mail;
+            }
         }
     }
 
-        httpReq.open("POST", "/utility/getDatiUtente.php?v=o0o10o2", true);
-        httpReq.setRequestHeader('Content-Type', 'text/xml');
-        httpReq.responseType = "document";
+        httpReq.open("POST", "/utility/getDatiUtenteJSON.php?v=9o0o10o2", true);
+        httpReq.setRequestHeader('Content-Type', 'application/json');
+        //httpReq.responseType = "document";
         httpReq.send(cf);
 
 }
@@ -69,8 +72,7 @@ function getImmobili(cf) {
     }
 
     httpReq.open("POST", "/utility/getImmobili.php?v=1", true);
-    httpReq.setRequestHeader('Content-Type', 'text/xml');
-    httpReq.responseType = "document";
+    httpReq.setRequestHeader('Content-Type', 'application/json');
     console.log("GetImmobiliCF "+cf);
     httpReq.send(cf);
 
