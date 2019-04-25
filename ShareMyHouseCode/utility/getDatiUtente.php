@@ -1,5 +1,9 @@
 <?php
 require_once './databaseconnection.php';
+header('Content-type: text/xml');
+header('Pragma: public');
+header('Cache-control: private');
+header('Expires: -1');
 
     $xmlCF = file_get_contents('php://input');
     //echo $xmlCF;
