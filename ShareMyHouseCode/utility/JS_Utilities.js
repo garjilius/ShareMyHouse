@@ -29,6 +29,15 @@ function getDatiUtente(cf) {
     httpReq.onreadystatechange = function () {
         if (httpReq.readyState === 4 && httpReq.status === 200) {
             xmlDoc = httpReq.responseXML;
+            //Benvenuto
+            document.getElementById("titoloNomeUtente").innerText = "Benvenuto, "+ xmlDoc.getElementsByTagName("nome")[0].firstChild.nodeValue+" "+xmlDoc.getElementsByTagName("cognome")[0].firstChild.nodeValue;
+
+            document.getElementById("cfUser").value = xmlDoc.getElementsByTagName("cf")[0].firstChild.nodeValue;
+            document.getElementById("userName").value = xmlDoc.getElementsByTagName("nome")[0].firstChild.nodeValue+" "+xmlDoc.getElementsByTagName("cognome")[0].firstChild.nodeValue;
+            document.getElementById("dataNascitaUser").value = xmlDoc.getElementsByTagName("dataNascita")[0].firstChild.nodeValue;
+            document.getElementById("addressUser").value = xmlDoc.getElementsByTagName("Indirizzo")[0].firstChild.nodeValue;
+            document.getElementById("telUtente").value = xmlDoc.getElementsByTagName("tel")[0].firstChild.nodeValue;
+            document.getElementById("emailUser").value = xmlDoc.getElementsByTagName("mail")[0].firstChild.nodeValue;
         }
     }
 
@@ -41,4 +50,6 @@ function getDatiUtente(cf) {
         httpReq.send(cfToSend);
 
 }
+
+
 
