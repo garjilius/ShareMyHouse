@@ -11,12 +11,12 @@ require_once './databaseconnection.php';
     $result = mysqli_query($db, $query) or die(mysqli_error($db));
 
    // echo $query;
-    echo '<?xml version="1.0" encoding="UTF-8"?>';
+    echo '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>';
 
     echo '<dati>';
     while ($riga = mysqli_fetch_assoc($result)) {
 
-        echo '<Utente>';
+       echo '<Utente>';
 
         echo '<cf>' . $riga["CF"] . '</cf>';
         echo '<nome>' . $riga["Nome"] . '</nome>';
@@ -32,7 +32,6 @@ require_once './databaseconnection.php';
         echo '<AccDisNec>' . $riga["AccessoDisabiliNecessario"] . '</AccDisNec>';
 
         echo '</Utente>';
-
 
     }
     echo '</dati>';
