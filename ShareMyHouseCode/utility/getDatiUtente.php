@@ -5,11 +5,10 @@ if (isset($_POST['cf'])) {
 
     $cf = $_POST['cf'];
 
-   // $query = "SELECT * FROM Utente JOIN extraUtenti ON Utente.CF = extraUtenti.CF WHERE Utente.CF = '" . $cf . "'";
-    $query ="Select * FROM extraUtenti";
+    $query = "SELECT * FROM Utente JOIN InfoUtente ON Utente.CF = InfoUtente.CF WHERE Utente.CF = '" . $cf . "'";
     $result = mysqli_query($db, $query) or die(mysqli_error($db));
 
-    echo $query;
+   // echo $query;
     echo '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
     echo mysqli_num_rows($result);
     echo '<dati>';
