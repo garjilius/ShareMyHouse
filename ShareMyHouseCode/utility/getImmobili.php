@@ -5,16 +5,13 @@ header('Pragma: public');
 header('Cache-control: private');
 header('Expires: -1');
 
-    $xmlCF = file_get_contents('php://input');
-    //echo $xmlCF;
-    $cf = simplexml_load_string($xmlCF);
-    $cf = $cf->query[0]->cf;;
-    //echo $cf;
+    $cf = file_get_contents('php://input');
+    //echo $cf." ";
 
-    $query = "SELECT * FROM Abitazioni WHERE PROPRIETARIO = '" . $cf . "'";
+    $query = "SELECT * FROM Abitazioni WHERE Proprietario = '" . $cf . "'";
     $result = mysqli_query($db, $query) or die(mysqli_error($db));
 
-   // echo $query;
+    //echo $query;
     echo '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>';
 
     echo '<dati>';

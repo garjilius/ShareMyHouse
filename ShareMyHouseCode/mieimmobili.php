@@ -16,7 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/utility/checklogin.js"></script>
-    <script type="text/javascript" src="/utility/JS_Utilities.js"></script>
+    <script type="text/javascript" src="/utility/JS_Utilities.js?v=3"></script>
 
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -74,47 +74,15 @@
                 </div>
             </div>
         </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2. How do I track my orders and payment?</a>
-                </h4>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <p>After logging into your account, the status of your checkout history can be found under Order History. For orders via registered postage, a tracking number (article tracking number) will be given to you <a href="#">Learn more about tracking number.</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3. What are the payment method available? </a>
-                </h4>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <p>At the moment, we only accept Credit/Debit cards and Paypal payments. <a href="#">Learn more about major banks accepting card transactions.</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">4. How can I change my shipping address?</a>
-                </h4>
-            </div>
-            <div id="collapseFour" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <p>By default, the last used shipping address will be saved into your Sample Store account. When you are checking out your order, the default shipping address will be displayed and you have the option to amend it if you need to. <a href="#">More about shipping addresses.</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <p><strong>Note:</strong> Click on the linked heading text to expand or collapse accordion panels.</p>
 </div>
 
 
 
 </body>
+<SCRIPT>
+    getImmobili(localStorage.codiceFiscale);
+    //creaInfoImmobili();
+</SCRIPT>
 </html>

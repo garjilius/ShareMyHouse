@@ -54,12 +54,25 @@ function getDatiUtente(cf) {
     }
 
         httpReq.open("POST", "/utility/getDatiUtente.php?v=o0o10o2", true);
-        //httpReq.open("POST", "/utility/test.xml", true);
         httpReq.setRequestHeader('Content-Type', 'text/xml');
         httpReq.responseType = "document";
-        cfToSend = "<xml><query><cf>"+cf+"</cf></query></xml>"
-        //console.log(cfToSend);
         httpReq.send(cf);
+
+}
+
+function getImmobili(cf) {
+    var httpReq = new XMLHttpRequest();
+    httpReq.onreadystatechange = function () {
+        if (httpReq.readyState === 4 && httpReq.status === 200) {
+            xmlDoc = httpReq.responseXML;
+        }
+    }
+
+    httpReq.open("POST", "/utility/getImmobili.php?v=1", true);
+    httpReq.setRequestHeader('Content-Type', 'text/xml');
+    httpReq.responseType = "document";
+    console.log("GetImmobiliCF "+cf);
+    httpReq.send(cf);
 
 }
 
