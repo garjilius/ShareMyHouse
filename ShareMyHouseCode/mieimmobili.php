@@ -76,6 +76,11 @@
         </div>
     <p><strong>Note:</strong> Click on the linked heading text to expand or collapse accordion panels.</p>
 </div>
+</div>
+
+<div class="container-fluid text-center">
+    <button id="buttonAggiunta" type="button" onclick="window.location.href='/addImmobile.php'" class="btn btn-primary">Aggiungi Immobile</button>
+</div>
 
 
 

@@ -54,9 +54,35 @@
     </div>
 </nav>
 
+<div class="container-fluid text-center">
+    <h2>Aggiunta Immobile</h2><BR><BR>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4><i class="fa fa-id-card-o"> Alias Immobile</i></h4>
+                <h5><input id="immAlias" type="text" value=""></h5><BR>
+                <h4><i class="fa fa-wheelchair"> Accesso Disabili (trasformare in checkbox)</i></h4>
+                <h5><input id="immRegione" type="text" value=""></h5><BR>
 
+            </div>
+            <div class="col-md-4">
+                <h4><i class="fa fa-map-pin"> Regione</i></h4>
+                <h5><input id="immRegione" type="text" value=""></h5><BR>
+                <h4><i class="fa fa-map-pin"> Provincia</i></h4>
+                <h5><input id="immProvincia" type="text" value=""></h5><BR>
 
+            </div>
+            <div class="col-md-4">
+                <h4><i class="fa fa-map-pin"> Città</i></h4>
+                <h5><input id="immCitta" type="text" value=""></h5><BR>
+                <h4><i class="fa fa-map-pin"> Indirizzo</i></h4>
+                <h5 ><input id="immIndirizzo" type="text" value=""></h5><BR>
+            </div>
+        </div>
+    </div>
+    <button id="buttonAccetta" type="button" onclick="" class="btn btn-primary">Fine</button>
 
+</div>
 
 </body>
 
