@@ -1,16 +1,18 @@
 <?php
 require_once './databaseconnection.php';
 
-if (isset($_POST['cf'])) {
-
-    $cf = $_POST['cf'];
+    $xmlCF = file_get_contents('php://input');
+    //echo $xmlCF;
+    $cf = simplexml_load_string($xmlCF);
+    $cf = $cf->query[0]->cf;;
+    //echo $cf;
 
     $query = "SELECT * FROM Utente JOIN InfoUtente ON Utente.CF = InfoUtente.CF WHERE Utente.CF = '" . $cf . "'";
     $result = mysqli_query($db, $query) or die(mysqli_error($db));
 
    // echo $query;
-    echo '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
-    echo mysqli_num_rows($result);
+    echo '<?xml version="1.0" encoding="UTF-8"?>';
+
     echo '<dati>';
     while ($riga = mysqli_fetch_assoc($result)) {
 
@@ -27,7 +29,7 @@ if (isset($_POST['cf'])) {
         echo '<Provincia>' . $riga["Provincia"] . '</Provincia>';
         echo '<Citta>' . $riga["Citta"] . '</Citta>';
         echo '<Indirizzo>' . $riga["Indirizzo"] . '</Indirizzo>';
-        echo '<AccessoDisabiliNecessario>' . $riga["AccessoDisabiliNecessario"] . '</AccessoDisabiliNecessario>';
+        echo '<AccDisNec>' . $riga["AccessoDisabiliNecessario"] . '</AccDisNec>';
 
         echo '</Utente>';
 
@@ -35,5 +37,4 @@ if (isset($_POST['cf'])) {
     }
     echo '</dati>';
 
-}
 ?>
