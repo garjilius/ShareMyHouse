@@ -58,29 +58,34 @@
 <div class="container-fluid text-center">
    <h2 id = "titoloNomeUtente">Benvenuto, Nome Utente</h2>
     <h3>Le Tue Informazioni</h3><BR><BR>
-    <h4><i class="fa fa-user"> Utente</i></h4>
-    <h5><input disabled id="userName" type="text" class="infoutente" name="NomeCognome" value="Mario Rossi"></h5>
-    <BR>
-    <h4><i class="fa fa-id-card"> CODICE FISCALE</i></h4>
-    <h5><input disabled id="cfUser" type="text" class="infoutente" name="CF" value="CODICEFISCALEEEEE"></h5>
-    <BR>
-    <h4><i class="fa fa-calendar">Data Di Nascita</i></h4>
-    <h5><input disabled id="dataNascitaUser" type="text" class="infoutente" name="dataNascita" value="22/22/22"></h5>
-    <BR>
-    <h4><i class="fa fa-map-pin"> Indirizzo</i></h4>
-    <h5><input disabled id="addressUser" type="text" class="infoutente" name="Indirizzo" value="Via Via Via 5"></h5>
-    <BR>
-    <h4><i class="fa fa-phone"> Telefono</i></h4>
-    <h5><input disabled id="telUtente" type="text" class="infoutente" name="TelUtente" value="0123456789"></h5>
-    <BR>
-    <h4><i class="fa fa-envelope-o"> eMail</i></h4>
-    <h5 ><input disabled id="emailUser" type="text" class="infoutente" name="mail" value="posta@elettronica.com"></h5>
-    <BR><BR><BR>
-    <button id="buttonModifica" type="button" onclick="modificaInfoUtente()" class="btn btn-primary">Modifica</button>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h4><i class="fa fa-user"> Utente</i></h4>
+            <h5><input disabled id="userName" type="text" class="infoutente" name="NomeCognome" value="Mario Rossi"></h5><BR>
+            <h4><i class="fa fa-id-card"> CODICE FISCALE</i></h4>
+            <h5><input disabled id="cfUser" type="text" class="infoutente" name="CF" value="CODICEFISCALEEEEE"></h5><BR>
 
+        </div>
+        <div class="col-md-4">
+            <h4><i class="fa fa-calendar">Data Di Nascita</i></h4>
+            <h5><input disabled id="dataNascitaUser" type="text" class="infoutente" name="dataNascita" value="22/22/22"></h5><BR>
+            <h4><i class="fa fa-map-pin"> Indirizzo</i></h4>
+            <h5><input disabled id="addressUser" type="text" class="infoutente" name="Indirizzo" value="Via Via Via 5"></h5><BR>
 
+        </div>
+        <div class="col-md-4">
+            <h4><i class="fa fa-phone"> Telefono</i></h4>
+            <h5><input disabled id="telUtente" type="text" class="infoutente" name="TelUtente" value="0123456789"></h5><BR>
+            <h4><i class="fa fa-envelope-o"> eMail</i></h4>
+            <h5 ><input disabled id="emailUser" type="text" class="infoutente" name="mail" value="posta@elettronica.com"></h5><BR>
+        </div>
+    </div>
 </div>
+    <button id="buttonModifica" type="button" onclick="modificaInfoUtente()" class="btn btn-primary">Modifica</button>
+</div>
+
 <script>
 getDatiUtente(localStorage.codiceFiscale);
 </script>
