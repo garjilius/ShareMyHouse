@@ -29,7 +29,6 @@ function getDatiUtente(cf) {
     httpReq.onreadystatechange = function () {
         if (httpReq.readyState === 4 && httpReq.status === 200) {
             xmlDoc = httpReq.responseXML;
-            console.log(xmlDoc.getElementsByTagName("cf")[0]);
         }
     }
 
