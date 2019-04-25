@@ -55,43 +55,9 @@
 </nav>
 
 
-<div class="container" id="containerAccordion">
-    <BR><BR>
-    <div class="panel-group" id="accordion">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Immobile 1 - Villetta a Barletta</a>
-                </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse in">
-                <div class="panel-body">
-                    <p>Posti Occupati: 3/4</p>
-                    <p>Disponibile fino al: 19/09/2020</p>
-                    <p>Idoneità: SI</p>
-                    <button type="button" class="btn btn-primary">Modifica</button>
-
-                </div>
-            </div>
-        </div>
-    <p><strong>Note:</strong> Click on the linked heading text to expand or collapse accordion panels.</p>
-</div>
 
 
 
 </body>
-<SCRIPT>
-    getImmobili(localStorage.codiceFiscale);
-    //creaInfoImmobili();
 
-    function popola() { //DA SPOSTARE POI NEL FILE JS UTILITIES
-        for(i=0; i<5;i++) {
-            acc = document.getElementById("accordion");
-            acc.innerHTML = acc.innerHTML +
-            "";
-        }
-    }
-
-    popola();
-</SCRIPT>
 </html>
