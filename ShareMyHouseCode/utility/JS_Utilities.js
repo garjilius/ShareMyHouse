@@ -126,6 +126,34 @@ httpReq.send();
 }
 
 
+function aggiornaImmobile() {
+    let alias = document.getElementById("immAlias").value;
+    let accDisabili = document.getElementById("immDisabili").checked;
+    if(accDisabili)
+        accDisabili = 1;
+    else
+        accDisabili = 0;
+
+//Controllo che tutti i campi siano stati riempiti
+    if((alias.length===0)) {
+        alert("Riempire tutti i campi!");
+        return;
+    }
+
+
+     query = "UPDATE Abitazioni SET NomeAbitazione = '"+alias+"', AccessoDisabili = "+accDisabili; //Aggiungere data disponibilita
+     console.log(query);
+     ajaxConnect(query); //Eseguo la query
+
+     setTimeout(function (){ //aspetto un po' e poi torno alla pagina dei miei immobili
+         window.location.href='/mieimmobili.php'
+     }, 500);
+}
+
+
+
+
+
 //AJAX UNIVERSALE PER INVIARE QUERY AL DB
 function ajaxConnect(query) {
     xhr = new XMLHttpRequest();

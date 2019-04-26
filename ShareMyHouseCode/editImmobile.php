@@ -109,7 +109,7 @@
             </div>
         </div>
     </div>
-    <button id="buttonAccetta" type="button" onclick="salvaImmobile()" class="btn btn-primary">Fine</button>
+    <button id="buttonAccetta" type="button" onclick="aggiornaImmobile()" class="btn btn-primary">Fine</button>
 
 </div>
 <BR><BR><BR>
