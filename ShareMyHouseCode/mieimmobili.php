@@ -59,7 +59,6 @@
     <BR><BR>
     <div class="panel-group" id="accordion">
 
-    <p><strong>Note:</strong> Click on the linked heading text to expand or collapse accordion panels.</p>
 </div>
 </div>
 
@@ -83,21 +82,23 @@
 
                 //Genera gli accordion per gli immobili
                 for(i=0; i<immobili.length;i++) {
+                    destinationSource = "#"+immobili[i].id;
+                    destination = immobili[i].id;
                     acc = document.getElementById("accordion");
                     acc.innerHTML = acc.innerHTML +
-                        "        <div class=\"panel panel-default\">\n" +
+                    "        <div class=\"panel panel-default\">\n" +
                         "            <div class=\"panel-heading\">\n" +
                         "                <h4 class=\"panel-title\">\n" +
-                        "                    <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\">Immobile 1 - Test</a>\n" +
+                        "                    <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\""+destinationSource+"\">Prova</a>\n" +
                         "                </h4>\n" +
                         "            </div>\n" +
-                        "            <div id=\"collapseOne\" class=\"panel-collapse collapse in\">\n" +
+                        "            <div id=\""+destination+"\" class=\"panel-collapse collapse in\">\n" +
                         "                <div class=\"panel-body\">\n" +
-                        "                    <p>Posti Occupati: placeholder</p>\n" +
-                        "                    <p>Disponibile fino al: placeholder</p>\n" +
-                        "                    <p>Idoneità: placeholder</p>\n" +
+                        "                    <p>Posti Occupati: 3/4</p>\n" +
+                        "                    <p>Disponibile fino al: 19/09/2020</p>\n" +
+                        "                    <p>Idoneità: SI</p>\n" +
                         "                    <button type=\"button\" id=\"buttonModifica\" class=\"btn btn-info\">Modifica</button>\n" +
-                        "                    <button type=\"button\" id=\"buttonElimina\" onclick=\"eliminaImmobile(11)\"  class=\"btn btn-danger\">Elimina</button>\n" +
+                        "                    <button type=\"button\" id=\"buttonElimina\"  class=\"btn btn-danger\">Elimina</button>\n" +
                         "\n" +
                         "                </div>\n" +
                         "            </div>\n" +
