@@ -23,6 +23,7 @@ class immobile {
     private $indirizzo="";
     private $latitudine="";
     private $longitudine="";
+    private $disponibilita="";
 
 
 
@@ -38,7 +39,8 @@ class immobile {
             "provincia" => $this->getProvincia(),
             "regione" => $this->getRegione(),
             "latitudine" => $this->getLatitudine(),
-            "longitudine" => $this->getLongitudine()
+            "longitudine" => $this->getLongitudine(),
+            "disponibilita" => $this->getDisponibilita()
         );
     }
 
@@ -218,6 +220,22 @@ class immobile {
         $this->longitudine = $longitudine;
     }
 
+    /**
+     * @return string
+     */
+    public function getDisponibilita()
+    {
+        return $this->disponibilita;
+    }
+
+    /**
+     * @param string $disponibilita
+     */
+    public function setDisponibilita($disponibilita)
+    {
+        $this->disponibilita = $disponibilita;
+    }
+
 
 
 }
@@ -241,8 +259,7 @@ for ($i=0;$i<$numrighe;$i++) {
     $immobileTMP->setIdonea($riga["Idonea"]);
     $immobileTMP->setLatitudine($riga["Latitudine"]);
     $immobileTMP->setLongitudine($riga["Longitudine"]);
-
-
+    $immobileTMP->setDisponibilita($riga["scadenzaDisponibilita"]);
 
     $immobili[$i] = $immobileTMP->toArray();
 

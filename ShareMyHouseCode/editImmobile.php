@@ -127,6 +127,7 @@
                 document.getElementById("immIndirizzo").value = immobili[0].indirizzo;
                 document.getElementById("immRegione").value = immobili[0].regione;
                 document.getElementById("immProvincia").value = immobili[0].provincia;
+                document.getElementById("immDisponibilita").value = immobili[0].disponibilita;
                 accDis = immobili[0].accessoDisabili;
                 if(accDis ==1) {
                     document.getElementById("immDisabili").checked = true;
