@@ -66,7 +66,7 @@ function getImmobili(cf) {
     var httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
         if (httpReq.readyState === 4 && httpReq.status === 200) {
-            xmlDoc = httpReq.responseText;
+            immobili = JSON.parse(httpReq.responseText);
         }
     }
 
@@ -114,7 +114,6 @@ function ajaxConnect(query) {
     xhr.send(query);
 }
 
-<<<<<<< HEAD
 function getCoordinate(stato,citta,indirizzo,civico) {
     indirizzo = civico+"+"+indirizzo+", "+citta+", +"+stato;
     indirizzo = indirizzo.replace(" ", "+");
@@ -140,5 +139,3 @@ function getCoordinate(stato,citta,indirizzo,civico) {
 
 
 
-=======
->>>>>>> parent of c26c5a4... Implementata bozza sistema geocoding
