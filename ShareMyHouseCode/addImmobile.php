@@ -101,6 +101,8 @@
                 </select><BR>
                 <h4><i class="fa fa-calendar"> Scadenza Disponibilità</i></h4>
                 <h5><input id="immDisponibilita" type="date" placeholder="AAAA-MM-GG " value=""></h5><BR>
+                <h4><i class="fa fa-calendar"> Posti totali</i></h4>
+                <h5><input id="immPosti" type="number" min="1" max="50" value=""></h5><BR>
 
             </div>
             <div class="col-md-4"><BR>

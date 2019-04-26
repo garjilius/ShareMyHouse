@@ -101,6 +101,8 @@
                 </select><BR>
                 <h4><i class="fa fa-calendar"> Scadenza Disponibilità</i></h4>
                 <h5><input id="immDisponibilita" type="date" placeholder="AAAA-MM-GG " value=""></h5><BR>
+                <h4><i class="fa fa-calendar"> Posti totali</i></h4>
+                <h5><input disabled id="immPosti" type="number" min="1" max="50" value=""></h5><BR>
             </div>
             <div class="col-md-4"><BR>
                 <h4><i class="fa fa-map-pin"> Città</i></h4>
@@ -128,6 +130,8 @@
                 document.getElementById("immRegione").value = immobili[0].regione;
                 document.getElementById("immProvincia").value = immobili[0].provincia;
                 document.getElementById("immDisponibilita").value = immobili[0].disponibilita;
+                document.getElementById("immPosti").value = immobili[0].postiTotali;
+
                 accDis = immobili[0].accessoDisabili;
                 if(accDis ==1) {
                     document.getElementById("immDisabili").checked = true;

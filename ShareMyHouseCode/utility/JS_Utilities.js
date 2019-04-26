@@ -70,6 +70,8 @@ let provincia = document.getElementById("immProvincia").value;
 let citta = document.getElementById("immCitta").value;
 let indirizzo = document.getElementById("immIndirizzo").value;
 let disponibilita = document.getElementById("immDisponibilita").value;
+let posti = document.getElementById("immPosti").value;
+
 let accDisabili = document.getElementById("immDisabili").checked;
 
 if(accDisabili)
@@ -78,7 +80,7 @@ else
     accDisabili = 0;
 
 //Controllo che tutti i campi siano stati riempiti
-if((alias.length===0) || (regione.length===0) || (provincia.length===0) || (citta.length===0) || (indirizzo.length===0) || (disponibilita.length===0)) {
+if((alias.length===0) || (regione.length===0) || (provincia.length===0) || (citta.length===0) || (indirizzo.length===0) || (disponibilita.length===0)||(posti.length===0)) {
     alert("Riempire tutti i campi!");
     return;
     }
@@ -95,9 +97,9 @@ httpReq.onreadystatechange = function () {
        let longitudine = risultato.results[0].geometry.location.lng;
        console.log(latitudine+","+longitudine);
         //Preparo i valori per la query
-       let values = "('"+alias+"', '"+localStorage.codiceFiscale+"', '"+disponibilita+"', '"+regione+"', '"+provincia+"', '"+citta+"', '"+indirizzo+"', '"+accDisabili+"', '"+latitudine+"', "+longitudine+" )";
+       let values = "('"+alias+"', '"+localStorage.codiceFiscale+"', '"+disponibilita+"', '"+posti+"', '"+regione+"', '"+provincia+"', '"+citta+"', '"+indirizzo+"', '"+accDisabili+"', '"+latitudine+"', "+longitudine+" )";
 
-       query = "INSERT INTO Abitazioni (NomeAbitazione, Proprietario,scadenzaDisponibilita, Regione, Provincia, Citta, Indirizzo, AccessoDisabili, Latitudine, Longitudine) VALUES "+values;
+       query = "INSERT INTO Abitazioni (NomeAbitazione, Proprietario,scadenzaDisponibilita,postiTotali, Regione, Provincia, Citta, Indirizzo, AccessoDisabili, Latitudine, Longitudine) VALUES "+values;
        console.log(query);
        ajaxConnect(query); //Eseguo la query
        setTimeout(function (){ //aspetto un po' e poi torno alla pagina dei miei immobili
