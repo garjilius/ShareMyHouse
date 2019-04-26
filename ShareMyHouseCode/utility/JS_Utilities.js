@@ -88,23 +88,42 @@ if(accDisabili)
 else
     accDisabili = 0;
 
+//Controllo che tutti i campi siano stati riempiti
 if((alias.length===0) || (regione.length===0) || (provincia.length===0) || (citta.length===0) || (indirizzo.length===0)) {
     alert("Riempire tutti i campi!");
     return;
     }
 
+    // RECUPERO COORDINATE GPS
+indirizzoEncoded = indirizzo+", "+citta+", +IT";
+indirizzoEncoded = indirizzoEncoded.replace(" ", "+");
 
-let GPS = getCoordinate("IT",citta,indirizzo);
-console.log("GPS: "+GPS);
+var httpReq = new XMLHttpRequest();
+httpReq.onreadystatechange = function () {
+   if (httpReq.readyState === 4 && httpReq.status === 200) {
+       risultato = JSON.parse(httpReq.responseText);
+       let latitudine = risultato.results[0].geometry.location.lat;
+       let longitudine = risultato.results[0].geometry.location.lng;
+       console.log(latitudine+","+longitudine);
+        //Preparo i valori per la query
+       let values = "('"+alias+"', '"+localStorage.codiceFiscale+"', '"+regione+"', '"+provincia+"', '"+citta+"', '"+indirizzo+"', '"+accDisabili+"', '"+latitudine+"', "+longitudine+" )";
 
-let values = "('"+alias+"', '"+localStorage.codiceFiscale+"', '"+regione+"', '"+provincia+"', '"+citta+"', '"+indirizzo+"', '"+accDisabili+"', '"+latitudine+"', "+longitudine+" )";
+       query = "INSERT INTO Abitazioni (NomeAbitazione, Proprietario, Regione, Provincia, Citta, Indirizzo, AccessoDisabili, Latitudine, Longitudine) VALUES "+values;
+       console.log(query);
+       ajaxConnect(query); //Eseguo la query
+       setTimeout(function (){ //aspetto un po' e poi torno alla pagina dei miei immobili
+           window.location.href='/mieimmobili.php'
+       }, 500);
 
-query = "INSERT INTO Abitazioni (NomeAbitazione, Proprietario, Regione, Provincia, Citta, Indirizzo, AccessoDisabili, Latitudine, Longitudine) VALUES "+values;
-console.log(query);
-ajaxConnect(query);
-setTimeout(function (){
-    window.location.href='/mieimmobili.php'
-    }, 500);
+   }
+
+}
+
+url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+indirizzoEncoded+'&key='+mapsAPIKey;
+httpReq.open("POST", url, true);
+httpReq.send();
+
+
 }
 
 //AJAX UNIVERSALE PER INVIARE QUERY AL DB
@@ -112,32 +131,6 @@ function ajaxConnect(query) {
     xhr = new XMLHttpRequest();
     xhr.open("POST", "/utility/dbquery.php", true);
     xhr.send(query);
-}
-
-function getCoordinate(stato,citta,indirizzo) {
-    indirizzo = indirizzo+", "+citta+", +"+stato;
-    indirizzo = indirizzo.replace(" ", "+");
-    let coordinate = new Array();
-    //window.location.href= 'https://maps.googleapis.com/maps/api/geocode/json?address='+indirizzo+'&key=AIzaSyDi6OYQpSp_dEjtGzJ3hkeZXBw-wlMBUk0';
-
-    var httpReq = new XMLHttpRequest();
-    httpReq.onreadystatechange = function () {
-        if (httpReq.readyState === 4 && httpReq.status === 200) {
-            risultato = JSON.parse(httpReq.responseText);
-            latitudine = risultato.results[0].geometry.location.lat;
-            longitudine = risultato.results[0].geometry.location.lng;
-            console.log(latitudine+","+longitudine);
-            
-        }
-
-    }
-
-    url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+indirizzo+'&key='+mapsAPIKey;
-    //console.log(url);
-    httpReq.open("POST", url, true);
-    //httpReq.setRequestHeader('Content-Type', 'application/json');
-    httpReq.send();
-
 }
 
 
