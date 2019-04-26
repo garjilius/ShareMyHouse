@@ -126,7 +126,7 @@ httpReq.send();
 }
 
 
-function aggiornaImmobile() {
+function aggiornaImmobile(id) {
     let alias = document.getElementById("immAlias").value;
     let accDisabili = document.getElementById("immDisabili").checked;
     if(accDisabili)
@@ -141,7 +141,7 @@ function aggiornaImmobile() {
     }
 
 
-     query = "UPDATE Abitazioni SET NomeAbitazione = '"+alias+"', AccessoDisabili = "+accDisabili; //Aggiungere data disponibilita
+     query = "UPDATE Abitazioni SET NomeAbitazione = '"+alias+"', AccessoDisabili = "+accDisabili+" WHERE IDAbitazione = "+id; //Aggiungere data disponibilita
      console.log(query);
      ajaxConnect(query); //Eseguo la query
 
