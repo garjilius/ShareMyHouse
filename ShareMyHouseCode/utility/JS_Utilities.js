@@ -62,17 +62,18 @@ function getDatiUtente(cf) {
 
 }
 
-function getImmobili(cf) {
+function getImmobili(query) {
     var httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
         if (httpReq.readyState === 4 && httpReq.status === 200) {
             immobili = JSON.parse(httpReq.responseText);
+            //popolare elenco immobili
         }
     }
 
     httpReq.open("POST", "/utility/getImmobiliJSON.php?v=2", true);
     httpReq.setRequestHeader('Content-Type', 'application/json');
-    httpReq.send(cf);
+    httpReq.send(query);
 
 }
 
@@ -122,9 +123,8 @@ httpReq.onreadystatechange = function () {
 url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+indirizzoEncoded+'&key='+mapsAPIKey;
 httpReq.open("POST", url, true);
 httpReq.send();
-
-
 }
+
 
 //AJAX UNIVERSALE PER INVIARE QUERY AL DB
 function ajaxConnect(query) {

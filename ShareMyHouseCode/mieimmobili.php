@@ -86,7 +86,9 @@
 
 </body>
 <SCRIPT>
-    getImmobili(localStorage.codiceFiscale);
+
+    query = "SELECT * From Abitazioni WHERE Proprietario = '"+localStorage.codiceFiscale+"'";
+    getImmobili(query);
 
     function popola() { //DA SPOSTARE POI NEL FILE JS UTILITIES
         for(i=0; i<5;i++) {

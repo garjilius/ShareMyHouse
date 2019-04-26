@@ -5,10 +5,10 @@ header('Pragma: public');
 header('Cache-control: private');
 header('Expires: -1');
 
-    $cf = file_get_contents('php://input');
+    $query = file_get_contents('php://input');
     //echo $cf." ";
 
-    $query = "SELECT * FROM Abitazioni WHERE Proprietario = '" . $cf . "'";
+    //$query = "SELECT * FROM Abitazioni WHERE Proprietario = '" . $cf . "'";
     $result = mysqli_query($db, $query) or die(mysqli_error($db));
 
 class immobile {
