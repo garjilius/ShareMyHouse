@@ -93,11 +93,11 @@ if((alias.length===0) || (regione.length===0) || (provincia.length===0) || (citt
     return;
     }
 
-let values = "('"+alias+"', '"+localStorage.codiceFiscale+"', '"+regione+"', '"+provincia+"', '"+citta+"', '"+indirizzo+"', '"+accDisabili+"', '"+"Latitudine"+"', "+"'Longitudine'"+" )";
 
-//console.log(values);
-//console.log(alias+regione+provincia+citta+indirizzo);
-//console.log("accesso disabili: "+accDisabili);
+let GPS = getCoordinate("IT",citta,indirizzo);
+console.log("GPS: "+GPS);
+
+let values = "('"+alias+"', '"+localStorage.codiceFiscale+"', '"+regione+"', '"+provincia+"', '"+citta+"', '"+indirizzo+"', '"+accDisabili+"', '"+latitudine+"', "+longitudine+" )";
 
 query = "INSERT INTO Abitazioni (NomeAbitazione, Proprietario, Regione, Provincia, Citta, Indirizzo, AccessoDisabili, Latitudine, Longitudine) VALUES "+values;
 console.log(query);
@@ -114,9 +114,10 @@ function ajaxConnect(query) {
     xhr.send(query);
 }
 
-function getCoordinate(stato,citta,indirizzo,civico) {
-    indirizzo = civico+"+"+indirizzo+", "+citta+", +"+stato;
+function getCoordinate(stato,citta,indirizzo) {
+    indirizzo = indirizzo+", "+citta+", +"+stato;
     indirizzo = indirizzo.replace(" ", "+");
+    let coordinate = new Array();
     //window.location.href= 'https://maps.googleapis.com/maps/api/geocode/json?address='+indirizzo+'&key=AIzaSyDi6OYQpSp_dEjtGzJ3hkeZXBw-wlMBUk0';
 
     var httpReq = new XMLHttpRequest();
@@ -124,17 +125,19 @@ function getCoordinate(stato,citta,indirizzo,civico) {
         if (httpReq.readyState === 4 && httpReq.status === 200) {
             risultato = JSON.parse(httpReq.responseText);
             latitudine = risultato.results[0].geometry.location.lat;
-            longitudine = coordinate.results[0].geometry.location.lng;
+            longitudine = risultato.results[0].geometry.location.lng;
             console.log(latitudine+","+longitudine);
+            
         }
+
     }
 
-
     url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+indirizzo+'&key='+mapsAPIKey;
-    console.log(url);
+    //console.log(url);
     httpReq.open("POST", url, true);
     //httpReq.setRequestHeader('Content-Type', 'application/json');
     httpReq.send();
+
 }
 
 
