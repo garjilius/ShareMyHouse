@@ -121,6 +121,7 @@
         httpReq.onreadystatechange = function () {
             if (httpReq.readyState === 4 && httpReq.status === 200) {
                 immobili = JSON.parse(httpReq.responseText);
+                document.getElementById("immAlias").value = immobili[0].nome;
             }
         }
 

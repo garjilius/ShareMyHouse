@@ -235,8 +235,8 @@ for ($i=0;$i<$numrighe;$i++) {
     $immobileTMP->setProvincia($riga["Provincia"]);
     $immobileTMP->setRegione($riga["Regione"]);
     $immobileTMP->setIndirizzo($riga["Indirizzo"]);
-    $immobileTMP->setAccessoDisabili($riga["AccessoDisabiliNecessario"]);
-    $immobileTMP->setNome($riga["Nome"]);
+    $immobileTMP->setAccessoDisabili($riga["AccessoDisabili"]);
+    $immobileTMP->setNome($riga["NomeAbitazione"]);
     $immobileTMP->setProprietario($riga["Proprietario"]);
     $immobileTMP->setIdonea($riga["Idonea"]);
     $immobileTMP->setLatitudine($riga["Latitudine"]);
