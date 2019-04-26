@@ -64,6 +64,7 @@
 
 <div class="container-fluid text-center">
     <button id="buttonAggiunta" type="button" onclick="window.location.href='/addImmobile.php'" class="btn btn-success">Aggiungi Immobile</button>
+    <BR><BR><BR>
 </div>
 
 
@@ -156,8 +157,6 @@
             panelbody.appendChild(btnDel);
         }
     }
-
-
 
 getImmobili(query);
 </SCRIPT>
