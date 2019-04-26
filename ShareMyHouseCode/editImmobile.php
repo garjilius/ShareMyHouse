@@ -99,7 +99,8 @@
                     }
                     ?>
                 </select><BR>
-
+                <h4><i class="fa fa-calendar"> Scadenza Disponibilità</i></h4>
+                <h5><input id="immDisponibilita" type="date" placeholder="AAAA-MM-GG " value=""></h5><BR>
             </div>
             <div class="col-md-4"><BR>
                 <h4><i class="fa fa-map-pin"> Città</i></h4>

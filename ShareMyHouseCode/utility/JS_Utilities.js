@@ -129,19 +129,20 @@ httpReq.send();
 function aggiornaImmobile(id) {
     let alias = document.getElementById("immAlias").value;
     let accDisabili = document.getElementById("immDisabili").checked;
+    let disponibilita = document.getElementById("immDisponibilita").value;
     if(accDisabili)
         accDisabili = 1;
     else
         accDisabili = 0;
 
 //Controllo che tutti i campi siano stati riempiti
-    if((alias.length===0)) {
+    if((alias.length===0) || (disponibilita.length===0) ) {
         alert("Riempire tutti i campi!");
         return;
     }
 
 
-     query = "UPDATE Abitazioni SET NomeAbitazione = '"+alias+"', AccessoDisabili = "+accDisabili+" WHERE IDAbitazione = "+id; //Aggiungere data disponibilita
+     query = "UPDATE Abitazioni SET NomeAbitazione = '"+alias+"', AccessoDisabili = "+accDisabili+", scadenzaDisponibilita = '"+disponibilita+"' WHERE IDAbitazione = "+id; //Aggiungere data disponibilita
      console.log(query);
      ajaxConnect(query); //Eseguo la query
 
