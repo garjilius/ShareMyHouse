@@ -123,15 +123,20 @@
             panelbody = document.getElementById("panelBody"+immobili[i].id);
             var btnMod = document.createElement("BUTTON");
             btnMod.className = "btn btn-info";
-            btnMod.id = "buttonModifica";
+            btnMod.id = "buttonModifica"+immobili[i].id;
             btnMod.innerText ="Modifica";
             btnMod.style.margin = "5px";
+            btnMod.setAttribute("idAbitazione",immobili[i].id);
+            btnMod.onclick = function(){
+                localStorage.setItem("idAbitazione",this.getAttribute("idAbitazione"));
+                window.location.href='/editImmobile.php?'
+            };
 
             panelbody.appendChild(btnMod);
 
             var btnDel = document.createElement("BUTTON");
             btnDel.className = "btn btn-danger";
-            btnDel.id = "buttonDelete";
+            btnDel.id = "buttonDelete"+immobili[i].id;
             btnDel.innerText ="Elimina";
             panelbody.appendChild(btnDel);
         }

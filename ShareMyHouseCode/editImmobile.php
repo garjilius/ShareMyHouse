@@ -142,7 +142,9 @@
 
     }
 
-    idAbitazione = 1; //DA SOSTITUIRE POI DINAMICAMENTE
+    //idAbitazione = "<?= $_GET['id']; ?>";
+    idAbitazione = localStorage.getItem("idAbitazione");
+    console.log(idAbitazione);
     query = "SELECT * From Abitazioni WHERE IDAbitazione = "+idAbitazione;
     getInfoImmobile(query);
 

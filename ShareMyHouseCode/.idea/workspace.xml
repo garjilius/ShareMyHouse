@@ -17,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mieimmobili.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="129" column="39" selection-start-line="129" selection-start-column="35" selection-end-line="129" selection-end-column="39" />
+            <state relative-caret-position="289">
+              <caret line="119" column="47" lean-forward="true" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -26,7 +26,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility/JS_Utilities.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
+            <state relative-caret-position="-287">
               <caret line="63" selection-start-line="63" selection-end-line="63" />
             </state>
           </provider>
@@ -35,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/editImmobile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7">
-              <caret line="119" column="19" lean-forward="true" selection-start-line="119" selection-start-column="13" selection-end-line="119" selection-end-column="28" />
+            <state relative-caret-position="506">
+              <caret line="145" column="56" selection-start-line="145" selection-start-column="56" selection-end-line="145" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -86,8 +86,8 @@
         <option value="$PROJECT_DIR$/utility/apikey.js" />
         <option value="$PROJECT_DIR$/utility/getImmobiliJSON.php" />
         <option value="$PROJECT_DIR$/addImmobile.php" />
-        <option value="$PROJECT_DIR$/editImmobile.php" />
         <option value="$PROJECT_DIR$/utility/JS_Utilities.js" />
+        <option value="$PROJECT_DIR$/editImmobile.php" />
         <option value="$PROJECT_DIR$/mieimmobili.php" />
       </list>
     </option>
@@ -187,7 +187,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60544000" />
+    <option name="totallyTimeSpent" value="62605000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="830" extended-state="6" />
@@ -197,7 +197,7 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.3292683" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3292683" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -426,24 +426,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/editImmobile.php">
+    <entry file="file://$PROJECT_DIR$/utility/JS_Utilities.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7">
-          <caret line="119" column="19" lean-forward="true" selection-start-line="119" selection-start-column="13" selection-end-line="119" selection-end-column="28" />
+        <state relative-caret-position="-287">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/JS_Utilities.js">
+    <entry file="file://$PROJECT_DIR$/editImmobile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        <state relative-caret-position="506">
+          <caret line="145" column="56" selection-start-line="145" selection-start-column="56" selection-end-line="145" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mieimmobili.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="129" column="39" selection-start-line="129" selection-start-column="35" selection-end-line="129" selection-end-column="39" />
+        <state relative-caret-position="289">
+          <caret line="119" column="47" lean-forward="true" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
         </state>
       </provider>
     </entry>
