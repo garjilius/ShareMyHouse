@@ -100,8 +100,6 @@
                         "                    <p>Posti Occupati: 3/4</p>\n" +
                         "                    <p>Disponibile fino al: 19/09/2020</p>\n" +
                         "                    <p>Idoneità: SI</p>\n" +
-                        "                    <button type=\"button\" id=\"buttonModifica\" class=\"btn btn-info\">Modifica</button>\n" +
-                        "                    <button type=\"button\" id=\"buttonElimina\"  class=\"btn btn-danger\">Elimina</button>\n" +
                         "\n" +
                         "                </div>\n" +
                         "            </div>\n" +
@@ -122,7 +120,20 @@
         for (i = 0; i < immobili.length; i++) {
             titolo = document.getElementById("titoloAccordion" + immobili[i].id);
             titolo.innerText = immobili[i].nome;
+            panelbody = document.getElementById("panelBody"+immobili[i].id);
+            var btnMod = document.createElement("BUTTON");
+            btnMod.className = "btn btn-info";
+            btnMod.id = "buttonModifica";
+            btnMod.innerText ="Modifica";
+            btnMod.style.margin = "5px";
 
+            panelbody.appendChild(btnMod);
+
+            var btnDel = document.createElement("BUTTON");
+            btnDel.className = "btn btn-danger";
+            btnDel.id = "buttonDelete";
+            btnDel.innerText ="Elimina";
+            panelbody.appendChild(btnDel);
         }
     }
 
