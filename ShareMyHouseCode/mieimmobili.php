@@ -69,7 +69,8 @@
                     <p>Posti Occupati: 3/4</p>
                     <p>Disponibile fino al: 19/09/2020</p>
                     <p>Idoneità: SI</p>
-                    <button type="button" class="btn btn-primary">Modifica</button>
+                    <button type="button" id="buttonModifica" class="btn btn-info">Modifica</button>
+                    <button type="button" id="buttonElimina"  class="btn btn-danger">Elimina</button>
 
                 </div>
             </div>
@@ -79,7 +80,7 @@
 </div>
 
 <div class="container-fluid text-center">
-    <button id="buttonAggiunta" type="button" onclick="window.location.href='/addImmobile.php'" class="btn btn-primary">Aggiungi Immobile</button>
+    <button id="buttonAggiunta" type="button" onclick="window.location.href='/addImmobile.php'" class="btn btn-success">Aggiungi Immobile</button>
 </div>
 
 
