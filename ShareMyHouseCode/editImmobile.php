@@ -122,6 +122,15 @@
             if (httpReq.readyState === 4 && httpReq.status === 200) {
                 immobili = JSON.parse(httpReq.responseText);
                 document.getElementById("immAlias").value = immobili[0].nome;
+                document.getElementById("immCitta").value = immobili[0].citta;
+                document.getElementById("immIndirizzo").value = immobili[0].indirizzo;
+                document.getElementById("immRegione").value = immobili[0].regione;
+                document.getElementById("immProvincia").value = immobili[0].provincia;
+                accDis = immobili[0].accessoDisabili;
+                if(accDis ==1) {
+                    document.getElementById("immDisabili").checked = true;
+                }
+
             }
         }
 
