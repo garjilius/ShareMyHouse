@@ -84,16 +84,19 @@
                 for(i=0; i<immobili.length;i++) {
                     destinationSource = "#"+immobili[i].id;
                     destination = immobili[i].id;
+                    panelBodyID = "panelBody"+immobili[i].id;
+                    titoloAccordionID = "titoloAccordion"+immobili[i].id;
+
                     acc = document.getElementById("accordion");
                     acc.innerHTML = acc.innerHTML +
                     "        <div class=\"panel panel-default\">\n" +
                         "            <div class=\"panel-heading\">\n" +
                         "                <h4 class=\"panel-title\">\n" +
-                        "                    <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\""+destinationSource+"\">Prova</a>\n" +
+                        "                    <a data-toggle=\"collapse\"  id=\""+titoloAccordionID+"\" data-parent=\"#accordion\" href=\""+destinationSource+"\">Prova</a>\n" +
                         "                </h4>\n" +
                         "            </div>\n" +
                         "            <div id=\""+destination+"\" class=\"panel-collapse collapse in\">\n" +
-                        "                <div class=\"panel-body\">\n" +
+                        "                <div class=\"panel-body\" id=\""+panelBodyID+"\">\n" +
                         "                    <p>Posti Occupati: 3/4</p>\n" +
                         "                    <p>Disponibile fino al: 19/09/2020</p>\n" +
                         "                    <p>Idoneità: SI</p>\n" +
@@ -104,6 +107,7 @@
                         "            </div>\n" +
                         "        </div>";
                 }
+                popolaCampi();
             }
         }
 
@@ -112,6 +116,14 @@
         httpReq.send(query);
 
 
+    }
+
+    function popolaCampi() {
+        for (i = 0; i < immobili.length; i++) {
+            titolo = document.getElementById("titoloAccordion" + immobili[i].id);
+            titolo.innerText = immobili[i].nome;
+
+        }
     }
 
 
