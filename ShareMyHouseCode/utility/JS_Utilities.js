@@ -66,7 +66,7 @@ function getImmobili(cf) {
     var httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
         if (httpReq.readyState === 4 && httpReq.status === 200) {
-            xmlDoc = httpReq.responseText;
+            immobili = JSON.parse(httpReq.responseText);
         }
     }
 
@@ -113,4 +113,26 @@ function ajaxConnect(query) {
     xhr.open("POST", "/utility/dbquery.php", true);
     xhr.send(query);
 }
+
+function getCoordinate(stato,citta,indirizzo,civico) {
+    indirizzo = civico+"+"+indirizzo+", "+citta+", +"+stato;
+    indirizzo = indirizzo.replace(" ", "+");
+    //window.location.href= 'https://maps.googleapis.com/maps/api/geocode/json?address='+indirizzo+'&key=AIzaSyDi6OYQpSp_dEjtGzJ3hkeZXBw-wlMBUk0';
+
+    var httpReq = new XMLHttpRequest();
+    httpReq.onreadystatechange = function () {
+        if (httpReq.readyState === 4 && httpReq.status === 200) {
+            coordinate = JSON.parse(httpReq.responseText);
+            console.log(coordinate);
+        }
+    }
+
+    url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+indirizzo+'&key=AIzaSyDi6OYQpSp_dEjtGzJ3hkeZXBw-wlMBUk0';
+    console.log(url);
+    httpReq.open("POST", url, true);
+    //httpReq.setRequestHeader('Content-Type', 'application/json');
+    httpReq.send();
+}
+
+
 
