@@ -68,7 +68,7 @@
             </div>
             <div class="col-md-4">
                 <h4><i class="fa fa-map-pin"> Regione</i></h4>
-                <select id="immRegione" name="regione" class="form-control" style="width:60%; margin:auto">
+                <select disabled id="immRegione" name="regione" class="form-control" style="width:60%; margin:auto">
                     <?php
                     require_once './utility/databaseconnection.php';
 
@@ -85,7 +85,7 @@
                     ?>
                 </select><BR>
                 <h4><i class="fa fa-map-pin"> Provincia</i></h4>
-                <select id="immProvincia" name="provincia" class="form-control" style="width:60%; margin:auto">
+                <select disabled id="immProvincia" name="provincia" class="form-control" style="width:60%; margin:auto">
                     <?php
                     $query = "SELECT sigla FROM province";
                     $result = mysqli_query($db,$query);
@@ -103,9 +103,9 @@
             </div>
             <div class="col-md-4"><BR>
                 <h4><i class="fa fa-map-pin"> Città</i></h4>
-                <h5><input id="immCitta" type="text" value=""></h5><BR>
+                <h5><input disabled id="immCitta" type="text" value=""></h5><BR>
                 <h4><i class="fa fa-map-pin"> Indirizzo</i></h4>
-                <h5 ><input id="immIndirizzo" type="text" value=""></h5><BR>
+                <h5 ><input disabled id="immIndirizzo" type="text" value=""></h5><BR>
             </div>
         </div>
     </div>
