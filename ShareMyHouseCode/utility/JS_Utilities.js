@@ -153,8 +153,10 @@ function aggiornaImmobile(id) {
      }, 500);
 }
 
-
-
+function eliminaImmobile(id) {
+    query = "DELETE FROM Abitazioni WHERE IDAbitazione = "+id
+    ajaxConnect(query);
+}
 
 
 //AJAX UNIVERSALE PER INVIARE QUERY AL DB
