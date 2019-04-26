@@ -122,12 +122,15 @@ function getCoordinate(stato,citta,indirizzo,civico) {
     var httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
         if (httpReq.readyState === 4 && httpReq.status === 200) {
-            coordinate = JSON.parse(httpReq.responseText);
-            console.log(coordinate);
+            risultato = JSON.parse(httpReq.responseText);
+            latitudine = risultato.results[0].geometry.location.lat;
+            longitudine = coordinate.results[0].geometry.location.lng;
+            console.log(latitudine+","+longitudine);
         }
     }
 
-    url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+indirizzo+'&key=AIzaSyDi6OYQpSp_dEjtGzJ3hkeZXBw-wlMBUk0';
+
+    url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+indirizzo+'&key='+mapsAPIKey;
     console.log(url);
     httpReq.open("POST", url, true);
     //httpReq.setRequestHeader('Content-Type', 'application/json');
