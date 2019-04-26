@@ -62,20 +62,6 @@ function getDatiUtente(cf) {
 
 }
 
-function getImmobili(query) {
-    var httpReq = new XMLHttpRequest();
-    httpReq.onreadystatechange = function () {
-        if (httpReq.readyState === 4 && httpReq.status === 200) {
-            immobili = JSON.parse(httpReq.responseText);
-            //popolare elenco immobili
-        }
-    }
-
-    httpReq.open("POST", "/utility/getImmobiliJSON.php?v=2", true);
-    httpReq.setRequestHeader('Content-Type', 'application/json');
-    httpReq.send(query);
-
-}
 
 function salvaImmobile() {
 let alias = document.getElementById("immAlias").value;
@@ -156,6 +142,9 @@ function aggiornaImmobile(id) {
 function eliminaImmobile(id) {
     query = "DELETE FROM Abitazioni WHERE IDAbitazione = "+id
     ajaxConnect(query);
+    setTimeout(function (){ //aspetto un po' e poi torno alla pagina dei miei immobili
+        window.location.href='/mieimmobili.php'
+    }, 500);
 }
 
 

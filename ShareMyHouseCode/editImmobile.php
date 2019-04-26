@@ -117,7 +117,7 @@
 </body>
 
 <script>
-    function getImmobili(query) {
+    function getInfoImmobile(query) {
         var httpReq = new XMLHttpRequest();
         httpReq.onreadystatechange = function () {
             if (httpReq.readyState === 4 && httpReq.status === 200) {
@@ -144,7 +144,7 @@
 
     idAbitazione = 1; //DA SOSTITUIRE POI DINAMICAMENTE
     query = "SELECT * From Abitazioni WHERE IDAbitazione = "+idAbitazione;
-    getImmobili(query);
+    getInfoImmobile(query);
 
 </script>
 

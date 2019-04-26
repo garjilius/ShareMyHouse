@@ -16,7 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/utility/checklogin.js"></script>
-    <script type="text/javascript" src="/utility/JS_Utilities.js?v=4"></script>
+    <script type="text/javascript" src="/utility/JS_Utilities.js?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
 
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -58,23 +58,7 @@
 <div class="container" id="containerAccordion">
     <BR><BR>
     <div class="panel-group" id="accordion">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Immobile 1 - Villetta a Barletta</a>
-                </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse in">
-                <div class="panel-body">
-                    <p>Posti Occupati: 3/4</p>
-                    <p>Disponibile fino al: 19/09/2020</p>
-                    <p>Idoneità: SI</p>
-                    <button type="button" id="buttonModifica" class="btn btn-info">Modifica</button>
-                    <button type="button" id="buttonElimina"  class="btn btn-danger">Elimina</button>
 
-                </div>
-            </div>
-        </div>
     <p><strong>Note:</strong> Click on the linked heading text to expand or collapse accordion panels.</p>
 </div>
 </div>
@@ -89,16 +73,48 @@
 <SCRIPT>
 
     query = "SELECT * From Abitazioni WHERE Proprietario = '"+localStorage.codiceFiscale+"'";
-    getImmobili(query);
+    function getImmobili(query) {
+        var httpReq = new XMLHttpRequest();
+        httpReq.onreadystatechange = function () {
+            if (httpReq.readyState === 4 && httpReq.status === 200) {
+                immobili = JSON.parse(httpReq.responseText);
+                //popolare elenco immobili
+                console.log(immobili.length);
 
-    function popola() { //DA SPOSTARE POI NEL FILE JS UTILITIES
-        for(i=0; i<5;i++) {
-            acc = document.getElementById("accordion");
-            acc.innerHTML = acc.innerHTML +
-            "";
+                //Genera gli accordion per gli immobili
+                for(i=0; i<immobili.length;i++) {
+                    acc = document.getElementById("accordion");
+                    acc.innerHTML = acc.innerHTML +
+                        "        <div class=\"panel panel-default\">\n" +
+                        "            <div class=\"panel-heading\">\n" +
+                        "                <h4 class=\"panel-title\">\n" +
+                        "                    <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\">Immobile 1 - Test</a>\n" +
+                        "                </h4>\n" +
+                        "            </div>\n" +
+                        "            <div id=\"collapseOne\" class=\"panel-collapse collapse in\">\n" +
+                        "                <div class=\"panel-body\">\n" +
+                        "                    <p>Posti Occupati: placeholder</p>\n" +
+                        "                    <p>Disponibile fino al: placeholder</p>\n" +
+                        "                    <p>Idoneità: placeholder</p>\n" +
+                        "                    <button type=\"button\" id=\"buttonModifica\" class=\"btn btn-info\">Modifica</button>\n" +
+                        "                    <button type=\"button\" id=\"buttonElimina\" onclick=\"eliminaImmobile(11)\"  class=\"btn btn-danger\">Elimina</button>\n" +
+                        "\n" +
+                        "                </div>\n" +
+                        "            </div>\n" +
+                        "        </div>";
+                }
+            }
         }
+
+        httpReq.open("POST", "/utility/getImmobiliJSON.php?v=2", true);
+        httpReq.setRequestHeader('Content-Type', 'application/json');
+        httpReq.send(query);
+
+
     }
 
-    popola();
+
+
+getImmobili(query);
 </SCRIPT>
 </html>
