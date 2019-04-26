@@ -120,6 +120,9 @@
             titolo = document.getElementById("titoloAccordion" + immobili[i].id);
             titolo.innerText = immobili[i].nome;
             panelbody = document.getElementById("panelBody"+immobili[i].id);
+
+            panelbody.innerHTML= "Prova"+immobili[i].nome+"<BR>";
+
             var btnMod = document.createElement("BUTTON");
             btnMod.className = "btn btn-info";
             btnMod.id = "buttonModifica"+immobili[i].id;

@@ -24,6 +24,8 @@ class immobile {
     private $latitudine="";
     private $longitudine="";
     private $disponibilita="";
+    private $postiTotali="";
+    private $postiOccupati="";
 
 
 
@@ -40,9 +42,45 @@ class immobile {
             "regione" => $this->getRegione(),
             "latitudine" => $this->getLatitudine(),
             "longitudine" => $this->getLongitudine(),
-            "disponibilita" => $this->getDisponibilita()
+            "disponibilita" => $this->getDisponibilita(),
+            "postiTotali" => $this->getPostiTotali(),
+            "postiOccupati" => $this->getPostiOccupati()
         );
     }
+
+    /**
+     * @return string
+     */
+    public function getPostiTotali()
+    {
+        return $this->postiTotali;
+    }
+
+    /**
+     * @param string $postiTotali
+     */
+    public function setPostiTotali($postiTotali)
+    {
+        $this->postiTotali = $postiTotali;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPostiOccupati()
+    {
+        return $this->postiOccupati;
+    }
+
+    /**
+     * @param string $postiOccupati
+     */
+    public function setPostiOccupati($postiOccupati)
+    {
+        $this->postiOccupati = $postiOccupati;
+    }
+
+
 
     /**
      * @return string
@@ -260,6 +298,8 @@ for ($i=0;$i<$numrighe;$i++) {
     $immobileTMP->setLatitudine($riga["Latitudine"]);
     $immobileTMP->setLongitudine($riga["Longitudine"]);
     $immobileTMP->setDisponibilita($riga["scadenzaDisponibilita"]);
+    $immobileTMP->setPostiTotali($riga["postiTotali"]);
+    $immobileTMP->setPostiOccupati($riga["postiOccupati"]);
 
     $immobili[$i] = $immobileTMP->toArray();
 
