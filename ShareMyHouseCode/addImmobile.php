@@ -16,7 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/utility/checklogin.js"></script>
-    <script type="text/javascript" src="/utility/JS_Utilities.js?v=4"></script>
+    <script type="text/javascript" src="/utility/JS_Utilities.js?v=13"></script>
 
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -62,7 +62,7 @@
                 <h4><i class="fa fa-id-card-o"> Alias Immobile</i></h4>
                 <h5><input id="immAlias" type="text" value=""></h5><BR>
                 <h4><i class="fa fa-wheelchair"> Accesso Disabili (trasformare in checkbox)</i></h4>
-                <h5><input id="immRegione" type="text" value=""></h5><BR>
+                <h5><input id="immDisabili" type="checkbox" value=""></h5><BR>
 
             </div>
             <div class="col-md-4">
@@ -80,7 +80,7 @@
             </div>
         </div>
     </div>
-    <button id="buttonAccetta" type="button" onclick="" class="btn btn-primary">Fine</button>
+    <button id="buttonAccetta" type="button" onclick="salvaImmobile()" class="btn btn-primary">Fine</button>
 
 </div>
 

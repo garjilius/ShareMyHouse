@@ -76,6 +76,29 @@ function getImmobili(cf) {
 
 }
 
+function salvaImmobile() {
+let alias = document.getElementById("immAlias").value;
+let regione = document.getElementById("immRegione").value;
+let provincia = document.getElementById("immProvincia").value;
+let citta = document.getElementById("immCitta").value;
+let indirizzo = document.getElementById("immIndirizzo").value;
+let accDisabili = document.getElementById("immDisabili").checked;
+if(accDisabili)
+    accDisabili = 1;
+else
+    accDisabili = 0;
+
+let values = "('"+alias+"', '"+localStorage.codiceFiscale+"', '"+regione+"', '"+provincia+"', '"+citta+"', '"+indirizzo+"', '"+accDisabili+"', '"+"Latitudine"+"', "+"'Longitudine'"+" )";
+
+//console.log(values);
+//console.log(alias+regione+provincia+citta+indirizzo);
+//console.log("accesso disabili: "+accDisabili);
+
+query = "INSERT INTO Abitazioni (NomeAbitazione, Proprietario, Regione, Provincia, Citta, Indirizzo, AccessoDisabili, Latitudine, Longitudine) VALUES "+values;
+console.log(query);
+ajaxConnect(query);
+}
+
 //AJAX UNIVERSALE PER INVIARE QUERY AL DB
 function ajaxConnect(query) {
     xhr = new XMLHttpRequest();

@@ -87,7 +87,6 @@
 </body>
 <SCRIPT>
     getImmobili(localStorage.codiceFiscale);
-    //creaInfoImmobili();
 
     function popola() { //DA SPOSTARE POI NEL FILE JS UTILITIES
         for(i=0; i<5;i++) {
