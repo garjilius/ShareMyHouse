@@ -77,8 +77,7 @@
         httpReq.onreadystatechange = function () {
             if (httpReq.readyState === 4 && httpReq.status === 200) {
                 immobili = JSON.parse(httpReq.responseText);
-                //popolare elenco immobili
-                console.log(immobili.length);
+                //console.log(immobili.length);
 
                 //Genera gli accordion per gli immobili
                 for(i=0; i<immobili.length;i++) {
@@ -137,7 +136,12 @@
             var btnDel = document.createElement("BUTTON");
             btnDel.className = "btn btn-danger";
             btnDel.id = "buttonDelete"+immobili[i].id;
+            btnDel.setAttribute("idAbitazione",immobili[i].id);
             btnDel.innerText ="Elimina";
+            btnDel.onclick = function(){
+                localStorage.setItem("idAbitazione",this.getAttribute("idAbitazione"));
+                eliminaImmobile(localStorage.getItem("idAbitazione"));
+            };
             panelbody.appendChild(btnDel);
         }
     }

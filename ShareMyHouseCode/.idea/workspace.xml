@@ -17,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mieimmobili.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="119" column="47" lean-forward="true" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
+            <state relative-caret-position="596">
+              <caret line="143" column="70" selection-start-line="143" selection-start-column="70" selection-end-line="143" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -187,7 +187,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62605000" />
+    <option name="totallyTimeSpent" value="63124000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="830" extended-state="6" />
@@ -442,8 +442,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mieimmobili.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="119" column="47" lean-forward="true" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
+        <state relative-caret-position="596">
+          <caret line="143" column="70" selection-start-line="143" selection-start-column="70" selection-end-line="143" selection-end-column="70" />
         </state>
       </provider>
     </entry>
