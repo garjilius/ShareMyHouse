@@ -88,6 +88,11 @@ if(accDisabili)
 else
     accDisabili = 0;
 
+if((alias.length===0) || (regione.length===0) || (provincia.length===0) || (citta.length===0) || (indirizzo.length===0)) {
+    alert("Riempire tutti i campi!");
+    return;
+    }
+
 let values = "('"+alias+"', '"+localStorage.codiceFiscale+"', '"+regione+"', '"+provincia+"', '"+citta+"', '"+indirizzo+"', '"+accDisabili+"', '"+"Latitudine"+"', "+"'Longitudine'"+" )";
 
 //console.log(values);
@@ -97,6 +102,9 @@ let values = "('"+alias+"', '"+localStorage.codiceFiscale+"', '"+regione+"', '"+
 query = "INSERT INTO Abitazioni (NomeAbitazione, Proprietario, Regione, Provincia, Citta, Indirizzo, AccessoDisabili, Latitudine, Longitudine) VALUES "+values;
 console.log(query);
 ajaxConnect(query);
+setTimeout(function (){
+    window.location.href='/mieimmobili.php'
+    }, 500);
 }
 
 //AJAX UNIVERSALE PER INVIARE QUERY AL DB

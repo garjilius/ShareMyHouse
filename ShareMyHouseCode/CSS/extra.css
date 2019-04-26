@@ -18,6 +18,11 @@ table.row-clickable tbody tr td {
     padding: 0;
 }
 
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
 #searchbar {
     width: 130px;
     box-sizing: border-box;

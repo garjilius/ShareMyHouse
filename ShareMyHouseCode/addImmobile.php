@@ -16,7 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/utility/checklogin.js"></script>
-    <script type="text/javascript" src="/utility/JS_Utilities.js?v=13"></script>
+    <script type="text/javascript" src="/utility/JS_Utilities.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
 
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -58,21 +58,49 @@
     <h2>Aggiunta Immobile</h2><BR><BR>
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4"><BR>
                 <h4><i class="fa fa-id-card-o"> Alias Immobile</i></h4>
                 <h5><input id="immAlias" type="text" value=""></h5><BR>
-                <h4><i class="fa fa-wheelchair"> Accesso Disabili (trasformare in checkbox)</i></h4>
+                <h4><i class="fa fa-wheelchair"> Accesso Disabili</i></h4>
                 <h5><input id="immDisabili" type="checkbox" value=""></h5><BR>
 
             </div>
             <div class="col-md-4">
                 <h4><i class="fa fa-map-pin"> Regione</i></h4>
-                <h5><input id="immRegione" type="text" value=""></h5><BR>
+                <select id="immRegione" name="regione" class="form-control" style="width:60%; margin:auto">
+                    <?php
+                    require_once './utility/databaseconnection.php';
+
+                    $query = "SELECT nome FROM Regione";
+                    $result = mysqli_query($db,$query);
+                    $numRighe = mysqli_num_rows($result);
+
+                    echo '<option value="">--------------------</option>';
+                    for ($i = 0; $i < $numRighe; $i++) {
+                        $regioni = mysqli_fetch_row($result);
+                        $tmp = $regioni[0];
+                        echo '<option value="' . $tmp . '">' . $tmp . '</option>';
+                    }
+                    ?>
+                </select><BR>
                 <h4><i class="fa fa-map-pin"> Provincia</i></h4>
-                <h5><input id="immProvincia" type="text" value=""></h5><BR>
+                <select id="immProvincia" name="provincia" class="form-control" style="width:60%; margin:auto">
+                    <?php
+                    $query = "SELECT sigla FROM province";
+                    $result = mysqli_query($db,$query);
+                    $numRighe = mysqli_num_rows($result);
+
+                    echo '<option value="">--------------------</option>';
+                    for ($i = 0; $i < $numRighe; $i++) {
+                        $province = mysqli_fetch_row($result);
+                        $tmp = $province[0];
+                        echo '<option value="' . $tmp . '">' . $tmp . '</option>';
+                    }
+                    ?>
+                </select><BR>
 
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4"><BR>
                 <h4><i class="fa fa-map-pin"> Città</i></h4>
                 <h5><input id="immCitta" type="text" value=""></h5><BR>
                 <h4><i class="fa fa-map-pin"> Indirizzo</i></h4>
@@ -83,7 +111,7 @@
     <button id="buttonAccetta" type="button" onclick="salvaImmobile()" class="btn btn-primary">Fine</button>
 
 </div>
-
+<BR><BR><BR>
 </body>
 
 </html>
