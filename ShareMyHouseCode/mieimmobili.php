@@ -121,7 +121,8 @@
             titolo.innerText = immobili[i].nome;
             panelbody = document.getElementById("panelBody"+immobili[i].id);
 
-            panelbody.innerHTML= "Prova"+immobili[i].nome+"<BR>";
+            panelbody.innerHTML= "<p>Posti Occupati: "+immobili[i].postiOccupati+"/"+immobili[i].postiTotali+"</p>" +
+                "<p>Resa disponibile fino al: "+immobili[i].disponibilita+"</p>";
 
             var btnMod = document.createElement("BUTTON");
             btnMod.className = "btn btn-info";
