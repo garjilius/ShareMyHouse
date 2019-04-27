@@ -44,10 +44,10 @@ function getDatiUtente(cf) {
                 utenti = JSON.parse(httpReq.responseText);
                 //Benvenuto
 
-                document.getElementById("titoloNomeUtente").innerText = "Benvenuto, " + utenti[0].nome;
+                document.getElementById("titoloNomeUtente").innerText = "Benvenuto, " + utenti[0].nome+" "+utenti[0].cognome;
 
                 document.getElementById("cfUser").value = utenti[0].cf;
-                document.getElementById("userName").value = utenti[0].nome;
+                document.getElementById("userName").value = utenti[0].nome+" "+utenti[0].cognome;
                 document.getElementById("dataNascitaUser").value = utenti[0].dataNascita;
                 document.getElementById("addressUser").value = utenti[0].indirizzo;
                 document.getElementById("telUtente").value = utenti[0].telefono;
