@@ -78,7 +78,6 @@
         httpReq.onreadystatechange = function () {
             if (httpReq.readyState === 4 && httpReq.status === 200) {
                 immobili = JSON.parse(httpReq.responseText);
-                //console.log(immobili.length);
 
                 //Genera gli accordion per gli immobili
                 for(i=0; i<immobili.length;i++) {
@@ -97,10 +96,6 @@
                         "            </div>\n" +
                         "            <div id=\""+destination+"\" class=\"panel-collapse collapse in\">\n" +
                         "                <div class=\"panel-body\" id=\""+panelBodyID+"\">\n" +
-                        "                    <p>Posti Occupati: 3/4</p>\n" +
-                        "                    <p>Disponibile fino al: 19/09/2020</p>\n" +
-                        "                    <p>Idoneità: SI</p>\n" +
-                        "\n" +
                         "                </div>\n" +
                         "            </div>\n" +
                         "        </div>";
