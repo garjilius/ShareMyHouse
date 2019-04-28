@@ -85,6 +85,11 @@ if((alias.length===0) || (regione.length===0) || (provincia.length===0) || (citt
     return;
     }
 
+currentDate = new Date();
+    if(checkDateAntecedent(currentDate,disponibilita)===-1) {
+        return;
+    }
+
     // RECUPERO COORDINATE GPS
 indirizzoEncoded = indirizzo+", "+citta+", +IT";
 indirizzoEncoded = indirizzoEncoded.replace(" ", "+");
@@ -131,6 +136,15 @@ function aggiornaImmobile(id) {
         return;
     }
 
+    if(checkDateAntecedent(localStorage.getItem("originalDate"),document.getElementById("immDisponibilita").value)=== -1) {
+        return;
+    }
+
+    currentDate = new Date();
+
+    if(checkDateAntecedent(currentDate,document.getElementById("immDisponibilita").value)=== -1) {
+        return;
+    }
 
      query = "UPDATE Abitazioni SET NomeAbitazione = '"+alias+"', AccessoDisabili = "+accDisabili+", scadenzaDisponibilita = '"+disponibilita+"' WHERE IDAbitazione = "+id; //Aggiungere data disponibilita
      console.log(query);
@@ -147,6 +161,18 @@ function eliminaImmobile(id) {
     setTimeout(function (){ //aspetto un po' e poi torno alla pagina dei miei immobili
         window.location.href='/mieimmobili.php'
     }, 500);
+}
+
+function checkDateAntecedent(originalDate,newDate) { //In formato AAAA-MM-GG
+    originalDate = new Date(originalDate);
+    newDate = new Date(newDate);
+
+    if (originalDate > newDate) {
+        alert('ATTENZIONE: La data di disponibilità si può estendere, ma non abbreviare\nInoltre, la data non può essere antecedente a quella attuale.');
+        return -1;
+    }
+
+    else return 0;
 }
 
 

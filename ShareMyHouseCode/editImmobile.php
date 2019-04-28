@@ -132,6 +132,10 @@
                 document.getElementById("immDisponibilita").value = immobili[0].disponibilita;
                 document.getElementById("immPosti").value = immobili[0].postiTotali;
 
+                //Salvo in localstorage la disponibilità presa dal db per poi controllare che si aumenti e non diminuisca, editando
+                localStorage.setItem("originalDate",immobili[0].disponibilita);
+
+
                 accDis = immobili[0].accessoDisabili;
                 if(accDis ==1) {
                     document.getElementById("immDisabili").checked = true;
