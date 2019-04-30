@@ -27,8 +27,6 @@ class immobile {
     private $postiTotali="";
     private $postiOccupati="";
 
-
-
     public function toArray() {
         return array(
             "id" => $this->getId(),

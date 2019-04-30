@@ -7,7 +7,6 @@ header('Expires: -1');
 
     $cf = file_get_contents('php://input');
 
-
     $query = "SELECT * FROM Utente JOIN InfoUtente ON Utente.CF = InfoUtente.CF WHERE Utente.CF = '" . $cf . "'";
     $result = mysqli_query($db, $query) or die(mysqli_error($db));
 

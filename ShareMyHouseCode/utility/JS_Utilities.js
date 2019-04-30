@@ -62,6 +62,28 @@ function getDatiUtente(cf) {
 
 }
 
+function filtroRegioni(){
+
+    var idRegione = document.getElementById("immRegione").value;
+    var prov = document.getElementById("immProvincia");
+
+    prov.value = 0;
+    if (idRegione == 0){
+        prov.disabled = "disabled";
+    }
+    else{
+        prov.removeAttribute("disabled");
+    }
+
+    for(var i=1;i<prov.length;i++) {
+        if (prov.options[i].value == idRegione) {
+            prov.options[i].removeAttribute("style", "display");
+        } else {
+            prov.options[i].style.display = "none";
+        }
+    }
+}
+
 
 function salvaImmobile() {
 let alias = document.getElementById("immAlias").value;
@@ -74,12 +96,20 @@ let posti = document.getElementById("immPosti").value;
 
 let accDisabili = document.getElementById("immDisabili").checked;
 
-console.log(posti);
+console.log("posti: " + posti);
 
 if(accDisabili)
     accDisabili = 1;
 else
     accDisabili = 0;
+
+//se mettevo zero come numero di posti, mi faceva comunque inserire la casa
+if(posti<=0){
+    alert("Il numero di posti non può essere minore o uguale a zero!");
+    return;
+}
+
+
 
 //Controllo che tutti i campi siano stati riempiti
 if((alias.length===0) || (regione.length===0) || (provincia.length===0) || (citta.length===0) || (indirizzo.length===0) || (disponibilita.length===0)||(posti.length===0)) {
@@ -109,6 +139,7 @@ httpReq.onreadystatechange = function () {
        query = "INSERT INTO Abitazioni (NomeAbitazione, Proprietario,scadenzaDisponibilita,postiTotali, Regione, Provincia, Citta, Indirizzo, AccessoDisabili, Latitudine, Longitudine) VALUES "+values;
        console.log(query);
        ajaxConnect(query); //Eseguo la query
+
        setTimeout(function (){ //aspetto un po' e poi torno alla pagina dei miei immobili
            window.location.href='/mieimmobili.php'
        }, 500);
@@ -177,13 +208,9 @@ function checkDateAntecedent(originalDate,newDate) { //In formato AAAA-MM-GG
     else return 0;
 }
 
-
 //AJAX UNIVERSALE PER INVIARE QUERY AL DB
 function ajaxConnect(query) {
     xhr = new XMLHttpRequest();
     xhr.open("POST", "/utility/dbquery.php", true);
     xhr.send(query);
 }
-
-
-
