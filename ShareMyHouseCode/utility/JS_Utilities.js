@@ -74,6 +74,8 @@ let posti = document.getElementById("immPosti").value;
 
 let accDisabili = document.getElementById("immDisabili").checked;
 
+console.log(posti);
+
 if(accDisabili)
     accDisabili = 1;
 else
