@@ -68,7 +68,7 @@
             </div>
             <div class="col-md-4">
                 <h4><i class="fa fa-map-pin"> Regione</i></h4>
-                <select id="immRegione" onClick="filtroRegioni()" name="regione" class="form-control" style="width:60%; margin:auto">
+                <select id="immRegione" onchange="filtroRegioni()" name="regione" class="form-control" style="width:60%; margin:auto">
 
 
                     <?php
@@ -92,31 +92,14 @@
 
                 </select><BR>
                 <h4><i class="fa fa-map-pin"> Provincia</i></h4>
-                <select id="immProvincia" disabled="disabled" name="provincia" class="form-control" style="width:60%; margin:auto">
+                <select id="immProvincia" disabled name="provincia" class="form-control" style="width:60%; margin:auto"> </select><BR>
 
-                    <?php
-                    $query = "SELECT id_regione,sigla FROM province";
-                    $result = mysqli_query($db,$query);
-                    $numRighe = mysqli_num_rows($result);
-
-                    echo '<option value="0">--------------------</option>';
-                    for ($i = 0; $i < $numRighe; $i++) {
-                        $province = mysqli_fetch_row($result);
-                        $tmp = $province[1];
-                        $num = $province[0];
-                        echo '<option value="' . $num . '" style="display:none;">' . $tmp . '</option>';
-                    }
-
-                    ?>
-
-
-                </select><BR>
 
 
 
                 <h4><i class="fa fa-calendar"> Scadenza Disponibilità</i></h4>
                 <h5><input id="immDisponibilita" type="date" placeholder="AAAA-MM-GG " value=""></h5><BR>
-                <h4><i class="fa fa-calendar"> Posti totali</i></h4>
+                <h4><i class="fa fa-users"> Posti totali</i></h4>
                 <h5><input id="immPosti" type="number" min="1" max="50" value=""></h5><BR>
 
             </div>

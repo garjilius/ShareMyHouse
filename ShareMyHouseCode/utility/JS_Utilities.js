@@ -64,9 +64,11 @@ function getDatiUtente(cf) {
 
 function filtroRegioni(){
 
+    console.log("Chiamata la funzione filtroregioni");
     var idRegione = document.getElementById("immRegione").value;
     var prov = document.getElementById("immProvincia");
 
+    //Abilito le province solo se è stata selezionata una regione
     prov.value = 0;
     if (idRegione == 0){
         prov.disabled = true;
@@ -75,13 +77,31 @@ function filtroRegioni(){
         prov.disabled = false;
     }
 
-    for(var i=1;i<prov.length;i++) {
-        if (prov.options[i].value == idRegione) {
-            prov.options[i].style.display = "inline";
-        } else {
-            prov.options[i].style.display = "none";
+    var httpReq = new XMLHttpRequest();
+    httpReq.onreadystatechange = function () {
+        if (httpReq.readyState === 4 && httpReq.status === 200) {
+            //Svuoto prima la combobox
+            svuotaComboBox(prov);
+
+            console.log(httpReq.responseText);
+            //Prendo le nuove province relative alla regione e popolo la combobox
+            risultato = JSON.parse(httpReq.responseText);
+
+            for (let i = 0; i < risultato.length; i++) {
+                option = document.createElement('option');
+                option.text = risultato[i].siglaProvincia;
+                option.value = risultato[i].id;
+                prov.add(option);
+            }
+
         }
+
     }
+
+    query = "Select * from province where id_regione = "+idRegione;
+    console.log(query);
+    httpReq.open("POST", '/utility/getProvinceJSON.php?<?php echo date(\'l jS \\of F Y h:i:s A\'); ?>', true);
+    httpReq.send(query);
 }
 
 
@@ -206,6 +226,12 @@ function checkDateAntecedent(originalDate,newDate) { //In formato AAAA-MM-GG
     }
 
     else return 0;
+}
+
+function svuotaComboBox(combobox) {
+    while (combobox.options.length > 0) {
+        combobox.remove(0);
+    }
 }
 
 //AJAX UNIVERSALE PER INVIARE QUERY AL DB
