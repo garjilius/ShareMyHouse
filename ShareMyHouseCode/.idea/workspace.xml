@@ -14,7 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/addImmobile.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="209">
@@ -41,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utility/JS_Utilities.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="85" column="46" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
+            <state relative-caret-position="290">
+              <caret line="42" column="28" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -68,6 +68,7 @@
       <find>query</find>
       <find>json</find>
       <find>idabitazione</find>
+      <find>log</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -95,10 +96,10 @@
         <option value="$PROJECT_DIR$/utility/getImmobiliJSON.php" />
         <option value="$PROJECT_DIR$/utility/getDatiUtenteJSON.php" />
         <option value="$PROJECT_DIR$/profilo.php" />
-        <option value="$PROJECT_DIR$/utility/JS_Utilities.js" />
         <option value="$PROJECT_DIR$/utility/getProvinceJSON.php" />
         <option value="$PROJECT_DIR$/addImmobile.php" />
         <option value="$PROJECT_DIR$/editImmobile.php" />
+        <option value="$PROJECT_DIR$/utility/JS_Utilities.js" />
       </list>
     </option>
   </component>
@@ -197,12 +198,12 @@
       <workItem from="1556481273656" duration="348000" />
       <workItem from="1556614413685" duration="13045000" />
       <workItem from="1556721509088" duration="3028000" />
-      <workItem from="1556725359520" duration="2806000" />
+      <workItem from="1556725359520" duration="2976000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86975000" />
+    <option name="totallyTimeSpent" value="87145000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="830" extended-state="6" />
@@ -356,13 +357,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/JS_Utilities.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="85" column="46" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utility/getProvinceJSON.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -381,6 +375,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="102" column="34" selection-start-line="102" selection-end-line="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/JS_Utilities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="42" column="28" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
         </state>
       </provider>
     </entry>
