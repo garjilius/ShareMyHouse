@@ -69,15 +69,15 @@ function filtroRegioni(){
 
     prov.value = 0;
     if (idRegione == 0){
-        prov.disabled = "disabled";
+        prov.disabled = true;
     }
     else{
-        prov.removeAttribute("disabled");
+        prov.disabled = false;
     }
 
     for(var i=1;i<prov.length;i++) {
         if (prov.options[i].value == idRegione) {
-            prov.options[i].removeAttribute("style", "display");
+            prov.options[i].style.display = "inline";
         } else {
             prov.options[i].style.display = "none";
         }
