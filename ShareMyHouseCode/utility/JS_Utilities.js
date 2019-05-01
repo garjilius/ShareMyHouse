@@ -32,7 +32,7 @@ function updateDatiUtente() {
     addr = document.getElementById("addressUser").value;
     //console.log(mail+tel+addr)
     query = "UPDATE InfoUtente SET mail ='"+mail+"', telefono ='"+tel+"', Indirizzo ='"+addr+ "' WHERE CF ='"+ cf+"'";
-    console.log(query);
+    //console.log(query);
     ajaxConnect(query);
 }
 
@@ -64,7 +64,6 @@ function getDatiUtente(cf) {
 
 function filtroRegioni(){
 
-    console.log("Chiamata la funzione filtroregioni");
     var idRegione = document.getElementById("immRegione").value;
     var prov = document.getElementById("immProvincia");
 
@@ -83,7 +82,6 @@ function filtroRegioni(){
             //Svuoto prima la combobox
             svuotaComboBox(prov);
 
-            console.log(httpReq.responseText);
             //Prendo le nuove province relative alla regione e popolo la combobox
             risultato = JSON.parse(httpReq.responseText);
 
@@ -99,7 +97,6 @@ function filtroRegioni(){
     }
 
     query = "Select * from province where id_regione = "+idRegione;
-    console.log(query);
     httpReq.open("POST", '/utility/getProvinceJSON.php?<?php echo date(\'l jS \\of F Y h:i:s A\'); ?>', true);
     httpReq.send(query);
 }
@@ -116,7 +113,6 @@ let posti = document.getElementById("immPosti").value;
 
 let accDisabili = document.getElementById("immDisabili").checked;
 
-console.log("posti: " + posti);
 
 if(accDisabili)
     accDisabili = 1;
@@ -152,12 +148,12 @@ httpReq.onreadystatechange = function () {
        risultato = JSON.parse(httpReq.responseText);
        let latitudine = risultato.results[0].geometry.location.lat;
        let longitudine = risultato.results[0].geometry.location.lng;
-       console.log(latitudine+","+longitudine);
+       //console.log(latitudine+","+longitudine);
         //Preparo i valori per la query
        let values = "('"+alias+"', '"+localStorage.codiceFiscale+"', '"+disponibilita+"', '"+posti+"', '"+regione+"', '"+provincia+"', '"+citta+"', '"+indirizzo+"', '"+accDisabili+"', '"+latitudine+"', "+longitudine+" )";
 
        query = "INSERT INTO Abitazioni (NomeAbitazione, Proprietario,scadenzaDisponibilita,postiTotali, Regione, Provincia, Citta, Indirizzo, AccessoDisabili, Latitudine, Longitudine) VALUES "+values;
-       console.log(query);
+       //console.log(query);
        ajaxConnect(query); //Eseguo la query
 
        setTimeout(function (){ //aspetto un po' e poi torno alla pagina dei miei immobili
@@ -200,7 +196,7 @@ function aggiornaImmobile(id) {
     }
 
      query = "UPDATE Abitazioni SET NomeAbitazione = '"+alias+"', AccessoDisabili = "+accDisabili+", scadenzaDisponibilita = '"+disponibilita+"' WHERE IDAbitazione = "+id; //Aggiungere data disponibilita
-     console.log(query);
+     //console.log(query);
      ajaxConnect(query); //Eseguo la query
 
      setTimeout(function (){ //aspetto un po' e poi torno alla pagina dei miei immobili
