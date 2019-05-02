@@ -18,6 +18,7 @@
         <link href="/images/SHARE_MY_HOUSE_167x167.png" rel="apple-touch-icon" sizes="167x167" />
         <link href="/images/SHARE_MY_HOUSE_180x180.png" rel="apple-touch-icon" sizes="180x180" />
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <script type="text/javascript" src="/utility/JS_Utilities.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
 
         <script type="text/javascript">
 
@@ -211,7 +212,6 @@
                     return;
 
                 }
-                console.log("cognome dopo else if ",cognome);
                 var httpReq = new XMLHttpRequest();
                 httpReq.onreadystatechange = function () {
 
@@ -222,6 +222,10 @@
                         console.log(httpReq.responseText+"");
 
                         switch (response) {
+
+                            case 0:
+                                window.location = "index.php"; //pagina utente
+                                break;
                             case 1:
                                 alert("Riceverai una mail per completare la procedura di registrazione.");
                                 $('#primoAccesso').modal('hide');
@@ -401,38 +405,29 @@
                                 <label>Regione - Provincia</label>
                                 <div class="row">
                                     <div class="col-xs-8 col-sm-8 col-lg-8">
-                                        <select id="regione" name="regione" class="form-control">
+                                        <select id="regione" name="regione" onchange="filtroRegioni()" class="form-control">
+
                                             <?php
                                             require_once './utility/databaseconnection.php';
 
-                                            $query = "SELECT nome FROM Regione";
+                                            $query = "SELECT * FROM Regione";
                                             $result = mysqli_query($db,$query);
                                             $numRighe = mysqli_num_rows($result);
 
-                                            echo '<option value="default">--------------------</option>';
+                                            echo '<option value="0">--------------------</option>';
                                             for ($i = 0; $i < $numRighe; $i++) {
                                                 $regioni = mysqli_fetch_row($result);
-                                                $tmp = $regioni[0];
-                                                echo '<option value="' . $tmp . '">' . $tmp . '</option>';
+                                                $tmp = $regioni[1];
+                                                $num = $regioni[0];
+                                                echo '<option value="' . $num . '">' . $tmp . '</option>';
                                             }
                                             ?>
                                         </select>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-lg-4">
 
-                                        <select id="provincia" name="provincia" class="form-control">
-                                            <?php
-                                            $query = "SELECT sigla FROM province";
-                                            $result = mysqli_query($db,$query);
-                                            $numRighe = mysqli_num_rows($result);
+                                        <select id="provincia" disabled name="provincia" class="form-control">
 
-                                            echo '<option value="default">--------------------</option>';
-                                            for ($i = 0; $i < $numRighe; $i++) {
-                                                $province = mysqli_fetch_row($result);
-                                                $tmp = $province[0];
-                                                echo '<option value="' . $tmp . '">' . $tmp . '</option>';
-                                            }
-                                            ?>
                                         </select>
                                     </div>
                                 </div>

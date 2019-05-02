@@ -64,11 +64,21 @@ function getDatiUtente(cf) {
 
 function filtroRegioni(){
 
-    var idRegione = document.getElementById("immRegione").value;
-    var prov = document.getElementById("immProvincia");
+    if(this.document.getElementById("immRegione")) {
+        //caso in aggiungi immobile
+        var idRegione = document.getElementById("immRegione").value;
+        var prov = document.getElementById("immProvincia");
+    }else if (this.document.getElementById("regione")){
+        //caso registrazione
+        var idRegione = document.getElementById("regione").value;
+        var prov = document.getElementById("provincia");
+    }
 
     //Abilito le province solo se è stata selezionata una regione
     prov.value = 0;
+
+    console.log("id regioen "+ idRegione);
+
     if (idRegione == 0){
         prov.disabled = true;
     }
