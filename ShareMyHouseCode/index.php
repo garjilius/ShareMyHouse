@@ -211,13 +211,15 @@
                     return;
 
                 }
-
+                console.log("cognome dopo else if ",cognome);
                 var httpReq = new XMLHttpRequest();
                 httpReq.onreadystatechange = function () {
 
                     if (httpReq.readyState == 4 && httpReq.status == 200) {
 
                         var response = parseInt(httpReq.responseText);
+                        console.log(parseInt(httpReq.responseText)+"");
+                        console.log(httpReq.responseText+"");
 
                         switch (response) {
                             case 1:
@@ -225,6 +227,7 @@
                                 $('#primoAccesso').modal('hide');
                                 break;
                             case - 1:
+                                console.log(parseInt(httpReq.responseText)+"la risposta");
                                 document.getElementById("alertErroreDialog").innerHTML = "Il <strong>codice fiscale</strong> inserito risulta già registrato.";
                                 document.getElementById("alertErroreDialog").hidden = false;
                                 break;
@@ -245,14 +248,9 @@
                     }
                 };
 
-
-
-                httpReq.open("POST", "operazioniUtente.php", true);
+                httpReq.open("POST", "utility/registrazione.php", true);
                 httpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                httpReq.send("nome=" + nome + "&cognome=" + cognome +
-                    "&dataNascita=" + dataNascita + "&cf=" + cfNuovoUtente +
-                    "&mail=" + mailNuovoUtente + "&password=" + pass1 + "&via=" + via +
-                    "&citta=" + citta + "&provincia=" + provincia + "&regione=" + regione + "&cap=" + cap);
+                httpReq.send("nome=" + nome + "&cognome=" + cognome + "&dataNascita=" + dataNascita + "&cf=" + cfNuovoUtente + "&mail=" + mailNuovoUtente + "&password=" + pass1 + "&via=" + via + "&citta=" + citta + "&provincia=" + provincia + "&regione=" + regione + "&cap=" + cap);
 
             }
 
@@ -357,7 +355,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" onclick="inviaMail()" class="btn btn-default">Invia</button>
+                        <button type="button" onclick="nuovoUtente()" class="btn btn-default">Invia</button>
                     </div>
                 </div>
             </div>
