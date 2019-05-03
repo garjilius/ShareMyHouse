@@ -246,3 +246,5 @@ function ajaxConnect(query) {
     xhr.open("POST", "/utility/dbquery.php", true);
     xhr.send(query);
 }
+
+

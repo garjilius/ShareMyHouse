@@ -20,7 +20,8 @@
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <script type="text/javascript" src="/utility/JS_Utilities.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
         <script type="text/javascript" src="/utility/getDistance.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
-        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+       <!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript" src="/utility/apikey.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
         <script type="text/javascript">
 
@@ -217,8 +218,6 @@
 
                 }
 
-                ////prova latitudine e longitudine
-
                 indirizzoEncoded = via+", "+citta+", +IT";
                 indirizzoEncoded = indirizzoEncoded.replace(" ", "+");
                 console.log("indirizzo encoded "+indirizzoEncoded);
@@ -233,47 +232,56 @@
                         console.log("res"+response);
                         console.log("ris"+risultato);
 
-                        //NON FUNZIONA RESULTS[0]
-                        //var latitudine = risultato.results[0].geometry.location.lat;
-                       // var longitudine = risultato.results[0].geometry.location.lng;
+                        var latitudine = risultato.results[0].geometry.location.lat;
+                        var longitudine = risultato.results[0].geometry.location.lng;
 
 
-                        switch (response) {
+                        console.log(latitudine+","+longitudine);
+                        // Ottenute latitudine e longitudine, posso passare a completare la registrazione
 
-                            case 0:
-                                window.location = "index.php"; //pagina utente
-                                break;
-                            case 1:
-                                alert("Riceverai una mail per completare la procedura di registrazione.");
-                                $('#primoAccesso').modal('hide');
-                                break;
-                            case - 1:
-                                console.log(parseInt(httpReq.responseText)+"la risposta");
-                                document.getElementById("alertErroreDialog").innerHTML = "Il <strong>codice fiscale</strong> inserito risulta già registrato.";
-                                document.getElementById("alertErroreDialog").hidden = false;
-                                break;
-                            case - 2:
-                                document.getElementById("alertErroreDialog").innerHTML = "<strong>L'indirizzo email</strong> inserito è già associato ad un account.";
-                                document.getElementById("alertErroreDialog").hidden = false;
-                                break;
-                            case - 3:
-                                document.getElementById("alertErroreDialog").innerHTML = "Errore nell'invio della mail di conferma.";
-                                document.getElementById("alertErroreDialog").hidden = false;
-                                break;
-                            case - 4:
-                                document.getElementById("alertErroreDialog").innerHTML = "Errore generico";
-                                document.getElementById("alertErroreDialog").hidden = false;
-                                break;
+                        var httpReq2 = new XMLHttpRequest();
+                        httpReq2.onreadystatechange = function () {
+                            var response = parseInt(httpReq2.responseText);
 
-                        }
+                            if (httpReq2.readyState === 4 && httpReq2.status === 200) {
 
+                                switch (response) {
+                                    case 0:
+                                        window.location = "index.php"; //pagina utente
+                                        break;
+                                    case - 1:
+                                        console.log(parseInt(httpReq.responseText)+"la risposta");
+                                        document.getElementById("alertErroreDialog").innerHTML = "Il <strong>codice fiscale</strong> inserito risulta già registrato.";
+                                        document.getElementById("alertErroreDialog").hidden = false;
+                                        break;
+                                    case - 2:
+                                        document.getElementById("alertErroreDialog").innerHTML = "<strong>L'indirizzo email</strong> inserito è già associato ad un account.";
+                                        document.getElementById("alertErroreDialog").hidden = false;
+                                        break;
+                                    case - 3:
+                                        document.getElementById("alertErroreDialog").innerHTML = "Errore nell'invio della mail di conferma.";
+                                        document.getElementById("alertErroreDialog").hidden = false;
+                                        break;
+                                    case - 4:
+                                        document.getElementById("alertErroreDialog").innerHTML = "Errore generico";
+                                        document.getElementById("alertErroreDialog").hidden = false;
+                                        break;
+
+                                }
+                            }
+                        };
+
+                        httpReq2.open("POST", "utility/registrazione.php", true);
+                        httpReq2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                        httpReq2.send("nome=" + nome + "&cognome=" + cognome + "&dataNascita=" + dataNascita + "&cf=" + cfNuovoUtente + "&mail=" + mailNuovoUtente + "&password=" + pass1 + "&via=" + via + "&citta=" + citta + "&provincia=" + provincia + "&regione=" + regione + "&telefono=" + telefono + "&latitudine=" + latitudine + "&longitudine=" + longitudine);
 
                     }
                 };
 
-                httpReq.open("POST", "utility/registrazione.php", true);
-                httpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                httpReq.send("nome=" + nome + "&cognome=" + cognome + "&dataNascita=" + dataNascita + "&cf=" + cfNuovoUtente + "&mail=" + mailNuovoUtente + "&password=" + pass1 + "&via=" + via + "&citta=" + citta + "&provincia=" + provincia + "&regione=" + regione + "&telefono=" + telefono);
+                url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+indirizzoEncoded+'&key='+mapsAPIKey;
+                httpReq.open("POST", url, true);
+                httpReq.send();
+
 
             }
 
