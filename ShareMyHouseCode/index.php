@@ -20,6 +20,8 @@
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <script type="text/javascript" src="/utility/JS_Utilities.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
         <script type="text/javascript" src="/utility/getDistance.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript" src="/utility/apikey.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
         <script type="text/javascript">
 
 
@@ -214,14 +216,27 @@
                     return;
 
                 }
+
+                ////prova latitudine e longitudine
+
+                indirizzoEncoded = via+", "+citta+", +IT";
+                indirizzoEncoded = indirizzoEncoded.replace(" ", "+");
+                console.log("indirizzo encoded "+indirizzoEncoded);
+
                 var httpReq = new XMLHttpRequest();
                 httpReq.onreadystatechange = function () {
 
-                    if (httpReq.readyState == 4 && httpReq.status == 200) {
+                    if (httpReq.readyState === 4 && httpReq.status === 200) {
 
                         var response = parseInt(httpReq.responseText);
-                        console.log(parseInt(httpReq.responseText)+"");
-                        console.log(httpReq.responseText+"");
+                        risultato = JSON.parse(httpReq.responseText);
+                        console.log("res"+response);
+                        console.log("ris"+risultato);
+
+                        //NON FUNZIONA RESULTS[0]
+                        //var latitudine = risultato.results[0].geometry.location.lat;
+                       // var longitudine = risultato.results[0].geometry.location.lng;
+
 
                         switch (response) {
 
@@ -251,6 +266,8 @@
                                 break;
 
                         }
+
+
                     }
                 };
 

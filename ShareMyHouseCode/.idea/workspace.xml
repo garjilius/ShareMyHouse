@@ -35,17 +35,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="263" column="88" selection-start-line="263" selection-start-column="88" selection-end-line="263" selection-end-column="88" />
+            <state relative-caret-position="130">
+              <caret line="223" column="67" selection-start-line="223" selection-start-column="67" selection-end-line="223" selection-end-column="67" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/getDistance.js">
+        <entry file="file://$PROJECT_DIR$/utility/JS_Utilities.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="170">
+              <caret line="157" column="29" selection-start-line="157" selection-start-column="24" selection-end-line="157" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -71,8 +71,11 @@
       <find>log</find>
       <find>login</find>
       <find>filtro</find>
-      <find>nuovo</find>
       <find>nuovoUte</find>
+      <find>indirizzo</find>
+      <find>indirizzoEncoded</find>
+      <find>nuovo</find>
+      <find>risultato</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -110,8 +113,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="44" />
-    <option name="y" value="293" />
+    <option name="x" value="478" />
+    <option name="y" value="33" />
     <option name="width" value="1315" />
     <option name="height" value="788" />
   </component>
@@ -157,13 +160,14 @@
     <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Francesca\Desktop\ShareMyHouse\ShareMyHouseCode\utility" />
+      <recent name="$PROJECT_DIR$/utility" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/utility" />
       <recent name="$PROJECT_DIR$/images" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/utility" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -211,17 +215,17 @@
       <workItem from="1556786484919" duration="546000" />
       <workItem from="1556787085695" duration="10080000" />
       <workItem from="1556805502913" duration="3053000" />
-      <workItem from="1556868028457" duration="2596000" />
+      <workItem from="1556868028457" duration="5194000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103805000" />
+    <option name="totallyTimeSpent" value="106403000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22314675" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22314675" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -273,7 +277,6 @@
     <entry file="file://$USER_HOME$/CittadinAPP/operazioniUtente.php" />
     <entry file="file://$PROJECT_DIR$/utility/getDatiUtente.php" />
     <entry file="file://$PROJECT_DIR$/utility/getImmobili.php" />
-    <entry file="file://$PROJECT_DIR$/utility/apikey.js" />
     <entry file="file://$USER_HOME$/CittadinAPP/formSegnalazioneUtente.php" />
     <entry file="file://$PROJECT_DIR$/utility/checklogin.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -352,27 +355,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/getProvinceJSON.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addImmobile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="22" selection-start-line="19" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/JS_Utilities.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="71" column="28" selection-start-line="71" selection-start-column="28" selection-end-line="71" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utility/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -387,13 +369,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/riepilogo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="77" column="10" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utility/getDistance.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
@@ -401,10 +376,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utility/apikey.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/getProvinceJSON.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/riepilogo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="77" column="10" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addImmobile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-302">
+          <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/JS_Utilities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="157" column="29" selection-start-line="157" selection-start-column="24" selection-end-line="157" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="263" column="88" selection-start-line="263" selection-start-column="88" selection-end-line="263" selection-end-column="88" />
+        <state relative-caret-position="130">
+          <caret line="223" column="67" selection-start-line="223" selection-start-column="67" selection-end-line="223" selection-end-column="67" />
         </state>
       </provider>
     </entry>
