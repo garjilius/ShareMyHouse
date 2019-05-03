@@ -19,8 +19,10 @@
         <link href="/images/SHARE_MY_HOUSE_180x180.png" rel="apple-touch-icon" sizes="180x180" />
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <script type="text/javascript" src="/utility/JS_Utilities.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
-
+        <script type="text/javascript" src="/utility/getDistance.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
         <script type="text/javascript">
+
+
 
             if (localStorage.getItem("cittadinApp")) {
                 window.location = "formSegnalazioneUtente.php";
@@ -459,7 +461,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" onclick="nuovoUtente()" class="btn btn-default">Invia</button>
+                        <button id="bottoneInvio" type="button" onclick="nuovoUtente()" class="btn btn-default">Invia</button>
                     </div>
                 </div>
             </div>
