@@ -143,7 +143,7 @@
                 var citta = document.getElementById("citta").value;
                 var provincia = document.getElementById("provincia").value;
                 var regione = document.getElementById("regione").value;
-                var cap = document.getElementById("cap").value;
+                var telefono = document.getElementById("telefono").value;
 
                 // CONTROLLO INSERIMENTO VALORI
                 if (cfNuovoUtente.length == 0 || cfNuovoUtente.length != 16) {
@@ -181,8 +181,8 @@
                     document.getElementById("alertErroreDialog").hidden = false;
                     return;
 
-                } else if (cap.length == 0 || cap.length != 5) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Controllare il <strong>CAP</strong>.";
+                } else if (telefono.length == 0 || telefono.length != 10) {
+                    document.getElementById("alertErroreDialog").innerHTML = "Controllare il <strong>numero di telefono inserito</strong>.";
                     document.getElementById("alertErroreDialog").hidden = false;
                     return;
 
@@ -254,7 +254,7 @@
 
                 httpReq.open("POST", "utility/registrazione.php", true);
                 httpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                httpReq.send("nome=" + nome + "&cognome=" + cognome + "&dataNascita=" + dataNascita + "&cf=" + cfNuovoUtente + "&mail=" + mailNuovoUtente + "&password=" + pass1 + "&via=" + via + "&citta=" + citta + "&provincia=" + provincia + "&regione=" + regione + "&cap=" + cap);
+                httpReq.send("nome=" + nome + "&cognome=" + cognome + "&dataNascita=" + dataNascita + "&cf=" + cfNuovoUtente + "&mail=" + mailNuovoUtente + "&password=" + pass1 + "&via=" + via + "&citta=" + citta + "&provincia=" + provincia + "&regione=" + regione + "&telefono=" + telefono);
 
             }
 
@@ -434,8 +434,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="cap">CAP</label>
-                                <input type="number" class="form-control" id="cap" maxlength="5">
+                                <label for="telegono">Telefono</label>
+                                <input type="number" class="form-control" id="telefono" maxlength="10">
 
                             </div>
 
