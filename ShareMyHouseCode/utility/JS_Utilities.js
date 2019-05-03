@@ -77,8 +77,6 @@ function filtroRegioni(){
     //Abilito le province solo se è stata selezionata una regione
     prov.value = 0;
 
-    console.log("id regioen "+ idRegione);
-
     if (idRegione == 0){
         prov.disabled = true;
     }

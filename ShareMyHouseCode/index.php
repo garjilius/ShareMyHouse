@@ -146,9 +146,12 @@
                 var pass2 = document.getElementById("pass2").value;
                 var via = document.getElementById("via").value;
                 var citta = document.getElementById("citta").value;
-                var provincia = document.getElementById("provincia").value;
-                var regione = document.getElementById("regione").value;
+                var provincia = document.getElementById("provincia").selectedOptions[0].text;
+                var regione = document.getElementById("regione").selectedOptions[0].text;
                 var telefono = document.getElementById("telefono").value;
+
+                console.log("regione "+regione);
+                console.log("provincia "+provincia);
 
                 // CONTROLLO INSERIMENTO VALORI
                 if (cfNuovoUtente.length == 0 || cfNuovoUtente.length != 16) {
