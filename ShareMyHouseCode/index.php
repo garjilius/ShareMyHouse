@@ -133,160 +133,7 @@
                 httpReq.send("emailRecupero=" + mail);
             }
 
-            function nuovoUtente() {
 
-                document.getElementById("alertErroreDialog").hidden = true;
-
-                var nome = document.getElementById("nome").value;
-                var cognome = document.getElementById("cognome").value;
-                var dataNascita = document.getElementById("dataNascita").value;
-                var cfNuovoUtente = document.getElementById("cfNuovo").value;
-                var mailNuovoUtente = document.getElementById("mailNuovo").value;
-                var pass1 = document.getElementById("pass1").value;
-                var pass2 = document.getElementById("pass2").value;
-                var via = document.getElementById("via").value;
-                var citta = document.getElementById("citta").value;
-                var provincia = document.getElementById("provincia").selectedOptions[0].text;
-                var regione = document.getElementById("regione").selectedOptions[0].text;
-                var telefono = document.getElementById("telefono").value;
-
-                console.log("regione "+regione);
-                console.log("provincia "+provincia);
-
-                // CONTROLLO INSERIMENTO VALORI
-                if (cfNuovoUtente.length == 0 || cfNuovoUtente.length != 16) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Controllare il <strong>codice fiscale</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (nome.length == 0) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Inserire un <strong>nome</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (cognome.length == 0) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Inserire un <strong>cognome</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (dataNascita.length == 0) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Inserire una <strong>data di nascita</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (via.length == 0) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Inserire un <strong>indirizzo</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (citta.length == 0) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Inserire una <strong>città</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (regione == 'default' || provincia == 'default') {
-                    document.getElementById("alertErroreDialog").innerHTML = "Inserire una <strong>regione</strong> o una <strong>provincia</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (telefono.length == 0 || telefono.length != 10) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Controllare il <strong>numero di telefono inserito</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (mailNuovoUtente.length == 0) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Inserire un <strong>indirizzo mail</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (!validazione_email(mailNuovoUtente)) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Indirizzo mail <strong>non valido</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (pass1.length == 0 || pass2.length == 0) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Verificare i campi <strong>password</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (pass1 !== pass2) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Le due password <strong>non corrispondono</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                } else if (!validazione_data(dataNascita)) {
-                    document.getElementById("alertErroreDialog").innerHTML = "Formato data <strong>non valido</strong>.";
-                    document.getElementById("alertErroreDialog").hidden = false;
-                    return;
-
-                }
-
-                indirizzoEncoded = via+", "+citta+", +IT";
-                indirizzoEncoded = indirizzoEncoded.replace(" ", "+");
-                console.log("indirizzo encoded "+indirizzoEncoded);
-
-                var httpReq = new XMLHttpRequest();
-                httpReq.onreadystatechange = function () {
-
-                    if (httpReq.readyState === 4 && httpReq.status === 200) {
-
-                        var response = parseInt(httpReq.responseText);
-                        risultato = JSON.parse(httpReq.responseText);
-                        console.log("res"+response);
-                        console.log("ris"+risultato);
-
-                        var latitudine = risultato.results[0].geometry.location.lat;
-                        var longitudine = risultato.results[0].geometry.location.lng;
-
-
-                        console.log(latitudine+","+longitudine);
-                        // Ottenute latitudine e longitudine, posso passare a completare la registrazione
-
-                        var httpReq2 = new XMLHttpRequest();
-                        httpReq2.onreadystatechange = function () {
-                            var response = parseInt(httpReq2.responseText);
-
-                            if (httpReq2.readyState === 4 && httpReq2.status === 200) {
-
-                                switch (response) {
-                                    case 0:
-                                        window.location = "index.php"; //pagina utente
-                                        break;
-                                    case - 1:
-                                        console.log(parseInt(httpReq.responseText)+"la risposta");
-                                        document.getElementById("alertErroreDialog").innerHTML = "Il <strong>codice fiscale</strong> inserito risulta già registrato.";
-                                        document.getElementById("alertErroreDialog").hidden = false;
-                                        break;
-                                    case - 2:
-                                        document.getElementById("alertErroreDialog").innerHTML = "<strong>L'indirizzo email</strong> inserito è già associato ad un account.";
-                                        document.getElementById("alertErroreDialog").hidden = false;
-                                        break;
-                                    case - 3:
-                                        document.getElementById("alertErroreDialog").innerHTML = "Errore nell'invio della mail di conferma.";
-                                        document.getElementById("alertErroreDialog").hidden = false;
-                                        break;
-                                    case - 4:
-                                        document.getElementById("alertErroreDialog").innerHTML = "Errore generico";
-                                        document.getElementById("alertErroreDialog").hidden = false;
-                                        break;
-
-                                }
-                            }
-                        };
-
-                        httpReq2.open("POST", "utility/registrazione.php", true);
-                        httpReq2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                        httpReq2.send("nome=" + nome + "&cognome=" + cognome + "&dataNascita=" + dataNascita + "&cf=" + cfNuovoUtente + "&mail=" + mailNuovoUtente + "&password=" + pass1 + "&via=" + via + "&citta=" + citta + "&provincia=" + provincia + "&regione=" + regione + "&telefono=" + telefono + "&latitudine=" + latitudine + "&longitudine=" + longitudine);
-
-                    }
-                };
-
-                url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+indirizzoEncoded+'&key='+mapsAPIKey;
-                httpReq.open("POST", url, true);
-                httpReq.send();
-
-
-            }
 
             function validazione_email(email) {
                 var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -389,7 +236,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" onclick="nuovoUtente()" class="btn btn-default">Invia</button>
+                        <button type="button" onclick="nuovoUtente(0)" class="btn btn-default">Invia</button>
                     </div>
                 </div>
             </div>
@@ -489,7 +336,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button id="bottoneInvio" type="button" onclick="nuovoUtente()" class="btn btn-default">Invia</button>
+                        <button id="bottoneInvio" type="button" onclick="nuovoUtente(0)" class="btn btn-default">Invia</button>
                     </div>
                 </div>
             </div>

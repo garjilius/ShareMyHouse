@@ -1,7 +1,7 @@
 <?php
 require_once './databaseconnection.php';
 
-if (isset($_POST['nome']) && isset($_POST['cognome']) && isset($_POST['dataNascita']) && isset($_POST['cf']) && isset($_POST['mail']) && isset($_POST['password']) && isset($_POST['via']) && isset($_POST['citta']) && isset($_POST['provincia']) && isset($_POST['regione']) && isset($_POST['telefono'])&& isset($_POST['latitudine']) && isset($_POST['longitudine'])) {
+if (isset($_POST['nome']) && isset($_POST['cognome']) && isset($_POST['dataNascita']) && isset($_POST['cf']) && isset($_POST['mail']) && isset($_POST['password']) && isset($_POST['via']) && isset($_POST['citta']) && isset($_POST['provincia']) && isset($_POST['regione']) && isset($_POST['telefono'])&& isset($_POST['latitudine']) && isset($_POST['longitudine'])&& isset($_POST['tipoUtente'])) {
 
 
     $nome = $_POST['nome'];
@@ -17,6 +17,7 @@ if (isset($_POST['nome']) && isset($_POST['cognome']) && isset($_POST['dataNasci
     $telefono = $_POST['telefono'];
     $latitudine = $_POST['latitudine'];
     $longitudine = $_POST['longitudine'];
+    $tipoUtente = $_POST['tipoUtente'];
 
     // Controllo presenza codice fiscale
     $queryCheckCF = "SELECT * FROM Utente WHERE CF = '".$cf."'";
@@ -41,7 +42,8 @@ if (isset($_POST['nome']) && isset($_POST['cognome']) && isset($_POST['dataNasci
                             VALUES ('".$cf."', '".$regione."', '".$provincia."','".$citta."','".$via."', '0','".$dataNascita."', '".$mail."', '".$telefono."' , '".$latitudine."', '".$longitudine."')";
 
 
-    $query1 = "INSERT INTO `Utente`(`CF`, `Nome`, `Cognome`, `password`, `tipoutente`) VALUES ('".$cf."', '".$nome."', '".$cognome."', '".$password."', '0')";
+    $query1 = "INSERT INTO `Utente`(`CF`, `Nome`, `Cognome`, `password`, `tipoutente`) VALUES ('".$cf."', '".$nome."', '".$cognome."', '".$password."', '".$tipoUtente."')";
+    //echo $query1;
 
     $error = 0;
 
