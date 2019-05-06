@@ -88,12 +88,12 @@
                 <thead class="thead-dark">
                     <tr>
                         <th style="width: 5.0%"  onclick = orderBy("id") id="thId">ID   </th>
-                        <th style="width: 30.0%" onclick = orderBy("luogo") id = "thIndirizzo">Indirizzo</th>
-                        <th style="width: 30.0%" onclick = orderBy("descrizione") id="thDescrizione">Descrizione</th>
-                        <th style="width: 7.0%" onclick = orderBy("attendibilita") id="thAttendibilita">Attendibilit&aacute</th>
-                        <th style="width: 5.0%" onclick = orderBy("stato") id="thStato">Stato</th>
-                        <th style="width: 13.0%" onclick = orderBy("cfOperatore") id="thOperatore">Operatore</th>
-                        <th style="width: 10.0%" onclick = orderBy("dataChiusura") id="thChiusura">Chiusura</th>
+                        <th style="width: 30.0%" onclick = orderBy("luogo") id = "thRegione">Regione</th>
+                        <th style="width: 30.0%" onclick = orderBy("descrizione") id="thProvincia">Provincia</th>
+                        <th style="width: 7.0%" onclick = orderBy("attendibilita") id="thCitta">Citt&agrave</th>
+                        <th style="width: 5.0%" onclick = orderBy("stato") id="thIndirizzo">Indirizzo</th>
+                        <th style="width: 13.0%" onclick = orderBy("cfOperatore") id="thPosti">Posti</th>
+                        <th style="width: 10.0%" onclick = orderBy("dataChiusura") id="thNote">Note</th>
 
                     </tr>
                 </thead>
@@ -114,7 +114,7 @@
 
 </body>
 
-<SCRIPT>
+<!--<SCRIPT>
 
     function show(oggettoCliccato) { //QUESTA FUNZIONE MOSTRA SOLO ALCUNE DELLE SEGNALAZIONI
         stato = oggettoCliccato.getAttribute("daMostrare");
@@ -311,5 +311,94 @@
 
 
 
+</SCRIPT>-->
+
+<SCRIPT>
+    query = "SELECT * From Abitazioni";
+
+    function getImmobili(query) {
+        var httpReq = new XMLHttpRequest();
+        httpReq.onreadystatechange = function () {
+
+            if (httpReq.readyState === 4 && httpReq.status === 200) {
+                immobili = JSON.parse(httpReq.responseText);
+
+
+                //Genera gli accordion per gli immobili
+                for(i=0; i<immobili.length;i++) {
+                    idImmobile = immobili[i].id;
+                    regione = immobili[i].regione;
+                    provincia = immobili[i].provincia;
+                    citta = immobili[i].citta;
+                    indirizzo = immobili[i].indirizzo;
+                    postiTotali = immobili[i].postiTotali;
+                    postiOccupati = immobili[i].postiOccupati;
+
+                    acc = document.getElementById("tavolaSegnalazioni");
+                    acc.innerHTML = acc.innerHTML +
+                        "<tr>"+
+                        "<td>"+ idImmobile +"</td>"+
+                        "<td>"+ regione +"</td>"+
+                        "<td>"+ provincia +"</td>"+
+                        "<td>"+ citta +"</td>"+
+                        "<td>"+ indirizzo +"</td>"+
+                        "<td>"+ postiOccupati + "/" + postiTotali +"</td>"+
+                        "<td>"+ "" +"</td>"+
+                        "</tr>";
+                }
+                //popolaCampi();
+            }
+        }
+
+        httpReq.open("POST", "/utility/getImmobiliJSON.php?v=2", true);
+        httpReq.setRequestHeader('Content-Type', 'application/json');
+        httpReq.send(query);
+
+
+    }
+
+    /*function popolaCampi() {
+        for (i = 0; i < immobili.length; i++) {
+            titolo = document.getElementById("titoloAccordion" + immobili[i].id);
+            titolo.innerText = immobili[i].nome;
+            panelbody = document.getElementById("panelBody"+immobili[i].id);
+            if(immobili[i].idonea ==1) {
+                idoneita = "Si";
+            }
+            else {
+                idoneita = "No";
+            }
+
+            panelbody.innerHTML= "<p>Posti Occupati: "+immobili[i].postiOccupati+"/"+immobili[i].postiTotali+"</p>" +
+                "<p>Resa disponibile fino al: "+immobili[i].disponibilita+"</p>" +
+                "<p>Idoneità Concessa: "+idoneita;
+
+            var btnMod = document.createElement("BUTTON");
+            btnMod.className = "btn btn-info";
+            btnMod.id = "buttonModifica"+immobili[i].id;
+            btnMod.innerText ="Modifica";
+            btnMod.style.margin = "5px";
+            btnMod.setAttribute("idAbitazione",immobili[i].id);
+            btnMod.onclick = function(){
+                localStorage.setItem("idAbitazione",this.getAttribute("idAbitazione"));
+                window.location.href='/editImmobile.php?'
+            };
+
+            panelbody.appendChild(btnMod);
+
+            var btnDel = document.createElement("BUTTON");
+            btnDel.className = "btn btn-danger";
+            btnDel.id = "buttonDelete"+immobili[i].id;
+            btnDel.setAttribute("idAbitazione",immobili[i].id);
+            btnDel.innerText ="Elimina";
+            btnDel.onclick = function(){
+                localStorage.setItem("idAbitazione",this.getAttribute("idAbitazione"));
+                eliminaImmobile(localStorage.getItem("idAbitazione"));
+            };
+            panelbody.appendChild(btnDel);
+        }
+    }*/
+
+    getImmobili(query);
 </SCRIPT>
 </html>
