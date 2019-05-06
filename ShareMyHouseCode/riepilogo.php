@@ -350,9 +350,9 @@
         httpReq.open("POST", "/utility/getImmobiliJSON.php?v=2", true);
         httpReq.setRequestHeader('Content-Type', 'application/json');
         httpReq.send(query);
-
     }
 
     getImmobili(query);
+
 </SCRIPT>
 </html>
