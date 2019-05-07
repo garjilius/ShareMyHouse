@@ -111,7 +111,8 @@
             </div>
         </div>
     </div>
-    <button id="buttonAccetta" type="button" onclick="salvaImmobile()" class="btn btn-primary">Fine</button>
+    <button id="buttonAccetta" type="button" class="btn btn-danger" onclick="window.location.href='mieimmobili.php'">Annulla</button>
+    <button id="buttonAccetta" type="button" onclick="salvaImmobile()" class="btn btn-success">Aggiungi e torna alla lista</button>
 
 </div>
 <BR><BR><BR>
