@@ -45,11 +45,8 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav bottoniStato">
-                        <li role="button" class ="bottoneStato" daMostrare = "tutte" onclick=show(this)><a href="#">Tutte</a></li>
-                        <li role="button" class ="bottoneStato active" daMostrare = "positive"onclick=show(this)><a href="#">Positive</a></li>
-                        <li role="button" class ="bottoneStato" daMostrare = "negative" onclick=show(this)><a href="#">Negative</a></li>
-                        <li role="button" class ="bottoneStato" daMostrare = "daVerificare" onclick=show(this)><a href="#">Da Verificare</a></li>
-                        <li role="button" class ="bottoneStato" daMostrare = "verificaRichiesta" onclick=show(this)><a href="#">Verifiche richieste</a></li>
+                        <li role="button" class ="bottoneStato active" daMostrare = "tutte" onclick=show(this)><a href="#">Immobili</a></li>
+                        <li role="button" class ="bottoneStato" daMostrare = "positive"onclick=show(this)><a href="#">Cittadini</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a onclick="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
@@ -88,11 +85,11 @@
                 <thead class="thead-dark">
                     <tr>
                         <th style="width: 5.0%"  onclick = orderBy("id") id="thId">ID   </th>
-                        <th style="width: 30.0%" onclick = orderBy("luogo") id = "thRegione">Regione</th>
-                        <th style="width: 30.0%" onclick = orderBy("descrizione") id="thProvincia">Provincia</th>
-                        <th style="width: 7.0%" onclick = orderBy("attendibilita") id="thCitta">Citt&agrave</th>
-                        <th style="width: 5.0%" onclick = orderBy("stato") id="thIndirizzo">Indirizzo</th>
-                        <th style="width: 13.0%" onclick = orderBy("cfOperatore") id="thPosti">Posti</th>
+                        <th style="width: 15.0%" onclick = orderBy("luogo") id = "thRegione">Regione</th>
+                        <th style="width: 5.0%" onclick = orderBy("descrizione") id="thProvincia">Provincia</th>
+                        <th style="width: 25.0%" onclick = orderBy("attendibilita") id="thCitta">Citt&agrave</th>
+                        <th style="width: 45.0%" onclick = orderBy("stato") id="thIndirizzo">Indirizzo</th>
+                        <th style="width: 5.0%" onclick = orderBy("cfOperatore") id="thPosti">Posti</th>
 
                     </tr>
                 </thead>
