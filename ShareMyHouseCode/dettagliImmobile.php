@@ -7,21 +7,20 @@
         <meta http-Equiv="Cache-Control" Content="no-cache">
         <meta http-Equiv="Pragma" Content="no-cache">
         <meta http-Equiv="Expires" Content="0">
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/CSS/extra.css?<?php echo date('l jS \of F Y h:i:s A'); ?>" />
         <link href="/images/SHARE_MY_HOUSE.png" rel="apple-touch-icon" />
         <link href="/images/SHARE_MY_HOUSE_180x180.png" rel="apple-touch-icon" sizes="152x152" />
         <link href="/images/SHARE_MY_HOUSE_167x167.png" rel="apple-touch-icon" sizes="167x167" />
         <link href="/images/SHARE_MY_HOUSE_180x180.png" rel="apple-touch-icon" sizes="180x180" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <script type="text/javascript" src="/utility/checklogin.js"></script>
         <script type="text/javascript" src="/utility/JS_Utilities.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript" src="/utility/apikey.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
 
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 
@@ -92,14 +91,53 @@
                 <div class="col-md-4"><BR>
                     <fieldset>
                         <legend>Pannello di Controllo</legend><BR><BR>
-                        <button id="buttonProprietario" type="button" onclick="" class="btn btn-info">Informazioni Proprietario</button><BR><BR>
-                        <button id="buttonOccupanti" type="button" onclick="" class="btn btn-warning">Gestisci Occupanti</button>
-
+                        <button id="buttonProprietario" type="button" onclick="mostraModaleProprietario(immobili[0].proprietario)" class="btn btn-info">Informazioni Proprietario</button><BR><BR>
+                        <button id="buttonOccupanti" type="button" onclick="window.location.href='gestisciOccupanti.php'" class="btn btn-warning">Gestisci Occupanti</button>
+                        <BR><BR><BR>
                     </fieldset>
 
                 </div>
             </div>
         </div></div>
+
+        <div class="modal fade" id="modaleUserInfo" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Informazioni Proprietario</h4>
+                    </div>
+                    <div class="modal-body" id="bodyModaleUserInfo">
+
+                        <h4 class="fa fa-user"> Nome </h4>
+                        <h6 id="modalNome">PLACEHOLDER</h6>
+
+                        <h4 class="fa fa-user"> Cognome </h4>
+                        <h6 id="modalCognome">PLACEHOLDER</h6>
+
+                        <h4 class="fa fa-id-card"> Codice Fiscale</h4>
+                         <h6 id="modalCF">PLACEHOLDER</h6>
+
+                        <h4 class="fa fa-calendar"> Data Di Nascita</h4>
+                        <h6 id="modalNascita">PlaceHolder</h6>
+
+                        <h4 class="fa fa-envelope-o"> Mail</h4>
+                        <h6 id="modalMail">PLACEHOLDER</h6>
+
+                        <h4 class="fa fa-phone"> Telefono</h4>
+                        <h6 id="modalTelefono">PLACEHOLDER</h6>
+
+                        <h4 class="fa fa-map-pin"> Indirizzo</h4>
+                        <h6 id="modalIndirizzo">PLACEHOLDER</h6>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 </body>
 
@@ -150,6 +188,43 @@
         httpReq.open("POST", "/utility/getImmobiliJSON.php?v=2", true);
         httpReq.setRequestHeader('Content-Type', 'application/json');
         httpReq.send(query);
+
+    }
+
+    function mostraModaleProprietario(cf) {
+        var httpReq = new XMLHttpRequest();
+
+        var modalNome = document.getElementById("modalNome");
+        var modalCognome = document.getElementById("modalCognome");
+        var modalNascita = document.getElementById("modalNascita");
+        var modalIndirizzo = document.getElementById("modalIndirizzo");
+        var modalMail = document.getElementById("modalMail");
+        var modalTelefono = document.getElementById("modalTelefono");
+        var modalCF = document.getElementById("modalCF");
+
+        httpReq.onreadystatechange = function () {
+            if (httpReq.readyState === 4 && httpReq.status === 200) {
+                if(httpReq.responseText!==false) {
+                    utenti = JSON.parse(httpReq.responseText);
+
+                    modalNome.innerHTML = utenti[0].nome;
+                    modalCognome.innerHTML = utenti[0].cognome;
+                    modalCF.innerHTML = utenti[0].cf;
+                    modalNascita.innerHTML =  utenti[0].dataNascita;
+                    modalIndirizzo.innerHTML =  utenti[0].indirizzo + " - " + utenti[0].citta;
+                    modalMail.innerHTML = utenti[0].mail;
+                    modalTelefono.innerHTML = utenti[0].telefono;
+
+
+                    $("#modaleUserInfo").modal("show");
+
+                }
+            }
+        }
+
+        httpReq.open("POST", "/utility/getDatiUtenteJSON.php?v=9o0o10o2", true);
+        httpReq.setRequestHeader('Content-Type', 'application/json');
+        httpReq.send(cf);
 
     }
 
