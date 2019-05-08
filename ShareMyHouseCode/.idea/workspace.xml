@@ -28,7 +28,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/riepilogo.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="352">
@@ -41,6 +41,15 @@
                 <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mieimmobili.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="358">
+              <caret line="152" selection-start-line="152" selection-end-line="152" />
             </state>
           </provider>
         </entry>
@@ -114,7 +123,6 @@
         <option value="$PROJECT_DIR$/profilo.php" />
         <option value="$PROJECT_DIR$/utility/getProvinceJSON.php" />
         <option value="$PROJECT_DIR$/editImmobile.php" />
-        <option value="$PROJECT_DIR$/mieimmobili.php" />
         <option value="$PROJECT_DIR$/utility/getDistance.js" />
         <option value="$PROJECT_DIR$/utility/temp.js" />
         <option value="$PROJECT_DIR$/index.php" />
@@ -122,6 +130,7 @@
         <option value="$PROJECT_DIR$/utility/JS_Utilities.js" />
         <option value="$PROJECT_DIR$/addImmobile.php" />
         <option value="$PROJECT_DIR$/riepilogo.php" />
+        <option value="$PROJECT_DIR$/mieimmobili.php" />
       </list>
     </option>
   </component>
@@ -241,12 +250,12 @@
       <workItem from="1557176152491" duration="151000" />
       <workItem from="1557224616625" duration="480000" />
       <workItem from="1557323152656" duration="10000" />
-      <workItem from="1557323187008" duration="530000" />
+      <workItem from="1557323187008" duration="705000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121423000" />
+    <option name="totallyTimeSpent" value="121598000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="830" extended-state="6" />
@@ -385,13 +394,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mieimmobili.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2325">
-          <caret line="155" column="19" selection-start-line="74" selection-start-column="3" selection-end-line="155" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2775">
@@ -446,6 +448,13 @@
             <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mieimmobili.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="152" selection-start-line="152" selection-end-line="152" />
         </state>
       </provider>
     </entry>
