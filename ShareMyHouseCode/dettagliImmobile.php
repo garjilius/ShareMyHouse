@@ -8,6 +8,9 @@
         <meta http-Equiv="Pragma" Content="no-cache">
         <meta http-Equiv="Expires" Content="0">
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/CSS/extra.css?<?php echo date('l jS \of F Y h:i:s A'); ?>" />
         <link href="/images/SHARE_MY_HOUSE.png" rel="apple-touch-icon" />
@@ -19,8 +22,6 @@
         <script type="text/javascript" src="/utility/JS_Utilities.js"></script>
         <script type="text/javascript" src="/utility/apikey.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 
@@ -92,7 +93,8 @@
                     <fieldset>
                         <legend>Pannello di Controllo</legend><BR><BR>
                         <button id="buttonProprietario" type="button" onclick="mostraModaleProprietario(immobili[0].proprietario)" class="btn btn-info">Informazioni Proprietario</button><BR><BR>
-                        <button id="buttonOccupanti" type="button" onclick="window.location.href='gestisciOccupanti.php'" class="btn btn-warning">Gestisci Occupanti</button>
+                        <button id="buttonOccupanti" type="button" onclick="window.location.href='gestisciOccupanti.php'" class="btn btn-warning">Gestisci Occupanti</button><BR>
+                        <h5>Idoneità concessa <input id="immIdoneo" onclick="gestisciIdoneita()" type="checkbox" value=""></h5><BR>
                         <BR><BR><BR>
                     </fieldset>
 
@@ -165,6 +167,15 @@
                 else {
                     document.getElementById("campoDisabili").innerText = "Accesso Disabili: NO";
                 }
+
+                if(immobili[0].idonea ==1) {
+                    document.getElementById("immIdoneo").checked = true;
+                }
+                else {
+                    document.getElementById("immIdoneo").checked = false;
+                }
+
+
                 //CREAZIONE MAPPA
                 var latitudine = parseFloat(immobili[0].latitudine);
                 var longitudine = parseFloat(immobili[0].longitudine);
@@ -226,6 +237,18 @@
         httpReq.setRequestHeader('Content-Type', 'application/json');
         httpReq.send(cf);
 
+    }
+
+    function gestisciIdoneita() {
+        id =  <?=$_GET['idImmobile']?>;
+        var checkIdoneo = document.getElementById("immIdoneo");
+        if (checkIdoneo.checked) {
+            query = "UPDATE Abitazioni SET Idonea =1 WHERE IDAbitazione = "+id;
+        }
+        else {
+            query = "UPDATE Abitazioni SET Idonea =0 WHERE IDAbitazione = "+id;
+        }
+        ajaxConnect(query);
     }
 
 
