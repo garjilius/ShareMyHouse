@@ -18,6 +18,9 @@
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <script type="text/javascript" src="/utility/checklogin.js"></script>
         <script type="text/javascript" src="/utility/JS_Utilities.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/utility/apikey.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
+
 
 
 
@@ -59,6 +62,7 @@
         <div class="container-fluid text-center">    
             <div class="container">
                 <h2>Dettagli Immobile<BR></h2>
+                <h3 id="titoloNome"></h3>
             </div>
         </div></div>
 
@@ -69,10 +73,10 @@
                 <div class="col-md-4"><BR>
                     <fieldset>
                         <legend>Informazioni</legend><BR><BR>
-                        <p id="campoIndirizzo">Paese finto - Indirizzo finto</p>
-                        <p id="campoDisponibilita">Disponibile fino al XX/XX/XXXX</p>
-                        <p id="campoPosti">Posti disponibili: X/N</p>
-                        <p id="campoDisabili">Accesso Disabili: SI</p>
+                        <h4 id="campoIndirizzo">Paese finto - Indirizzo finto </h4>
+                        <h4 id="campoDisponibilita">Disponibile fino al XX/XX/XXXX </h4>
+                        <h4 id="campoPosti">Posti disponibili: X/N </h4>
+                        <h4 id="campoDisabili">Accesso Disabili: SI </h4>
                     </fieldset>
 
                 </div>
@@ -98,6 +102,61 @@
         </div></div>
 
 </body>
+
+<script>
+
+    var immobili ="";
+
+    function caricaDati() {
+        id =  <?=$_GET['idImmobile']?>;
+        query = "Select * FROM Abitazioni WHERE IDAbitazione ="+id;
+        var httpReq = new XMLHttpRequest();
+        httpReq.onreadystatechange = function () {
+            if (httpReq.readyState === 4 && httpReq.status === 200) {
+                immobili = JSON.parse(httpReq.responseText);
+
+                document.getElementById("titoloNome").innerText = id+": "+immobili[0].nome;
+                document.getElementById("campoIndirizzo").innerText = immobili[0].indirizzo + " - "+immobili[0].citta + " ("+immobili[0].provincia+")";
+                document.getElementById("campoDisponibilita").innerText = "Disponibile fino al "+immobili[0].disponibilita;
+                document.getElementById("campoPosti").innerText = "Posti disponibili: "+ (immobili[0].postiTotali-immobili[0].postiOccupati)+ "/" +immobili[0].postiTotali;
+
+                accDis = immobili[0].accessoDisabili;
+                if(accDis ==1) {
+                    document.getElementById("campoDisabili").innerText = "Accesso Disabili: SI";
+                }
+                else {
+                    document.getElementById("campoDisabili").innerText = "Accesso Disabili: NO";
+                }
+                //CREAZIONE MAPPA
+                var latitudine = parseFloat(immobili[0].latitudine);
+                var longitudine = parseFloat(immobili[0].longitudine);
+                var coordinate = {lat: latitudine, lng: longitudine};
+                var mapProp = {
+                    center: coordinate,
+                    zoom: 17,
+                    tilt:0,
+                    mapTypeId: google.maps.MapTypeId.HYBRID
+                };
+                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                var marker = new google.maps.Marker({
+                    position: coordinate,
+                    title: immobili[0].nome,
+                    map: map
+                });
+                marker.setMap(map);
+            }
+        }
+
+        httpReq.open("POST", "/utility/getImmobiliJSON.php?v=2", true);
+        httpReq.setRequestHeader('Content-Type', 'application/json');
+        httpReq.send(query);
+
+    }
+
+
+
+</script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi6OYQpSp_dEjtGzJ3hkeZXBw-wlMBUk0&callback=caricaDati"></script>
 
 
 </html>

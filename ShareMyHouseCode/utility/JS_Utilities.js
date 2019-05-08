@@ -398,6 +398,8 @@ function nuovoUtente(tipoUtente) {
 
 }
 
+
+
 //AJAX UNIVERSALE PER INVIARE QUERY AL DB
 function ajaxConnect(query) {
     xhr = new XMLHttpRequest();
