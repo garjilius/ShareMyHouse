@@ -89,7 +89,7 @@
 
                 ?>
             </select>
-            <select class="form-control" id="immProvincia" style="width:250px;" disabled name="provincia">
+            <select class="form-control" id="immProvincia" style="width:250px;" disabled name="provincia" onchange="getImmobili()">
                 <option value="0">Provincia</option>
             </select>
             <input type="checkbox" name="barrieraArchitettionica" value="barrieraArchitettionica">Nessuna barriera architettonica<br>

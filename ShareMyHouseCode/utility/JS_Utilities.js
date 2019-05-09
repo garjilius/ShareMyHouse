@@ -66,13 +66,10 @@ function getDatiUtente(cf) {
 
 function filtroRegioni(){
 
-    var contatore = 0;
     if(this.document.getElementById("immRegione")) {
         //caso in aggiungi immobile
         var idRegione = document.getElementById("immRegione").value;
         var prov = document.getElementById("immProvincia");
-        contatore++;
-        console.log("valore contatore " + contatore);
     }else if (this.document.getElementById("regione")){
         //caso registrazione
         var idRegione = document.getElementById("regione").value;
@@ -96,14 +93,13 @@ function filtroRegioni(){
             svuotaComboBox(prov);
 
 
-            if(contatore > 0){
-                console.log("chiamo get immobili");
-                //richiamata qui
-                getImmobili();
-            }
 
             //Prendo le nuove province relative alla regione e popolo la combobox
             risultato = JSON.parse(httpReq.responseText);
+            option = document.createElement('option');
+            option.text = "Provincia";
+            option.value = 0;
+            prov.add(option);
 
             for (let i = 0; i < risultato.length; i++) {
                 option = document.createElement('option');
@@ -112,14 +108,19 @@ function filtroRegioni(){
                 prov.add(option);
             }
 
+            getImmobili();
         }
 
     }
 
     query = "Select * from province where id_regione = "+idRegione;
 
+
+
     httpReq.open("POST", '/utility/getProvinceJSON.php?<?php echo date(\'l jS \\of F Y h:i:s A\'); ?>', true);
     httpReq.send(query);
+
+
 }
 
 
@@ -425,7 +426,14 @@ function getImmobili() {
         console.log("qui");
     } else {
         var regioneTesto = document.getElementById('immRegione').selectedOptions[0].text;
-        query = "SELECT * From Abitazioni WHERE Regione='" + regioneTesto + "'";
+        var provinciaTesto = document.getElementById('immProvincia').selectedOptions[0].text;
+        console.log("testo della provincia "+provinciaTesto);
+        if(provinciaTesto != 'Provincia') {
+            query = "SELECT * From Abitazioni WHERE Regione='" + regioneTesto + "' AND Provincia='" + provinciaTesto + "'";
+        }else{
+            query = "SELECT * From Abitazioni WHERE Regione='" + regioneTesto+"'";
+
+        }
     }
 
     getImmobiliQuery(query);
