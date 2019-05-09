@@ -92,8 +92,6 @@ function filtroRegioni(){
             //Svuoto prima la combobox
             svuotaComboBox(prov);
 
-
-
             //Prendo le nuove province relative alla regione e popolo la combobox
             risultato = JSON.parse(httpReq.responseText);
             option = document.createElement('option');
@@ -126,8 +124,8 @@ function filtroRegioni(){
 
 function salvaImmobile() {
 let alias = document.getElementById("immAlias").value;
-let regione = document.getElementById("immRegione").value;
-let provincia = document.getElementById("immProvincia").value;
+let regione = document.getElementById("immRegione").selectedOptions[0].text;
+let provincia = document.getElementById("immProvincia").selectedOptions[0].text;
 let citta = document.getElementById("immCitta").value;
 let indirizzo = document.getElementById("immIndirizzo").value;
 let disponibilita = document.getElementById("immDisponibilita").value;
@@ -135,6 +133,7 @@ let posti = document.getElementById("immPosti").value;
 
 let accDisabili = document.getElementById("immDisabili").checked;
 
+console.log(regione+provincia);
 
 if(accDisabili)
     accDisabili = 1;
@@ -150,7 +149,7 @@ if(posti<=0){
 
 
 //Controllo che tutti i campi siano stati riempiti
-if((alias.length===0) || (regione.length===0) || (provincia.length===0) || (citta.length===0) || (indirizzo.length===0) || (disponibilita.length===0)||(posti.length===0)) {
+if((alias.length===0) || (regione.length===0)|| (provincia.length===0) || (citta.length===0) || (indirizzo.length===0) || (disponibilita.length===0)||(posti.length===0)) {
     alert("Riempire tutti i campi!");
     return;
     }
@@ -421,16 +420,28 @@ function ajaxConnect(query) {
 
 function getImmobili() {
 
+    var checkBox = document.getElementById("checkBarrieraArchitettonica");
+    var checkTrue;
+    if (checkBox.checked == true){
+        checkTrue = true;
+    } else {
+        checkTrue = false;
+    }
+
     if (document.getElementById("immRegione").value == 0) {
         query = "SELECT * From Abitazioni";
         console.log("qui");
     } else {
         var regioneTesto = document.getElementById('immRegione').selectedOptions[0].text;
         var provinciaTesto = document.getElementById('immProvincia').selectedOptions[0].text;
-        console.log("testo della provincia "+provinciaTesto);
         if(provinciaTesto != 'Provincia') {
-            query = "SELECT * From Abitazioni WHERE Regione='" + regioneTesto + "' AND Provincia='" + provinciaTesto + "'";
-        }else{
+            if(checkTrue == false) {
+                query = "SELECT * From Abitazioni WHERE Regione='" + regioneTesto + "' AND Provincia='" + provinciaTesto + "' AND AccessoDisabili=0";
+            }else{
+                query = "SELECT * From Abitazioni WHERE Regione='" + regioneTesto + "' AND Provincia='" + provinciaTesto + "'AND AccessoDisabili=1";
+            }
+        }
+        else{
             query = "SELECT * From Abitazioni WHERE Regione='" + regioneTesto+"'";
 
         }
@@ -483,3 +494,6 @@ function getImmobili() {
 
     }
 }
+
+
+
