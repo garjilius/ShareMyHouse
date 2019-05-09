@@ -66,10 +66,13 @@ function getDatiUtente(cf) {
 
 function filtroRegioni(){
 
+    var contatore = 0;
     if(this.document.getElementById("immRegione")) {
         //caso in aggiungi immobile
         var idRegione = document.getElementById("immRegione").value;
         var prov = document.getElementById("immProvincia");
+        contatore++;
+        console.log("valore contatore " + contatore);
     }else if (this.document.getElementById("regione")){
         //caso registrazione
         var idRegione = document.getElementById("regione").value;
@@ -91,6 +94,11 @@ function filtroRegioni(){
         if (httpReq.readyState === 4 && httpReq.status === 200) {
             //Svuoto prima la combobox
             svuotaComboBox(prov);
+
+            if(contatore > 0){
+                console.log("chiamo get immobili");
+                getImmobili();
+            }
 
             //Prendo le nuove province relative alla regione e popolo la combobox
             risultato = JSON.parse(httpReq.responseText);
@@ -416,18 +424,16 @@ function getImmobili() {
         query = "SELECT * From Abitazioni";
         console.log("qui");
     } else {
-        query = "SELECT * From Abitazioni WHERE Regione=''+document.getElementById('immRegione')";
-        console.log("else");
-
+        var regioneTesto = document.getElementById('immRegione').selectedOptions[0].text;
+        query = "SELECT * From Abitazioni WHERE Regione="+regioneTesto;
+        console.log(query);
     }
     var httpReq = new XMLHttpRequest();
         httpReq.onreadystatechange = function () {
-            console.log("prima di ifccc ");
 
             if (httpReq.readyState === 4 && httpReq.status === 200) {
-                var immobili = JSON.parse(httpReq.responseText);
-                console.log("sono nell if "+immobili);
-                console.log(document.getElementById("immRegione").value);
+                console.log(parseInt(httpReq.responseText));
+                immobili = JSON.parse(httpReq.responseText);
 
                 //Genera gli accordion per gli immobili
                 for (i = 0; i < immobili.length; i++) {
