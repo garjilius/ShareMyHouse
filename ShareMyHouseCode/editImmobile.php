@@ -112,7 +112,8 @@
             </div>
         </div>
     </div>
-    <button id="buttonAccetta" type="button" onclick="aggiornaImmobile(idAbitazione)" class="btn btn-primary">Fine</button>
+    <button id="buttonAccetta" type="button" class="btn btn-danger" onclick="window.location.href='mieimmobili.php'">Annulla</button>
+    <button id="buttonAccetta" type="button" onclick="aggiornaImmobile(idAbitazione)" class="btn btn-success">Fine</button>
 
 </div>
 <BR><BR><BR>
