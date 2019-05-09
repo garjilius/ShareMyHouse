@@ -22,9 +22,6 @@
         <script type="text/javascript" src="/utility/JS_Utilities.js"></script>
         <script type="text/javascript" src="/utility/apikey.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
 
-
-
-
         <?php
         header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
         header("Pragma: no-cache"); // HTTP 1.0.

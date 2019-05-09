@@ -22,6 +22,8 @@
 
 
 
+
+
         <?php
         header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
         header("Pragma: no-cache"); // HTTP 1.0.
@@ -61,23 +63,37 @@
                 <h2>Riepilogo<BR></h2>
             </div>
         </div></div>
-        
-
-    <div class="container form-group">
-        <label for="sel1">Filtra per *criterio x*</label>
-        <select class="form-control" id="filtroAllerta" onchange="comboAllerta(this)">
-            <option value = "default">Tutti</option>
-            <option value = "1">Attenzione</option>
-            <option value = "2">Preallarme</option>
-            <option value = "3">Allarme</option>
-            <option value = "0">Senza Categoria </option>
-        </select>
-    </div>
-
 
     <div class ="container search">
         <input type="text" name="search" id="searchbar" oninput="handleSearch()" placeholder="Search...">
     </div><BR>
+
+        <div class="container form-group">
+            <select class="form-control" id="immRegione" style="width:250px;" onchange="filtroRegioni()">
+
+                <?php
+                require './utility/databaseconnection.php';
+                    $query = "SELECT * FROM Regione";
+                    $result = mysqli_query($db, $query);
+                    $numRighe = mysqli_num_rows($result);
+
+                    echo '<option value="0">Regione</option>';
+
+                    for ($i = 0; $i < $numRighe; $i++) {
+                        $regioni = mysqli_fetch_row($result);
+                        $tmp = $regioni[1];
+                        $num = $regioni[0];
+                        echo '<option value="' . $num . '">' . $tmp . '</option>';
+                    }
+
+
+                ?>
+            </select>
+            <select class="form-control" id="immProvincia" style="width:250px;" disabled name="provincia">
+                <option value="0">Provincia</option>
+            </select>
+            <input type="checkbox" name="barrieraArchitettionica" value="barrieraArchitettionica">Nessuna barriera architettonica<br>
+        </div>
 
     <div class="container">  
         <div class="table-responsive">
@@ -107,7 +123,9 @@
         <h6 class=bg-warning>Giallo: Livello di preallarme</h6>
         <h6 class=bg-danger>Rosso: Livello di allarme</h6>
     </div> -->
-
+        <script type="text/javascript">
+            getImmobili();
+        </script>
 </body>
 
 <!--<SCRIPT>
@@ -308,48 +326,4 @@
 
 
 </SCRIPT>-->
-
-<SCRIPT>
-    query = "SELECT * From Abitazioni";
-
-    function getImmobili(query) {
-        var httpReq = new XMLHttpRequest();
-        httpReq.onreadystatechange = function () {
-
-            if (httpReq.readyState === 4 && httpReq.status === 200) {
-                immobili = JSON.parse(httpReq.responseText);
-
-
-                //Genera gli accordion per gli immobili
-                for(i=0; i<immobili.length;i++) {
-                    idImmobile = immobili[i].id;
-                    regione = immobili[i].regione;
-                    provincia = immobili[i].provincia;
-                    citta = immobili[i].citta;
-                    indirizzo = immobili[i].indirizzo;
-                    postiTotali = immobili[i].postiTotali;
-                    postiOccupati = immobili[i].postiOccupati;
-
-                    acc = document.getElementById("tavolaSegnalazioni");
-                    acc.innerHTML = acc.innerHTML +
-                        "<tr>"+
-                        "<td>"+ idImmobile +"</td>"+
-                        "<td>"+ regione +"</td>"+
-                        "<td>"+ provincia +"</td>"+
-                        "<td>"+ citta +"</td>"+
-                        "<td>"+ indirizzo +"</td>"+
-                        "<td>"+ postiOccupati + "/" + postiTotali +"</td>"+
-                        "</tr>";
-                }
-            }
-        }
-
-        httpReq.open("POST", "/utility/getImmobiliJSON.php?v=2", true);
-        httpReq.setRequestHeader('Content-Type', 'application/json');
-        httpReq.send(query);
-    }
-
-    getImmobili(query);
-
-</SCRIPT>
 </html>

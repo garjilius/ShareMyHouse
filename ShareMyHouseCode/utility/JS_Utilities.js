@@ -3,6 +3,8 @@ function logout() {
     window.location = "index.php";
 }
 
+
+
 function modificaInfoUtente() {
     let infoUtente = document.getElementsByClassName("infoutenteModificabile");
     let button = document.getElementById("buttonModifica")
@@ -105,6 +107,7 @@ function filtroRegioni(){
     }
 
     query = "Select * from province where id_regione = "+idRegione;
+
     httpReq.open("POST", '/utility/getProvinceJSON.php?<?php echo date(\'l jS \\of F Y h:i:s A\'); ?>', true);
     httpReq.send(query);
 }
@@ -398,8 +401,6 @@ function nuovoUtente(tipoUtente) {
 
 }
 
-
-
 //AJAX UNIVERSALE PER INVIARE QUERY AL DB
 function ajaxConnect(query) {
     xhr = new XMLHttpRequest();
@@ -407,4 +408,54 @@ function ajaxConnect(query) {
     xhr.send(query);
 }
 
+function getImmobili() {
 
+    console.log("ci entro");
+
+    if (document.getElementById("immRegione").value == 0) {
+        query = "SELECT * From Abitazioni";
+        console.log("qui");
+    } else {
+        query = "SELECT * From Abitazioni WHERE Regione=''+document.getElementById('immRegione')";
+        console.log("else");
+
+    }
+    var httpReq = new XMLHttpRequest();
+        httpReq.onreadystatechange = function () {
+            console.log("prima di ifccc ");
+
+            if (httpReq.readyState === 4 && httpReq.status === 200) {
+                var immobili = JSON.parse(httpReq.responseText);
+                console.log("sono nell if "+immobili);
+                console.log(document.getElementById("immRegione").value);
+
+                //Genera gli accordion per gli immobili
+                for (i = 0; i < immobili.length; i++) {
+                    idImmobile = immobili[i].id;
+                    regione = immobili[i].regione;
+                    provincia = immobili[i].provincia;
+                    citta = immobili[i].citta;
+                    indirizzo = immobili[i].indirizzo;
+                    postiTotali = immobili[i].postiTotali;
+                    postiOccupati = immobili[i].postiOccupati;
+
+                    acc = document.getElementById("tavolaSegnalazioni");
+                    acc.innerHTML = acc.innerHTML +
+                        "<tr>" +
+                        "<td>" + idImmobile + "</td>" +
+                        "<td>" + regione + "</td>" +
+                        "<td>" + provincia + "</td>" +
+                        "<td>" + citta + "</td>" +
+                        "<td>" + indirizzo + "</td>" +
+                        "<td>" + postiOccupati + "/" + postiTotali + "</td>" +
+                        "</tr>";
+                }
+            }
+        }
+
+        httpReq.open("POST", "/utility/getImmobiliJSON.php?v=2", true);
+        httpReq.setRequestHeader('Content-Type', 'application/json');
+        httpReq.send(query);
+
+
+}
