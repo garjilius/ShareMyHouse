@@ -19,11 +19,6 @@
         <script type="text/javascript" src="/utility/checklogin.js"></script>
         <script type="text/javascript" src="/utility/JS_Utilities.js"></script>
 
-
-
-
-
-
         <?php
         header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
         header("Pragma: no-cache"); // HTTP 1.0.
@@ -92,7 +87,7 @@
             <select class="form-control" id="immProvincia" style="width:250px;" disabled name="provincia" onchange="getImmobili()">
                 <option value="0">Provincia</option>
             </select>
-            <input type="checkbox" id="checkBarrieraArchitettonica" value="checkBarrieraArchitettonica" onclick="getImmobili()">Nessuna barriera architettonica<br>
+            <input type="checkbox" id="checkBarrieraArchitettonica" value="checkBarrieraArchitettonica" onclick="getImmobili()">Accesso disabili<br>
         </div>
 
     <div class="container">  

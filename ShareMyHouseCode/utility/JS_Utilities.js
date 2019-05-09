@@ -421,29 +421,35 @@ function ajaxConnect(query) {
 function getImmobili() {
 
     var checkBox = document.getElementById("checkBarrieraArchitettonica");
-    var checkTrue;
+    var nessunAccesso;
     if (checkBox.checked == true){
-        checkTrue = true;
+        nessunAccesso = true;
     } else {
-        checkTrue = false;
+        nessunAccesso = false;
     }
 
-    if (document.getElementById("immRegione").value == 0) {
+    if (document.getElementById("immRegione").value == 0 && nessunAccesso==true) {
+        query = "SELECT * From Abitazioni WHERE AccessoDisabili=1";
+        console.log("query");
+    }else if(document.getElementById("immRegione").value == 0 && nessunAccesso==false){
         query = "SELECT * From Abitazioni";
-        console.log("qui");
     } else {
         var regioneTesto = document.getElementById('immRegione').selectedOptions[0].text;
         var provinciaTesto = document.getElementById('immProvincia').selectedOptions[0].text;
+
         if(provinciaTesto != 'Provincia') {
-            if(checkTrue == false) {
-                query = "SELECT * From Abitazioni WHERE Regione='" + regioneTesto + "' AND Provincia='" + provinciaTesto + "' AND AccessoDisabili=0";
+            if(nessunAccesso==true) {
+                query = "SELECT * From Abitazioni WHERE Regione='" + regioneTesto + "' AND Provincia='" + provinciaTesto + "' AND AccessoDisabili=1";
             }else{
-                query = "SELECT * From Abitazioni WHERE Regione='" + regioneTesto + "' AND Provincia='" + provinciaTesto + "'AND AccessoDisabili=1";
+                query = "SELECT * From Abitazioni WHERE Regione='" + regioneTesto + "' AND Provincia='" + provinciaTesto + "'";
             }
         }
         else{
-            query = "SELECT * From Abitazioni WHERE Regione='" + regioneTesto+"'";
-
+            if(nessunAccesso==true) {
+                query = "SELECT * From Abitazioni WHERE Regione='" + regioneTesto + "' AND AccessoDisabili=1";
+            }else {
+                query = "SELECT * From Abitazioni WHERE Regione='" + regioneTesto + "'";
+            }
         }
     }
 
