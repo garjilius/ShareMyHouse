@@ -40,15 +40,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="">Area Utente</a>
+            <a class="navbar-brand" href="riepilogo.php">ShareMyHouse</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav bottoniStato">
-                <li role="button" class ="bottoneStato" ><a href="profilo.php">Profilo</a></li>
-                <li role="button" class ="bottoneStato active"><a href="mieimmobili.php">I Miei Immobili</a></li>
+                <li role="button"  ><a href="riepilogo.php">Immobili</a></li>
+                <li role="button" ><a href="">Cittadini</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="index.php" onclick="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <li><a onclick="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
     </div>
@@ -154,6 +154,5 @@
         }
     }
 
-//getImmobili(query);
 </SCRIPT>
 </html>
