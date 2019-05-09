@@ -17,17 +17,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/riepilogo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2499">
-              <caret line="246" column="31" selection-start-line="246" selection-start-column="31" selection-end-line="246" selection-end-column="31" />
+            <state relative-caret-position="2125">
+              <caret line="125" column="39" selection-start-line="125" selection-start-column="39" selection-end-line="125" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/utility/getImmobiliJSON.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="109">
+              <caret line="274" column="4" lean-forward="true" selection-start-line="274" selection-start-column="4" selection-end-line="277" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mieimmobili.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="70" selection-start-line="70" selection-end-line="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility/JS_Utilities.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="434" column="60" selection-start-line="434" selection-start-column="60" selection-end-line="434" selection-end-column="60" />
+            <state relative-caret-position="146">
+              <caret line="443" selection-start-line="443" selection-end-line="443" />
             </state>
           </provider>
         </entry>
@@ -68,11 +86,11 @@
       <find>fa</find>
       <find>gestisci</find>
       <find>onclick</find>
-      <find>getImmobili</find>
       <find>prendiDati</find>
       <find>selected</find>
       <find>FILTRO</find>
       <find>filtro</find>
+      <find>getImmobili</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -94,7 +112,6 @@
         <option value="$PROJECT_DIR$/errorPage.php" />
         <option value="$PROJECT_DIR$/utility/login.php" />
         <option value="$PROJECT_DIR$/utility/databaseconnection.php" />
-        <option value="$PROJECT_DIR$/utility/getImmobiliJSON.php" />
         <option value="$PROJECT_DIR$/utility/getDatiUtenteJSON.php" />
         <option value="$PROJECT_DIR$/utility/getProvinceJSON.php" />
         <option value="$PROJECT_DIR$/utility/getDistance.js" />
@@ -109,11 +126,12 @@
         <option value="$PROJECT_DIR$/dettagliImmobile.php" />
         <option value="$PROJECT_DIR$/addImmobile.php" />
         <option value="$PROJECT_DIR$/riepilogo.php" />
+        <option value="$PROJECT_DIR$/utility/getImmobiliJSON.php" />
         <option value="$PROJECT_DIR$/utility/JS_Utilities.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="478" />
     <option name="y" value="33" />
     <option name="width" value="1315" />
@@ -231,18 +249,20 @@
       <workItem from="1557323152656" duration="10000" />
       <workItem from="1557323187008" duration="9515000" />
       <workItem from="1557339508339" duration="775000" />
-      <workItem from="1557383565612" duration="9685000" />
+      <workItem from="1557383565612" duration="9961000" />
+      <workItem from="1557394732169" duration="2256000" />
+      <workItem from="1557399260915" duration="2025000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140868000" />
+    <option name="totallyTimeSpent" value="145425000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27458397" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28366113" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -324,24 +344,10 @@
     </entry>
     <entry file="file://$USER_HOME$/Downloads/ShareMyHouse-master/ShareMyHouseCode/index.php" />
     <entry file="file://$PROJECT_DIR$/utility/temp.js" />
-    <entry file="file://$PROJECT_DIR$/utility/getProvinceJSON.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CSS/extra.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-884">
           <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mieimmobili.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
         </state>
       </provider>
     </entry>
@@ -403,24 +409,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/getImmobiliJSON.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/addImmobile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1088">
           <caret line="70" column="63" selection-start-line="70" selection-start-column="63" selection-end-line="70" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/riepilogo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2499">
-          <caret line="246" column="31" selection-start-line="246" selection-start-column="31" selection-end-line="246" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -438,10 +430,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utility/getProvinceJSON.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-544">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/riepilogo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2125">
+          <caret line="125" column="39" selection-start-line="125" selection-start-column="39" selection-end-line="125" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utility/JS_Utilities.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="434" column="60" selection-start-line="434" selection-start-column="60" selection-end-line="434" selection-end-column="60" />
+        <state relative-caret-position="146">
+          <caret line="443" selection-start-line="443" selection-end-line="443" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mieimmobili.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/getImmobiliJSON.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="274" column="4" lean-forward="true" selection-start-line="274" selection-start-column="4" selection-end-line="277" />
         </state>
       </provider>
     </entry>

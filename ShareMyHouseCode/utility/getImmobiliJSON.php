@@ -272,8 +272,6 @@ class immobile {
         $this->disponibilita = $disponibilita;
     }
 
-
-
 }
 
 $numrighe = mysqli_num_rows($result);
