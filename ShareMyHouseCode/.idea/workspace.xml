@@ -12,22 +12,53 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/riepilogo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="89" column="144" selection-start-line="89" selection-start-column="144" selection-end-line="89" selection-end-column="144" />
+            <state relative-caret-position="317">
+              <caret line="102" column="80" selection-start-line="102" selection-start-column="58" selection-end-line="102" selection-end-column="80" />
+              <folding>
+                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mieimmobili.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="669">
+              <caret line="70" selection-start-line="70" selection-end-line="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/editImmobile.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="293">
+              <caret line="114" column="116" selection-start-line="114" selection-start-column="68" selection-end-line="114" selection-end-column="116" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utility/JS_Utilities.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="443" column="127" selection-start-line="443" selection-start-column="127" selection-end-line="443" selection-end-column="127" />
+            <state relative-caret-position="218">
+              <caret line="482" column="67" selection-start-line="482" selection-start-column="67" selection-end-line="482" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -35,8 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/addImmobile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="114" column="63" lean-forward="true" selection-start-line="114" selection-start-column="63" selection-end-line="114" selection-end-column="63" />
+            <state relative-caret-position="511">
+              <caret line="113" column="86" lean-forward="true" selection-start-line="113" selection-end-line="114" />
             </state>
           </provider>
         </entry>
@@ -111,14 +142,14 @@
         <option value="$PROJECT_DIR$/utility/registrazione.php" />
         <option value="$PROJECT_DIR$/mieimmobili.php" />
         <option value="$PROJECT_DIR$/profilo.php" />
-        <option value="$PROJECT_DIR$/editImmobile.php" />
         <option value="$USER_HOME$/CittadinAPP/segnalazione.php" />
         <option value="$PROJECT_DIR$/gestisciOccupanti.php" />
         <option value="$PROJECT_DIR$/dettagliImmobile.php" />
         <option value="$PROJECT_DIR$/addImmobile.php" />
         <option value="$PROJECT_DIR$/utility/getImmobiliJSON.php" />
-        <option value="$PROJECT_DIR$/utility/JS_Utilities.js" />
+        <option value="$PROJECT_DIR$/editImmobile.php" />
         <option value="$PROJECT_DIR$/riepilogo.php" />
+        <option value="$PROJECT_DIR$/utility/JS_Utilities.js" />
       </list>
     </option>
   </component>
@@ -245,16 +276,18 @@
       <workItem from="1557399260915" duration="2025000" />
       <workItem from="1557405195176" duration="2423000" />
       <workItem from="1557410873637" duration="2976000" />
+      <workItem from="1557414735859" duration="893000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150824000" />
+    <option name="totallyTimeSpent" value="151717000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="830" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2927383" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29685265" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -269,7 +302,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="File Transfer" order="12" sideWeight="0.49924356" visible="true" weight="0.3207856" />
+      <window_info anchor="bottom" id="File Transfer" order="12" sideWeight="0.49924356" visible="true" weight="0.3197832" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -344,13 +377,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utility/apikey.js" />
-    <entry file="file://$PROJECT_DIR$/editImmobile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="114" column="31" lean-forward="true" selection-start-line="114" selection-start-column="31" selection-end-line="114" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utility/getDatiUtenteJSON.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -422,13 +448,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mieimmobili.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dettagliImmobile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -436,24 +455,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addImmobile.php">
+    <entry file="file://$PROJECT_DIR$/mieimmobili.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="114" column="63" lean-forward="true" selection-start-line="114" selection-start-column="63" selection-end-line="114" selection-end-column="63" />
+        <state relative-caret-position="669">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/JS_Utilities.js">
+    <entry file="file://$PROJECT_DIR$/addImmobile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="443" column="127" selection-start-line="443" selection-start-column="127" selection-end-line="443" selection-end-column="127" />
+        <state relative-caret-position="511">
+          <caret line="113" column="86" lean-forward="true" selection-start-line="113" selection-end-line="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/editImmobile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="114" column="116" selection-start-line="114" selection-start-column="68" selection-end-line="114" selection-end-column="116" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/riepilogo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="89" column="144" selection-start-line="89" selection-start-column="144" selection-end-line="89" selection-end-column="144" />
+        <state relative-caret-position="317">
+          <caret line="102" column="80" selection-start-line="102" selection-start-column="58" selection-end-line="102" selection-end-column="80" />
+          <folding>
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/JS_Utilities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="482" column="67" selection-start-line="482" selection-start-column="67" selection-end-line="482" selection-end-column="67" />
         </state>
       </provider>
     </entry>

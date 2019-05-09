@@ -153,7 +153,7 @@
 
     //idAbitazione = "<?= $_GET['id']; ?>";
     idAbitazione = localStorage.getItem("idAbitazione");
-    console.log(idAbitazione);
+    //console.log(idAbitazione);
     query = "SELECT * From Abitazioni WHERE IDAbitazione = "+idAbitazione;
     getInfoImmobile(query);
 

@@ -480,8 +480,10 @@ function getImmobili() {
                     postiTotali = immobili[i].postiTotali;
                     postiOccupati = immobili[i].postiOccupati;
 
+                    hrefimmobile = "dettagliImmobile.php?idImmobile="+idImmobile;
+
                     acc.innerHTML = acc.innerHTML +
-                        "<tr>" +
+                        "<tr onclick=\"window.location.href='"+hrefimmobile+"'\">" +
                         "<td>" + idImmobile + "</td>" +
                         "<td>" + regione + "</td>" +
                         "<td>" + provincia + "</td>" +
