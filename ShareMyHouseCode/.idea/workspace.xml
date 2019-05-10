@@ -17,11 +17,9 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/riepilogo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="89" column="163" selection-start-line="89" selection-start-column="163" selection-end-line="89" selection-end-column="163" />
+            <state relative-caret-position="-66">
+              <caret line="89" column="181" selection-start-line="89" selection-start-column="181" selection-end-line="89" selection-end-column="181" />
               <folding>
-                <element signature="n#style#0;n#select#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#select#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -109,7 +107,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="478" />
     <option name="y" value="33" />
     <option name="width" value="1315" />
@@ -123,7 +121,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -145,6 +142,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -234,17 +232,17 @@
       <workItem from="1557410873637" duration="2976000" />
       <workItem from="1557414735859" duration="1157000" />
       <workItem from="1557468644268" duration="1656000" />
+      <workItem from="1557488162009" duration="403000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153637000" />
+    <option name="totallyTimeSpent" value="154040000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.301059" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30559757" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -442,11 +440,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/riepilogo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="89" column="163" selection-start-line="89" selection-start-column="163" selection-end-line="89" selection-end-column="163" />
+        <state relative-caret-position="-66">
+          <caret line="89" column="181" selection-start-line="89" selection-start-column="181" selection-end-line="89" selection-end-column="181" />
           <folding>
-            <element signature="n#style#0;n#select#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
