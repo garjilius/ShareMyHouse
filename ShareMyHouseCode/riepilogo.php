@@ -42,7 +42,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav bottoniStato">
-                        <li role="button"  ><a href="riepilogo.php">Immobili</a></li>
+                        <li role="button" class="active" ><a href="riepilogo.php">Immobili</a></li>
                         <li role="button" ><a href="cittadini.php">Cittadini</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -55,7 +55,7 @@
         
         <div class="container-fluid text-center">    
             <div class="container">
-                <h2>Riepilogo<BR></h2>
+                <h2>Riepilogo Immobili<BR></h2>
             </div>
         </div></div>
 
@@ -95,12 +95,12 @@
             <table id="tavolaSegnalazioni" class="tavolaSegnalazioni table-bordered table table-hover row-clickable table-responsive">
                 <thead class="thead-dark">
                     <tr>
-                        <th style="width: 5.0%"   id="thId">ID   </th>
+                        <th style="width: 5.0%" id="thId">ID   </th>
                         <th style="width: 15.0%" id = "thRegione">Regione</th>
                         <th style="width: 5.0%" id="thProvincia">Provincia</th>
-                        <th style="width: 25.0%"  id="thCitta">Citt&agrave</th>
-                        <th style="width: 45.0%"  id="thIndirizzo">Indirizzo</th>
-                        <th style="width: 5.0%"  id="thPosti">Posti</th>
+                        <th style="width: 25.0%" id="thCitta">Citt&agrave</th>
+                        <th style="width: 45.0%" id="thIndirizzo">Indirizzo</th>
+                        <th style="width: 5.0%" id="thPosti">Posti</th>
 
                     </tr>
                 </thead>

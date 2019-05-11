@@ -503,6 +503,8 @@ function getImmobili() {
     }
 }
 
+
+
 //GESTISCO LA BARRA DI RICERCA. CANCELLO RIGHE SENZA IL VALORE CERCATO
 function handleSearch() {
     var ricerca = document.getElementById("searchbar").value;
@@ -517,6 +519,5 @@ function handleSearch() {
         }
     }
 }
-
 
 
