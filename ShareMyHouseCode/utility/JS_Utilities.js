@@ -483,7 +483,7 @@ function getImmobili() {
                     hrefimmobile = "dettagliImmobile.php?idImmobile="+idImmobile;
 
                     acc.innerHTML = acc.innerHTML +
-                        "<tr onclick=\"window.location.href='"+hrefimmobile+"'\">" +
+                        "<tr class=\"rigaImmobile\" onclick=\"window.location.href='"+hrefimmobile+"'\">" +
                         "<td>" + idImmobile + "</td>" +
                         "<td>" + regione + "</td>" +
                         "<td>" + provincia + "</td>" +
@@ -500,6 +500,21 @@ function getImmobili() {
         httpReq.setRequestHeader('Content-Type', 'application/json');
         httpReq.send(query);
 
+    }
+}
+
+//GESTISCO LA BARRA DI RICERCA. CANCELLO RIGHE SENZA IL VALORE CERCATO
+function handleSearch() {
+    var ricerca = document.getElementById("searchbar").value;
+    righe = document.getElementsByClassName("rigaImmobile");
+    for (i = 0; i < righe.length; i++) {
+        testoRiga = righe[i].innerText.toLowerCase();
+        testoRicerca = ricerca.toLowerCase();
+        if (testoRiga.includes(testoRicerca)) {
+            righe[i].style.display = "";
+        } else {
+            righe[i].style.display = "none";
+        }
     }
 }
 
