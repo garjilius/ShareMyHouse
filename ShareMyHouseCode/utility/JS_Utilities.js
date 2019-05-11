@@ -520,4 +520,85 @@ function handleSearch() {
     }
 }
 
+//Ottiene solo le info dell'utente e carica gli immobili quando ha finito
+function getUtente(cf) {
+    var httpReq = new XMLHttpRequest();
+    httpReq.onreadystatechange = function () {
+        if (httpReq.readyState === 4 && httpReq.status === 200) {
+            if(httpReq.responseText!==false) {
+                utenti = JSON.parse(httpReq.responseText);
+                getImmobiliCittadino();
+            }
+        }
+    }
+
+    httpReq.open("POST", "/utility/getDatiUtenteJSON.php?v=enceladus", true);
+    httpReq.setRequestHeader('Content-Type', 'application/json');
+    httpReq.send(cf);
+
+}
+
+function getImmobiliCittadino() {
+    maxRange = document.getElementById("rangeKm").value;
+    var httpReq = new XMLHttpRequest();
+    httpReq.onreadystatechange = function () {
+        if (httpReq.readyState === 4 && httpReq.status === 200) {
+            immobili = JSON.parse(httpReq.responseText);
+
+            acc = document.getElementById("tavolaSegnalazioniBody");
+            var rows = acc.getElementsByTagName("tr");
+
+            //Cancellazione tabella dal basso verso l'alto
+            for(i=rows.length-1;i>=0;i--){
+                acc.deleteRow(i);
+            }
+
+            for (i = 0; i < immobili.length; i++) {
+               // console.log("id "+immobili[i].id);
+                idImmobile = immobili[i].id;
+                regione = immobili[i].regione;
+                provincia = immobili[i].provincia;
+                citta = immobili[i].citta;
+                indirizzo = immobili[i].indirizzo;
+                postiTotali = immobili[i].postiTotali;
+                postiOccupati = immobili[i].postiOccupati;
+                latitudineImmobile = immobili[i].latitudine;
+                longitudineImmobile = immobili[i].longitudine;
+                hrefimmobile = "dettagliImmobile.php?idImmobile="+idImmobile;
+
+
+                distanza = getDistanceFromLatLonInKm(utenti[0].latitudine,utenti[0].longitudine,latitudineImmobile,longitudineImmobile);
+                console.log("idImmobile " +idImmobile + " distanza "+distanza );
+                //aggiungo gli immobili alla tabella solo se rispettano il requisito di distanza
+                if(distanza<=maxRange || (maxRange==="")) {
+                    acc.innerHTML = acc.innerHTML +
+                        "<tr class=\"rigaImmobile\" onclick=\"window.location.href='" + hrefimmobile + "'\">" +
+                        "<td>" + idImmobile + "</td>" +
+                        "<td>" + regione + "</td>" +
+                        "<td>" + provincia + "</td>" +
+                        "<td>" + citta + "</td>" +
+                        "<td>" + indirizzo + "</td>" +
+                        "<td>" + postiOccupati + "/" + postiTotali + "</td>" +
+                        "</tr>";
+                }
+
+
+            }
+        }
+
+    }
+
+    if(utenti[0].necessDisabili === 1) {
+        query = "Select * From Abitazioni WHERE necessDisabili ===1";
+    }
+    else {
+        query = "Select * From Abitazioni";
+    }
+    console.log(query);
+    httpReq.open("POST", "/utility/getImmobiliJSON.php?v=2", true);
+    httpReq.setRequestHeader('Content-Type', 'application/json');
+    httpReq.send(query);
+
+}
+
 

@@ -17,6 +17,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <script type="text/javascript" src="/utility/checklogin.js"></script>
+        <script type="text/javascript" src="/utility/getDistance.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
         <script type="text/javascript" src="/utility/JS_Utilities.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
 
         <?php
@@ -59,15 +60,14 @@
             </div>
         </div></div>
 
-    <div class ="container search">
+    <div class ="container search text-center">
         <input type="text" name="search" id="searchbar" oninput="handleSearch()" placeholder="Search...">
     </div><BR>
 
-        <div class="container form-group">
-            <select class="form-control" id="immRegione" style="width:250px; display: inline;" onchange="">
-
-            </select>
-
+        <div class="container text-center">
+            <h5>KM Massimi dalla residenza: <input id="rangeKm" type="number" min="1" placeholder="km" value="" oninput="getImmobiliCittadino()"></h5>
+           <!-- <h5>Stessa Provincia <input id="sameProvincia" type="checkbox" onclick"getImmobiliCittadino()" value=""></h5>
+            <h5>Stessa Regione <input id="sameRegione" type="checkbox" value="getImmobiliCittadino()" onclick""></h5>-->
         </div>
 
     <div class="container">  
@@ -92,10 +92,13 @@
     </div>
 
         <script type="text/javascript">
+
+
             cf =<?=$_GET['cf']?>;
             document.getElementById("intestazionePagina").innerText ="Cerca migliore immobile per:  "+cf ;
             //Carico i dati dell'utente.
-            getDatiUtente(cf);
+            getUtente(cf);
+
 
         </script>
 </body>

@@ -23,6 +23,42 @@ header('Expires: -1');
         private $citta="";
         private $indirizzo="";
         private $necessDisabili="";
+        private $latitudine="";
+        private $longitudine="";
+
+        /**
+         * @return string
+         */
+        public function getLatitudine()
+        {
+            return $this->latitudine;
+        }
+
+        /**
+         * @param string $latitudine
+         */
+        public function setLatitudine($latitudine)
+        {
+            $this->latitudine = $latitudine;
+        }
+
+        /**
+         * @return string
+         */
+        public function getLongitudine()
+        {
+            return $this->longitudine;
+        }
+
+        /**
+         * @param string $longitudine
+         */
+        public function setLongitudine($longitudine)
+        {
+            $this->longitudine = $longitudine;
+        }
+
+
 
         public function getCf()
         {
@@ -159,7 +195,9 @@ header('Expires: -1');
                 "dataNascita" => $this->getDataNascita(),
                 "citta" => $this->getCitta(),
                 "provincia" => $this->getProvincia(),
-                "regione" => $this->getRegione()
+                "regione" => $this->getRegione(),
+                "latitudine" => $this->getLatitudine(),
+                "longitudine" => $this->getLongitudine()
             );
         }
     }
@@ -184,6 +222,8 @@ for ($i=0;$i<$numrighe;$i++) {
     $utenteTMP->setNome($riga["Nome"]);
     $utenteTMP->setCognome($riga["Cognome"]);
     $utenteTMP->setTipoUtente($riga["tipoUtente"]);
+    $utenteTMP->setLatitudine($riga["latitudine"]);
+    $utenteTMP->setLongitudine($riga["longitudine"]);
 
     $utenti[$i] = $utenteTMP->toArray();
 
