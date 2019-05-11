@@ -66,8 +66,8 @@
 
         <div class="container text-center">
             <h5>KM Massimi dalla residenza: <input id="rangeKm" type="number" min="1" placeholder="km" value="" oninput="getImmobiliCittadino()"></h5>
-           <!-- <h5>Stessa Provincia <input id="sameProvincia" type="checkbox" onclick"getImmobiliCittadino()" value=""></h5>
-            <h5>Stessa Regione <input id="sameRegione" type="checkbox" value="getImmobiliCittadino()" onclick""></h5>-->
+            <h5>Stessa Provincia <input id="sameProvincia" type="checkbox" onclick="getImmobiliCittadino()" value=""></h5>
+            <h5>Stessa Regione <input id="sameRegione" type="checkbox" value="" onclick="getImmobiliCittadino()"></h5>
         </div>
 
     <div class="container">  
@@ -96,7 +96,7 @@
 
             cf =<?=$_GET['cf']?>;
             document.getElementById("intestazionePagina").innerText ="Cerca migliore immobile per:  "+cf ;
-            //Carico i dati dell'utente.
+            //Carico i dati dell'utente e formo la tabella
             getUtente(cf);
 
 

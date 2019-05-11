@@ -566,11 +566,22 @@ function getImmobiliCittadino() {
                 longitudineImmobile = immobili[i].longitudine;
                 hrefimmobile = "dettagliImmobile.php?idImmobile="+idImmobile;
 
+                filtroRegioneProvinciaSoddisfatto = true;
+                stessaRegione = document.getElementById("sameRegione").checked;
+                stessaProvincia = document.getElementById("sameProvincia").checked;
+                if(stessaRegione) {
+                    if(regione !== utenti[0].regione)
+                        filtroRegioneProvinciaSoddisfatto = false
+                }
+                if(stessaProvincia) {
+                    if(provincia !== utenti[0].provincia)
+                        filtroRegioneProvinciaSoddisfatto = false
+                }
 
                 distanza = getDistanceFromLatLonInKm(utenti[0].latitudine,utenti[0].longitudine,latitudineImmobile,longitudineImmobile);
                 console.log("idImmobile " +idImmobile + " distanza "+distanza );
                 //aggiungo gli immobili alla tabella solo se rispettano il requisito di distanza
-                if(distanza<=maxRange || (maxRange==="")) {
+                if((distanza<=maxRange || (maxRange==="")) && filtroRegioneProvinciaSoddisfatto ) {
                     acc.innerHTML = acc.innerHTML +
                         "<tr class=\"rigaImmobile\" onclick=\"window.location.href='" + hrefimmobile + "'\">" +
                         "<td>" + idImmobile + "</td>" +
