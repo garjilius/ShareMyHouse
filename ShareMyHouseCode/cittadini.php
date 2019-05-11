@@ -92,15 +92,14 @@
 
     <div class="container">  
         <div class="table-responsive">
-            <table id="tavolaSegnalazioni" class="tavolaSegnalazioni table-bordered table table-hover row-clickable table-responsive">
+            <table id="tavolaCittadini" class="tavolaCittadini table-bordered table table-hover row-clickable table-responsive">
                 <thead class="thead-dark">
                     <tr>
-                        <th style="width: 5.0%"   id="thId">ID   </th>
-                        <th style="width: 15.0%" id = "thRegione">Regione</th>
-                        <th style="width: 5.0%" id="thProvincia">Provincia</th>
-                        <th style="width: 25.0%"  id="thCitta">Citt&agrave</th>
-                        <th style="width: 45.0%"  id="thIndirizzo">Indirizzo</th>
-                        <th style="width: 5.0%"  id="thPosti">Posti</th>
+                        <th style="width: 15.0%"  id="thCF">CF   </th>
+                        <th style="width: 20.0%" id="thCitta">Citt&agrave</th>
+                        <th style="width: 40.0%" id="thIndirizzo">Indirizzo</th>
+                        <th style="width: 5.0%"  id="thDisabile">Disabilità</th>
+                        <th style="width: 20.0%"  id="thAzione">Azione</th>
 
                     </tr>
                 </thead>

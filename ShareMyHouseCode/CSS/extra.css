@@ -54,6 +54,13 @@ td{
     height: 50px !important;
 }
 
+#tavolaCittadini tbody tr td
+{
+    text-align:center !important;
+    vertical-align:middle !important;
+    height: 50px !important;
+}
+
 table.row-clickable tbody tr td a {
     display: block;
     padding: 8px;
