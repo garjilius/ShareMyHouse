@@ -92,7 +92,7 @@
 
     <div class="container">  
         <div class="table-responsive">
-            <table id="tavolaSegnalazioni" class="tavolaSegnalazioni table-bordered table table-hover row-clickable table-responsive">
+            <table id="tavolaSegnalazioni" class="tavolaSegnalazioni table-striped table-bordered table table-hover row-clickable table-responsive">
                 <thead class="thead-dark">
                     <tr>
                         <th style="width: 5.0%" id="thId">ID   </th>
