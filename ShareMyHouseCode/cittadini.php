@@ -111,7 +111,7 @@
     </div>
 
         <script type="text/javascript">
-            getImmobili();
+            getCittadini();
         </script>
 </body>
 

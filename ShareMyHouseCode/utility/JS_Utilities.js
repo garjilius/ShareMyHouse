@@ -418,6 +418,61 @@ function ajaxConnect(query) {
     xhr.send(query);
 }
 
+
+function getCittadini(){
+    query = "SELECT InfoUtente.CF, InfoUtente.Citta, InfoUtente.Indirizzo, InfoUtente.AccessoDisabiliNecessario, Utente.tipoutente From InfoUtente INNER JOIN Utente ON Utente.CF=InfoUtente.CF WHERE Utente.tipoutente=2";
+    console.log("query");
+
+
+    getCittadiniQuery(query);
+
+    function getCittadiniQuery(query) {
+        console.log("in get cittadini "+query);
+        var httpReq = new XMLHttpRequest();
+        httpReq.onreadystatechange = function () {
+            if (httpReq.readyState === 4 && httpReq.status === 200) {
+                cittadini = JSON.parse(httpReq.responseText);
+
+                acc = document.getElementById("tavolaCittadini");
+                var rows = acc.getElementsByTagName("tr");
+
+                //Cancellazione tabella dal basso verso l'alto
+                for(i=rows.length-1;i>=0;i--){
+                    acc.deleteRow(i);
+                }
+
+                for (i = 0; i < cittadini.length; i++) {
+
+                    console.log("cf "+cittadini[i].CF);
+                    console.log("ind "+cittadini[i].indirizzo);
+                    cfCittadino = cittadini[i].cf;
+                    citta = cittadini[i].citta;
+                    indirizzo = cittadini[i].indirizzo;
+                    accessoDisabiliNecessario = cittadini[i].accessoDisabiliNecessario;
+
+                    hrefimmobile = "dettagliImmobile.php?idImmobile="+cfCittadino;
+
+                    acc.innerHTML = acc.innerHTML +
+                        "<tr class=\"rigaImmobile\" onclick=\"window.location.href='"+hrefimmobile+"'\">" +
+                        "<td>" + cfCittadino + "</td>" +
+                        "<td>" + citta + "</td>" +
+                        "<td>" + indirizzo + "</td>" +
+                        "<td>" + accessoDisabiliNecessario + "</td>" +
+                        "<td>" + " " + "</td>" +
+                        "</tr>";
+                }
+            }
+
+        }
+
+        httpReq.open("POST", "/utility/getCittadiniJSON.php?v=2", true);
+        httpReq.setRequestHeader('Content-Type', 'application/json');
+        httpReq.send(query);
+
+    }
+
+}
+
 function getImmobili() {
 
     var checkBox = document.getElementById("checkBarrieraArchitettonica");
