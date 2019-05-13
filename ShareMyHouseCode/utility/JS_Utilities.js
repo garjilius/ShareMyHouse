@@ -571,11 +571,11 @@ function getImmobiliCittadino() {
                 stessaProvincia = document.getElementById("sameProvincia").checked;
                 if(stessaRegione) {
                     if(regione !== utenti[0].regione)
-                        filtroRegioneProvinciaSoddisfatto = false
+                        filtroRegioneProvinciaSoddisfatto = false;
                 }
                 if(stessaProvincia) {
                     if(provincia !== utenti[0].provincia)
-                        filtroRegioneProvinciaSoddisfatto = false
+                        filtroRegioneProvinciaSoddisfatto = false;
                 }
 
                 distanza = getDistanceFromLatLonInKm(utenti[0].latitudine,utenti[0].longitudine,latitudineImmobile,longitudineImmobile);
