@@ -437,7 +437,7 @@ function getCittadini(){
                 var rows = acc.getElementsByTagName("tr");
 
                 //Cancellazione tabella dal basso verso l'alto
-                for(i=rows.length-1;i>=0;i--){
+                for(i=rows.length-1;i>0;i--){
                     acc.deleteRow(i);
                 }
 
@@ -450,7 +450,7 @@ function getCittadini(){
                     indirizzo = cittadini[i].indirizzo;
                     accessoDisabiliNecessario = cittadini[i].accessoDisabiliNecessario;
 
-                    hrefimmobile = "dettagliImmobile.php?idImmobile="+cfCittadino;
+                    hrefimmobile = "riepilogoPerCittadino.php?cf="+cfCittadino;
 
                     acc.innerHTML = acc.innerHTML +
                         "<tr class=\"rigaImmobile\" onclick=\"window.location.href='"+hrefimmobile+"'\">" +
@@ -458,7 +458,7 @@ function getCittadini(){
                         "<td>" + citta + "</td>" +
                         "<td>" + indirizzo + "</td>" +
                         "<td>" + accessoDisabiliNecessario + "</td>" +
-                        "<td>" + " " + "</td>" +
+                        "<td>" + "<button class='button'>Trova migliore soluzione</button> " + "</td>" +
                         "</tr>";
                 }
             }
