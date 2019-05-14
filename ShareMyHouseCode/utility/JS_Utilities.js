@@ -700,4 +700,66 @@ function getImmobiliCittadino() {
 
 }
 
+function salvaCittadino() {
+    let codiceFiscaleCittadino = document.getElementById("codiceFiscaleCittadino").value;
+    let regione = document.getElementById("immRegione").selectedOptions[0].text;
+    let provincia = document.getElementById("immProvincia").selectedOptions[0].text;
+    let cittaCittadino = document.getElementById("cittaCittadino").value;
+    let indirizzoCittadino = document.getElementById("indirizzoCittadino").value;
+    let mailCittadino = document.getElementById("mailCittadino").value;
+    let telefonoCittadino = document.getElementById("telefonoCittadino").value;
+    let dataNascitaCittadino = document.getElementById("dataNascitaCittadino").value;
 
+    let nomeCittadino = document.getElementById("nomeCittadino").value;
+    let cognomeCittadino = document.getElementById("cognomeCittadino").value;
+
+    let disabilitaCittadino = document.getElementById("disabilitaCittadino").checked;
+
+    console.log(regione+provincia);
+
+    if(disabilitaCittadino) {
+        disabilitaCittadino = 1;
+    }
+    else {
+        disabilitaCittadino = 0;
+    }
+
+//Controllo che tutti i campi siano stati riempiti
+    if((codiceFiscaleCittadino.length===0) || (regione.length===0)|| (provincia.length===0) || (cittaCittadino.length===0) || (indirizzoCittadino.length===0) || (mailCittadino.length===0)||(telefonoCittadino.length===0) || (dataNascitaCittadino.length==0) ||(nomeCittadino.length===0) || (cognomeCittadino.length==0)) {
+        alert("Riempire tutti i campi!");
+        return;
+    }
+
+    // RECUPERO COORDINATE GPS
+    indirizzoEncoded = indirizzoCittadino+", "+cittaCittadino+", +IT";
+    indirizzoEncoded = indirizzoEncoded.replace(" ", "+");
+
+    var httpReq = new XMLHttpRequest();
+    httpReq.onreadystatechange = function () {
+        if (httpReq.readyState === 4 && httpReq.status === 200) {
+            risultato = JSON.parse(httpReq.responseText);
+            let latitudine = risultato.results[0].geometry.location.lat;
+            let longitudine = risultato.results[0].geometry.location.lng;
+            //console.log(latitudine+","+longitudine);
+            //Preparo i valori per la query
+            let values = "('"+codiceFiscaleCittadino+"', '"+regione+"', '"+provincia+"', '"+cittaCittadino+"', '"+indirizzoCittadino+"', '"+disabilitaCittadino+"', '"+dataNascitaCittadino+"', '"+mailCittadino+"', '"+telefonoCittadino+"', '"+latitudine+"', "+longitudine+" )";
+            let values2 = "('"+codiceFiscaleCittadino+"', '"+nomeCittadino+"', '"+cognomeCittadino+"', 'vuoto', '2' )";
+            query = "INSERT INTO InfoUtente (CF, Regione, Provincia, Citta, Indirizzo, AccessoDisabiliNecessario, DataNascita, mail, telefono, Latitudine, Longitudine) VALUES "+values;
+            query2 = "INSERT INTO Utente (CF, Nome, Cognome, password, tipoutente) VALUES "+values2;
+
+            //console.log(query);
+            ajaxConnect(query); //Eseguo la query
+            ajaxConnect(query2);
+
+            setTimeout(function (){ //aspetto un po' e poi torno alla pagina dei miei immobili
+                window.location.href='/cittadini.php'
+            }, 500);
+
+        }
+
+    }
+
+    url = 'https://maps.googleapis.com/maps/api/geocode/json?address='+indirizzoEncoded+'&key='+mapsAPIKey;
+    httpReq.open("POST", url, true);
+    httpReq.send();
+}

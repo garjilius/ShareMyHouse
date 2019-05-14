@@ -61,9 +61,9 @@
         <div class="row">
             <div class="col-md-4"><BR>
                 <h4>Codice fiscale</h4>
-                <h5><input id="immAlias" type="text" value=""></h5><BR>
+                <h5><input id="codiceFiscaleCittadino" type="text" value=""></h5><BR>
                 <h4><i class="fa fa-wheelchair"> Accesso Disabili</i></h4>
-                <h5><input id="immDisabili" type="checkbox" value=""></h5><BR>
+                <h5><input id="disabilitaCittadino" type="checkbox" value=""></h5><BR>
 
             </div>
             <div class="col-md-4">
@@ -95,24 +95,29 @@
                 <select id="immProvincia" disabled name="provincia" class="form-control" style="width:60%; margin:auto"> </select><BR>
 
 
-
-
-                <h4>Città</h4>
-                <h5><input id="immDisponibilita" type="" placeholder="" value=""></h5><BR>
-                <h4>Indirizzo</h4>
-                <h5><input id="immPosti" type="number" min="1" max="50" value=""></h5><BR>
+                <h4>Mail</h4>
+                <h5><input id="mailCittadino" type="" placeholder="" value=""></h5><BR>
+                <h4>Telefono</h4>
+                <h5><input id="telefonoCittadino" min="9" max="9" value=""></h5><BR>
 
             </div>
             <div class="col-md-4"><BR>
                 <h4><i class="fa fa-map-pin"> Città</i></h4>
-                <h5><input id="immCitta" type="text" value=""></h5><BR>
+                <h5><input id="cittaCittadino" type="text" value=""></h5><BR>
                 <h4><i class="fa fa-map-pin"> Indirizzo</i></h4>
-                <h5 ><input id="immIndirizzo" type="text" value=""></h5><BR>
+                <h5 ><input id="indirizzoCittadino" type="text" value=""></h5><BR>
+
+                <h4><i class="fa fa-map-pin"> Data di Nascita</i></h4>
+                <h5 ><input id="dataNascitaCittadino" type="text" value=""></h5><BR>
+                <h4><i class="fa fa-map-pin"> Nome</i></h4>
+                <h5 ><input id="nomeCittadino" type="text" value=""></h5><BR>
+                <h4><i class="fa fa-map-pin"> Cognome</i></h4>
+                <h5 ><input id="cognomeCittadino" type="text" value=""></h5><BR>
             </div>
         </div>
     </div>
-    <button id="buttonAccetta" type="button" class="btn btn-danger" onclick="window.location.href='mieimmobili.php'">Annulla</button>
-    <button id="buttonAccetta" type="button" onclick="salvaImmobile()" class="btn btn-success">Aggiungi e torna alla lista</button>
+    <button id="buttonAccetta" type="button" class="btn btn-danger" onclick="window.location.href='cittadini.php'">Annulla</button>
+    <button id="buttonAccetta" type="button" onclick="salvaCittadino()" class="btn btn-success">Aggiungi e torna alla lista</button>
 
 </div>
 <BR><BR><BR>
