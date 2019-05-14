@@ -491,7 +491,7 @@ function getCittadini(){
                         "<td>" + citta + "</td>" +
                         "<td>" + indirizzo + "</td>" +
                         "<td>" + accesso + "</td>" +
-                        "<td>" + "<button class='button'>Trova migliore soluzione</button> " + "</td>" +
+                        "<td>" + "<button class='btn btn-primary' style='margin: 10px;'>Trova migliore soluzione</button> " + "</td>" +
                         "</tr>";
                 }
             }
