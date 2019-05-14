@@ -64,7 +64,7 @@
     </div><BR>
 
         <div class="container form-group">
-                <select class="form-control" id="immRegione" style="width:250px; display: inline;" onchange="filtroRegioni()">
+                <select class="form-control" id="immRegione2" style="width:250px; display: inline;" onchange="filtroRegioni()">
 
                 <?php
                 require './utility/databaseconnection.php';
@@ -84,10 +84,10 @@
 
                 ?>
             </select>
-            <select class="form-control" id="immProvincia" style="width:250px; display: inline; margin-left: 20px;" disabled name="provincia" onchange="getImmobili()">
+            <select class="form-control" id="immProvincia2" style="width:250px; display: inline; margin-left: 20px;" disabled name="provincia" onchange="getCittadini()">
                 <option value="0">Provincia</option>
             </select>
-            <input type="checkbox" id="checkBarrieraArchitettonica" style="margin-left: 15px; margin-right: 7px; text-align:center;" value="checkBarrieraArchitettonica" onclick="getImmobili()">Disabilità<br>
+
         </div>
 
     <div class="container">  
@@ -96,6 +96,7 @@
                 <thead class="thead-dark">
                     <tr>
                         <th style="width: 15.0%" id="thCF">CF   </th>
+                        <th style="width: 20.0%" id="thRegione">Regione</th>
                         <th style="width: 20.0%" id="thCitta">Citt&agrave</th>
                         <th style="width: 40.0%" id="thIndirizzo">Indirizzo</th>
                         <th style="width: 5.0%"  id="thDisabile">Disabilità</th>

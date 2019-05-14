@@ -70,10 +70,22 @@ function filtroRegioni(){
         //caso in aggiungi immobile
         var idRegione = document.getElementById("immRegione").value;
         var prov = document.getElementById("immProvincia");
+
     }else if (this.document.getElementById("regione")){
         //caso registrazione
         var idRegione = document.getElementById("regione").value;
         var prov = document.getElementById("provincia");
+
+    }else if(this.document.getElementById("immRegione2")) {
+        //caso in cittadini
+        var idRegione = document.getElementById("immRegione2").value;
+        var testoreg = document.getElementById("immRegione2").selectedOptions[0].text;
+        console.log("tes reg in var "+testoreg + " id "+idRegione);
+        var prov = document.getElementById("immProvincia2");
+        var provtext = document.getElementById("immProvincia2").selectedOptions[0].text;
+
+        console.log("prov value "+prov + " testo "+provtext);
+
     }
 
     //Abilito le province solo se è stata selezionata una regione
@@ -106,7 +118,11 @@ function filtroRegioni(){
                 prov.add(option);
             }
 
-            getImmobili();
+            if(document.getElementById("immRegione2")) {
+                getCittadini();
+            }else {
+                getImmobili();
+            }
         }
 
     }
@@ -420,8 +436,21 @@ function ajaxConnect(query) {
 
 
 function getCittadini(){
-    query = "SELECT InfoUtente.CF, InfoUtente.Citta, InfoUtente.Indirizzo, InfoUtente.AccessoDisabiliNecessario, Utente.tipoutente From InfoUtente INNER JOIN Utente ON Utente.CF=InfoUtente.CF WHERE Utente.tipoutente=2";
-    console.log("query");
+
+    var regioneTesto;
+
+    if (document.getElementById("immRegione2").value == 0) {
+        query = "SELECT InfoUtente.CF,InfoUtente.Regione, InfoUtente.Citta, InfoUtente.Indirizzo, InfoUtente.AccessoDisabiliNecessario, Utente.tipoutente From InfoUtente INNER JOIN Utente ON Utente.CF=InfoUtente.CF WHERE Utente.tipoutente=2";
+    } else {
+        regioneTesto = document.getElementById('immRegione2').selectedOptions[0].text;
+        var provinciaTesto = document.getElementById('immProvincia2').selectedOptions[0].text;
+
+        if(provinciaTesto != 'Provincia') {
+            query = "SELECT InfoUtente.CF, InfoUtente.Regione, InfoUtente.Citta, InfoUtente.Indirizzo, InfoUtente.AccessoDisabiliNecessario, Utente.tipoutente From InfoUtente INNER JOIN Utente ON Utente.CF=InfoUtente.CF WHERE Utente.tipoutente=2 AND Regione='" + regioneTesto + "' AND Provincia='" + provinciaTesto + "'";
+        }else{
+            query = "SELECT InfoUtente.CF, InfoUtente.Regione, InfoUtente.Citta, InfoUtente.Indirizzo, InfoUtente.AccessoDisabiliNecessario, Utente.tipoutente From InfoUtente INNER JOIN Utente ON Utente.CF=InfoUtente.CF WHERE Utente.tipoutente=2 AND Regione='" + regioneTesto + "'";
+        }
+    }
 
 
     getCittadiniQuery(query);
@@ -443,9 +472,9 @@ function getCittadini(){
 
                 for (i = 0; i < cittadini.length; i++) {
 
-                    console.log("cf "+cittadini[i].CF);
-                    console.log("ind "+cittadini[i].indirizzo);
                     cfCittadino = cittadini[i].cf;
+                    regione = cittadini[i].regione;
+                    console.log("regione è sempre null e non so perché " + regione);
                     citta = cittadini[i].citta;
                     indirizzo = cittadini[i].indirizzo;
                     accessoDisabiliNecessario = cittadini[i].accessoDisabiliNecessario;
@@ -455,6 +484,7 @@ function getCittadini(){
                     acc.innerHTML = acc.innerHTML +
                         "<tr class=\"rigaImmobile\" onclick=\"window.location.href='"+hrefimmobile+"'\">" +
                         "<td>" + cfCittadino + "</td>" +
+                        "<td>" + regione + "</td>" +
                         "<td>" + citta + "</td>" +
                         "<td>" + indirizzo + "</td>" +
                         "<td>" + accessoDisabiliNecessario + "</td>" +
