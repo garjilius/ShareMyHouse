@@ -686,10 +686,10 @@ function getImmobiliCittadino() {
     }
 
     if(utenti[0].necessDisabili === 1) {
-        query = "Select * From Abitazioni WHERE necessDisabili ===1";
+        query = "Select * From Abitazioni WHERE AccessoDisabili = 1 AND Idonea = 1";
     }
     else {
-        query = "Select * From Abitazioni";
+        query = "Select * From Abitazioni WHERE Idonea = 1";
     }
     console.log(query);
     httpReq.open("POST", "/utility/getImmobiliJSON.php?v=2", true);
