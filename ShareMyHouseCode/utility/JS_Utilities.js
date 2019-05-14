@@ -482,10 +482,8 @@ function getCittadini(){
                         accesso = "Sì";
                     }
 
-                    hrefimmobile = "riepilogoPerCittadino.php?cf="+cfCittadino;
-
                     acc.innerHTML = acc.innerHTML +
-                        "<tr class=\"rigaImmobile\" onclick=\"window.location.href='"+hrefimmobile+"'\">" +
+                        "<tr>" +
                         "<td>" + cfCittadino + "</td>" +
                         "<td>" + regione + "</td>" +
                         "<td>" + citta + "</td>" +
