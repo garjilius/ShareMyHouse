@@ -371,8 +371,6 @@ function nuovoUtente(tipoUtente) {
 
             var response = parseInt(httpReq.responseText);
             risultato = JSON.parse(httpReq.responseText);
-            console.log("res"+response);
-            console.log("ris"+risultato);
 
             var latitudine = risultato.results[0].geometry.location.lat;
             var longitudine = risultato.results[0].geometry.location.lng;
@@ -457,7 +455,7 @@ function getCittadini(){
     getCittadiniQuery(query);
 
     function getCittadiniQuery(query) {
-        console.log("in get cittadini "+query);
+
         var httpReq = new XMLHttpRequest();
         httpReq.onreadystatechange = function () {
             if (httpReq.readyState === 4 && httpReq.status === 200) {
@@ -475,7 +473,6 @@ function getCittadini(){
 
                     cfCittadino = cittadini[i].cf;
                     regione = cittadini[i].regione;
-                    console.log("regione è sempre null e non so perché " + regione);
                     citta = cittadini[i].citta;
                     indirizzo = cittadini[i].indirizzo;
                     accessoDisabiliNecessario = cittadini[i].accessoDisabiliNecessario;
