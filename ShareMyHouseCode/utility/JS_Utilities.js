@@ -489,7 +489,7 @@ function getCittadini(){
                         "<td>" + citta + "</td>" +
                         "<td>" + indirizzo + "</td>" +
                         "<td>" + accesso + "</td>" +
-                        "<td>" + "<button class='btn btn-primary' style='margin: 10px;'>Trova migliore soluzione</button> " + "</td>" +
+                        "<td>" + "<button class='btn btn-primary' style='margin: 10px;' onclick='window.location.href=&#39riepilogoPerCittadino.php&#39'>Trova migliore soluzione</button> " + "</td>" +
                         "</tr>";
                 }
             }
