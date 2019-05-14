@@ -591,9 +591,6 @@ function getImmobili() {
     }
 }
 
-
-
-//GESTISCO LA BARRA DI RICERCA. CANCELLO RIGHE SENZA IL VALORE CERCATO
 function handleSearch() {
     var ricerca = document.getElementById("searchbar").value;
     righe = document.getElementsByClassName("rigaImmobile");
@@ -608,7 +605,6 @@ function handleSearch() {
     }
 }
 
-//Ottiene solo le info dell'utente e carica gli immobili quando ha finito
 function getUtente(cf) {
     var httpReq = new XMLHttpRequest();
     httpReq.onreadystatechange = function () {
@@ -724,13 +720,11 @@ function salvaCittadino() {
         disabilitaCittadino = 0;
     }
 
-//Controllo che tutti i campi siano stati riempiti
     if((codiceFiscaleCittadino.length===0) || (regione.length===0)|| (provincia.length===0) || (cittaCittadino.length===0) || (indirizzoCittadino.length===0) || (mailCittadino.length===0)||(telefonoCittadino.length===0) || (dataNascitaCittadino.length==0) ||(nomeCittadino.length===0) || (cognomeCittadino.length==0)) {
         alert("Riempire tutti i campi!");
         return;
     }
 
-    // RECUPERO COORDINATE GPS
     indirizzoEncoded = indirizzoCittadino+", "+cittaCittadino+", +IT";
     indirizzoEncoded = indirizzoEncoded.replace(" ", "+");
 
@@ -740,18 +734,15 @@ function salvaCittadino() {
             risultato = JSON.parse(httpReq.responseText);
             let latitudine = risultato.results[0].geometry.location.lat;
             let longitudine = risultato.results[0].geometry.location.lng;
-            //console.log(latitudine+","+longitudine);
-            //Preparo i valori per la query
             let values = "('"+codiceFiscaleCittadino+"', '"+regione+"', '"+provincia+"', '"+cittaCittadino+"', '"+indirizzoCittadino+"', '"+disabilitaCittadino+"', '"+dataNascitaCittadino+"', '"+mailCittadino+"', '"+telefonoCittadino+"', '"+latitudine+"', "+longitudine+" )";
             let values2 = "('"+codiceFiscaleCittadino+"', '"+nomeCittadino+"', '"+cognomeCittadino+"', 'vuoto', '2' )";
             query = "INSERT INTO InfoUtente (CF, Regione, Provincia, Citta, Indirizzo, AccessoDisabiliNecessario, DataNascita, mail, telefono, Latitudine, Longitudine) VALUES "+values;
             query2 = "INSERT INTO Utente (CF, Nome, Cognome, password, tipoutente) VALUES "+values2;
 
-            //console.log(query);
-            ajaxConnect(query); //Eseguo la query
+            ajaxConnect(query);
             ajaxConnect(query2);
 
-            setTimeout(function (){ //aspetto un po' e poi torno alla pagina dei miei immobili
+            setTimeout(function (){
                 window.location.href='/cittadini.php'
             }, 500);
 
