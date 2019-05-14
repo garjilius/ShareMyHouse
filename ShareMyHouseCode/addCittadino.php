@@ -62,11 +62,11 @@
             <div class="col-md-4"><BR>
                 <h4>Codice fiscale</h4>
                 <h5><input id="codiceFiscaleCittadino" type="text" value=""></h5><BR>
-                <h4><i class="fa fa-wheelchair"> Accesso Disabili</i></h4>
-                <h5><input id="disabilitaCittadino" type="checkbox" value=""></h5><BR>
 
-            </div>
-            <div class="col-md-4">
+                <h4><i class="fa fa-map-pin"> Data di Nascita</i></h4>
+                <h5 ><input id="dataNascitaCittadino" type="text" value=""></h5><BR>
+
+
                 <h4><i class="fa fa-map-pin"> Regione</i></h4>
                 <select id="immRegione" onchange="filtroRegioni()" name="regione" class="form-control" style="width:60%; margin:auto">
 
@@ -91,28 +91,50 @@
 
 
                 </select><BR>
-                <h4><i class="fa fa-map-pin"> Provincia</i></h4>
-                <select id="immProvincia" disabled name="provincia" class="form-control" style="width:60%; margin:auto"> </select><BR>
+
+                <h4><i class="fa fa-map-pin"> Indirizzo</i></h4>
+                <h5 ><input id="indirizzoCittadino" type="text" value=""></h5><BR>
+
+
+            </div>
+            <div class="col-md-4">
+
+                <h4><i class="fa fa-map-pin"> Nome</i></h4>
+                <h5 ><input id="nomeCittadino" type="text" value=""></h5><BR>
+
+
 
 
                 <h4>Mail</h4>
                 <h5><input id="mailCittadino" type="" placeholder="" value=""></h5><BR>
-                <h4>Telefono</h4>
-                <h5><input id="telefonoCittadino" min="9" max="9" value=""></h5><BR>
+
+
+                <h4><i class="fa fa-map-pin"> Provincia</i></h4>
+                <select id="immProvincia" disabled name="provincia" class="form-control" style="width:60%; margin:auto"> </select><BR>
+
+
+
+                <h4><i class="fa fa-wheelchair"> Accesso Disabili</i></h4>
+                <h5><input id="disabilitaCittadino" type="checkbox" value=""></h5><BR>
+
+
+
 
             </div>
             <div class="col-md-4"><BR>
-                <h4><i class="fa fa-map-pin"> Città</i></h4>
-                <h5><input id="cittaCittadino" type="text" value=""></h5><BR>
-                <h4><i class="fa fa-map-pin"> Indirizzo</i></h4>
-                <h5 ><input id="indirizzoCittadino" type="text" value=""></h5><BR>
-
-                <h4><i class="fa fa-map-pin"> Data di Nascita</i></h4>
-                <h5 ><input id="dataNascitaCittadino" type="text" value=""></h5><BR>
-                <h4><i class="fa fa-map-pin"> Nome</i></h4>
-                <h5 ><input id="nomeCittadino" type="text" value=""></h5><BR>
                 <h4><i class="fa fa-map-pin"> Cognome</i></h4>
                 <h5 ><input id="cognomeCittadino" type="text" value=""></h5><BR>
+
+                <h4>Telefono</h4>
+                <h5><input id="telefonoCittadino" min="9" max="9" value=""></h5><BR>
+
+
+
+                <h4><i class="fa fa-map-pin"> Città</i></h4>
+                <h5><input id="cittaCittadino" type="text" value=""></h5><BR>
+
+
+
             </div>
         </div>
     </div>
