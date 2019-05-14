@@ -98,8 +98,9 @@
                         <th style="width: 15.0%" id="thCF">CF   </th>
                         <th style="width: 20.0%" id="thRegione">Regione</th>
                         <th style="width: 20.0%" id="thCitta">Citt&agrave</th>
-                        <th style="width: 40.0%" id="thIndirizzo">Indirizzo</th>
+                        <th style="width: 30.0%" id="thIndirizzo">Indirizzo</th>
                         <th style="width: 5.0%"  id="thDisabile">Disabilità</th>
+                        <th style="width: 10.0%"  id="thImmobile">Id Immobile</th>
                         <th style="width: 20.0%" id="thAzione">Azione</th>
 
                     </tr>

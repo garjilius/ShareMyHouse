@@ -439,15 +439,15 @@ function getCittadini(){
     var accesso;
 
     if (document.getElementById("immRegione2").value == 0) {
-        query = "SELECT InfoUtente.CF,InfoUtente.Regione, InfoUtente.Citta, InfoUtente.Indirizzo, InfoUtente.AccessoDisabiliNecessario, Utente.tipoutente From InfoUtente INNER JOIN Utente ON Utente.CF=InfoUtente.CF WHERE Utente.tipoutente=2";
+        query = "SELECT InfoUtente.CF,InfoUtente.Regione, InfoUtente.Citta, InfoUtente.Indirizzo, InfoUtente.AccessoDisabiliNecessario,InfoUtente.idImmobileAssegnato, Utente.tipoutente From InfoUtente INNER JOIN Utente ON Utente.CF=InfoUtente.CF WHERE Utente.tipoutente=2";
     } else {
         regioneTesto = document.getElementById('immRegione2').selectedOptions[0].text;
         var provinciaTesto = document.getElementById('immProvincia2').selectedOptions[0].text;
 
         if(provinciaTesto != 'Provincia') {
-            query = "SELECT InfoUtente.CF, InfoUtente.Regione, InfoUtente.Citta, InfoUtente.Indirizzo, InfoUtente.AccessoDisabiliNecessario, Utente.tipoutente From InfoUtente INNER JOIN Utente ON Utente.CF=InfoUtente.CF WHERE Utente.tipoutente=2 AND Regione='" + regioneTesto + "' AND Provincia='" + provinciaTesto + "'";
+            query = "SELECT InfoUtente.CF, InfoUtente.Regione, InfoUtente.Citta, InfoUtente.Indirizzo, InfoUtente.AccessoDisabiliNecessario,InfoUtente.idImmobileAssegnato, Utente.tipoutente From InfoUtente INNER JOIN Utente ON Utente.CF=InfoUtente.CF WHERE Utente.tipoutente=2 AND Regione='" + regioneTesto + "' AND Provincia='" + provinciaTesto + "'";
         }else{
-            query = "SELECT InfoUtente.CF, InfoUtente.Regione, InfoUtente.Citta, InfoUtente.Indirizzo, InfoUtente.AccessoDisabiliNecessario, Utente.tipoutente From InfoUtente INNER JOIN Utente ON Utente.CF=InfoUtente.CF WHERE Utente.tipoutente=2 AND Regione='" + regioneTesto + "'";
+            query = "SELECT InfoUtente.CF, InfoUtente.Regione, InfoUtente.Citta, InfoUtente.Indirizzo, InfoUtente.AccessoDisabiliNecessario,InfoUtente.idImmobileAssegnato, Utente.tipoutente From InfoUtente INNER JOIN Utente ON Utente.CF=InfoUtente.CF WHERE Utente.tipoutente=2 AND Regione='" + regioneTesto + "'";
         }
     }
 
@@ -476,6 +476,7 @@ function getCittadini(){
                     citta = cittadini[i].citta;
                     indirizzo = cittadini[i].indirizzo;
                     accessoDisabiliNecessario = cittadini[i].accessoDisabiliNecessario;
+                    idImmobileAssegnato = cittadini[i].idImmobileAssegnato;
                     if(accessoDisabiliNecessario==0){
                         accesso = "No";
                     }else{
@@ -491,6 +492,7 @@ function getCittadini(){
                         "<td>" + citta + "</td>" +
                         "<td>" + indirizzo + "</td>" +
                         "<td>" + accesso + "</td>" +
+                        "<td>" + idImmobileAssegnato + "</td>" +
                         "<td>" + "<button class='btn btn-primary' style='margin: 10px;' onclick=\"window.location.href='"+hrefPerCittadino+"'\">Trova migliore soluzione</button> " + "</td>" +
                         "</tr>";
                 }

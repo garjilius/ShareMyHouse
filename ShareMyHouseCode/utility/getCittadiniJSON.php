@@ -24,6 +24,7 @@ class cittadino {
     private $latitudine="";
     private $longitudine="";
     private $tipoUtente="";
+    private $idImmobileAssegnato="";
 
     public function toArray() {
         return array(
@@ -38,6 +39,7 @@ class cittadino {
             "telefono" => $this->getTelefono(),
             "latitudine" => $this->getLatitudine(),
             "longitudine" => $this->getLongitudine(),
+            "idImmobileAssegnato" => $this->getIdImmobileAssegnato(),
             "tipoUtente" => $this->getTipoUtente()
         );
     }
@@ -47,6 +49,23 @@ class cittadino {
     {
         return $this->cf;
     }
+
+    /**
+     * @return string
+     */
+    public function getIdImmobileAssegnato()
+    {
+        return $this->idImmobileAssegnato;
+    }
+
+    /**
+     * @param string $idImmobileAssegnato
+     */
+    public function setIdImmobileAssegnato($idImmobileAssegnato)
+    {
+        $this->idImmobileAssegnato = $idImmobileAssegnato;
+    }
+
 
     public function setCF($cf)
     {
@@ -188,6 +207,7 @@ for ($i=0;$i<$numrighe;$i++) {
     $cittadiniTMP->setTelefono($riga["telefono"]);
     $cittadiniTMP->setLatitudine($riga["Latitudine"]);
     $cittadiniTMP->setLongitudine($riga["Longitudine"]);
+    $cittadiniTMP->setIdImmobileAssegnato($riga["idImmobileAssegnato"]);
 
     $cittadini[$i] = $cittadiniTMP->toArray();
 
