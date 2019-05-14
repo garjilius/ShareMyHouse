@@ -438,6 +438,7 @@ function ajaxConnect(query) {
 function getCittadini(){
 
     var regioneTesto;
+    var accesso;
 
     if (document.getElementById("immRegione2").value == 0) {
         query = "SELECT InfoUtente.CF,InfoUtente.Regione, InfoUtente.Citta, InfoUtente.Indirizzo, InfoUtente.AccessoDisabiliNecessario, Utente.tipoutente From InfoUtente INNER JOIN Utente ON Utente.CF=InfoUtente.CF WHERE Utente.tipoutente=2";
@@ -478,6 +479,11 @@ function getCittadini(){
                     citta = cittadini[i].citta;
                     indirizzo = cittadini[i].indirizzo;
                     accessoDisabiliNecessario = cittadini[i].accessoDisabiliNecessario;
+                    if(accessoDisabiliNecessario==0){
+                        accesso = "No";
+                    }else{
+                        accesso = "Sì";
+                    }
 
                     hrefimmobile = "riepilogoPerCittadino.php?cf="+cfCittadino;
 
@@ -487,7 +493,7 @@ function getCittadini(){
                         "<td>" + regione + "</td>" +
                         "<td>" + citta + "</td>" +
                         "<td>" + indirizzo + "</td>" +
-                        "<td>" + accessoDisabiliNecessario + "</td>" +
+                        "<td>" + accesso + "</td>" +
                         "<td>" + "<button class='button'>Trova migliore soluzione</button> " + "</td>" +
                         "</tr>";
                 }
