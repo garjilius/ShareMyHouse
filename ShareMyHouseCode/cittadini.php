@@ -109,6 +109,9 @@
                 </tbody>
             </table>
         </div>
+
+        <button id="buttonAggiungiCittadino" style="margin: auto; display: block;" type="button" onclick="window.location.href='/addCittadino.php'" class="btn btn-success">Aggiungi cittadino</button>
+
     </div>
 
         <script type="text/javascript">
