@@ -176,11 +176,12 @@
                                     postiTotali = parseInt(immobili[0].postiTotali);
                                     postiOccupati = parseInt(immobili[0].postiOccupati);
 
+                                cercaImmobileAssegnato();
+
                                 if (postiOccupati < postiTotali) {
-                                    cercaImmobileAssegnato();
 
                                         postiOccupati = postiOccupati + 1;
-                                        queryAggiornamento = "UPDATE Abitazioni SET postiOccupati=" + postiOccupati + " WHERE IDAbitazione =" + idImmobile;
+                                        queryAggiornamento = "UPDATE Abitazioni INNER JOIN InfoUtente ON Abitazioni.IDAbitazione=InfoUtente.idImmobileAssegnato SET Abitazioni.postiOccupati=" + postiOccupati + " WHERE Abitazioni.IDAbitazione =" + idImmobile+ "";
                                         aggiornaNumeroPosti(queryAggiornamento);
 
                                 }else if(postiOccupati >= postiTotali){
