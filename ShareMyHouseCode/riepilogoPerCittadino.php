@@ -117,6 +117,44 @@
             //Carico i dati dell'utente e formo la tabella
             getUtente(cf);
 
+            function cercaImmobileAssegnato() {
+                var httpReq = new XMLHttpRequest();
+
+                var idImmobile = parseInt(document.getElementById("idImmobileRiga").textContent);
+
+                var query = "SELECT idImmobileAssegnato From InfoUtente WHERE CF='" + cf + "'";
+
+                console.log("id querty  " + query);
+
+                cercaImmobileAssegnato(query);
+
+                function cercaImmobileAssegnato(query) {
+                    httpReq.onreadystatechange = function () {
+                        if (httpReq.readyState === 4 && httpReq.status === 200) {
+                            if (httpReq.responseText !== false) {
+
+                                cittadini = JSON.parse(httpReq.responseText);
+                                idImmobileAssegnato = parseInt((cittadini[0].idImmobileAssegnato));
+
+                                if(idImmobileAssegnato==0){
+                                    queryAggiornamento = "UPDATE InfoUtente SET idImmobileAssegnato="+idImmobile+" WHERE CF='" + cf + "'";
+                                    aggiornaNumeroPosti(queryAggiornamento);
+
+                                }else{
+                                    console.log("già assegnato");
+                                }
+                            }
+                        }
+                    }
+
+                    httpReq.open("POST", "/utility/getCittadiniJSON.php?v=2", true);
+                    httpReq.setRequestHeader('Content-Type', 'application/json');
+                    httpReq.send(query);
+
+                }
+
+            }
+
             function mostraModale() {
                 var httpReq = new XMLHttpRequest();
 
@@ -124,10 +162,8 @@
 
                 var x = document.getElementById("aggiungiOccupante").parentElement.parentElement;
                 var idImmobile = parseInt(document.getElementById("idImmobileRiga").textContent);
-                console.log("id immobile mostra modale "+idImmobile);
 
-                var query = "SELECT postiOccupati,postiTotali From Abitazioni WHERE IDAbitazione="+idImmobile;
-                console.log("id immobile mostra modale "+query);
+                var query = "SELECT Abitazioni.postiOccupati,Abitazioni.postiTotali, InfoUtente.idImmobileAssegnato From Abitazioni INNER JOIN InfoUtente WHERE IDAbitazione="+idImmobile;
 
                 mostraModale(query);
 
@@ -137,25 +173,22 @@
                             if (httpReq.responseText !== false) {
                                 immobili = JSON.parse(httpReq.responseText);
 
-
                                     postiTotali = parseInt(immobili[0].postiTotali);
                                     postiOccupati = parseInt(immobili[0].postiOccupati);
 
-                                    console.log("posti occupati "+postiOccupati);
-                                    console.log("posti totali "+postiTotali);
-
-
-
                                 if (postiOccupati < postiTotali) {
-
-                                    queryCercaUtente = "SELECT idImmobileAssegnato From InfoUtente WHERE CF='"+cf+"'";
+                                    cercaImmobileAssegnato();
 
                                         postiOccupati = postiOccupati + 1;
                                         queryAggiornamento = "UPDATE Abitazioni SET postiOccupati=" + postiOccupati + " WHERE IDAbitazione =" + idImmobile;
                                         aggiornaNumeroPosti(queryAggiornamento);
 
-                                } else {
+                                }else if(postiOccupati >= postiTotali){
                                     window.alert("Questa abitazione ha tutti i posti occupati!");
+
+                                }
+                                else {
+                                    console.log("non posso aggionare ancora");
                                 }
                             }
 
@@ -169,6 +202,7 @@
                 httpReq.send(query);
 
             }
+
 
         </script>
 </body>

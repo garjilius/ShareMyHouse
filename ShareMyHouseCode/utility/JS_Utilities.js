@@ -758,6 +758,5 @@ function salvaCittadino() {
 }
 
 function aggiornaNumeroPosti(query){
-    console.log("query "+query);
      ajaxConnect(query);
 }
