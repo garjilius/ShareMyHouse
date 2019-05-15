@@ -118,11 +118,20 @@
             getUtente(cf);
 
             var tempC = true;
+            var riga= 0;
+            var idImmobile = document.getElementById("tavolaSegnalazioni").rows[riga].cells[0].innerHTML;
+
+
+
+            function getRigaBottone(element){
+                riga=element.parentNode.parentNode.rowIndex;
+                idImmobile = document.getElementById("tavolaSegnalazioni").rows[riga].cells[0].innerHTML;
+                console.log("Id: "+idImmobile);
+            }
 
              function cercaImmobileAssegnato() {
                 var httpReq = new XMLHttpRequest();
 
-                var idImmobile = parseInt(document.getElementById("idImmobileRiga").textContent);
                 var query = "SELECT idImmobileAssegnato From InfoUtente WHERE CF='" + cf + "'";
 
                 cercaImmobileAssegnato(query);
@@ -160,11 +169,8 @@
 
             function mostraModale() {
                 var httpReq = new XMLHttpRequest();
-
-               // var x = document.getElementById("tavolaSegnalazioni").querySelector("#thId").value;
-
-                var x = document.getElementById("aggiungiOccupante").parentElement.parentElement;
-                var idImmobile = parseInt(document.getElementById("idImmobileRiga").textContent);
+                console.log("id "+idImmobile);
+                // idImmobile = document.getElementById("tavolaSegnalazioni").rows[riga].cells[0].innerHTML;
 
                 var query = "SELECT Abitazioni.postiOccupati,Abitazioni.postiTotali, InfoUtente.idImmobileAssegnato From Abitazioni INNER JOIN InfoUtente WHERE IDAbitazione="+idImmobile;
 
@@ -182,16 +188,14 @@
                                 console.log("prima: "+tempC);
                                 cercaImmobileAssegnato();
 
-                                console.log("dopo: "+tempC);
-
                                 if (postiOccupati < postiTotali) {
 
                                         if(tempC==false){
                                             //vuol dire che il cittadino è stato già assegnato, quindi non aggiornare la query
                                         }else {
-                                            console.log("ma secondo quale logica sei a true? "+temp);
                                             postiOccupati = postiOccupati + 1;
-                                            queryAggiornamento = "UPDATE Abitazioni INNER JOIN InfoUtente ON Abitazioni.IDAbitazione=InfoUtente.idImmobileAssegnato SET Abitazioni.postiOccupati=" + postiOccupati + " WHERE Abitazioni.IDAbitazione =" + idImmobile+ "";
+                                           // queryAggiornamento = "UPDATE Abitazioni INNER JOIN InfoUtente ON Abitazioni.IDAbitazione=InfoUtente.idImmobileAssegnato SET Abitazioni.postiOccupati=" + postiOccupati + " WHERE Abitazioni.IDAbitazione =" + idImmobile+ "";
+                                            queryAggiornamento = "UPDATE Abitazioni SET Abitazioni.postiOccupati=" + postiOccupati + " WHERE Abitazioni.IDAbitazione =" + idImmobile+ "";
                                             aggiornaNumeroPosti(queryAggiornamento);
                                         }
 
