@@ -80,7 +80,6 @@ function filtroRegioni(){
         //caso in cittadini
         var idRegione = document.getElementById("immRegione2").value;
         var testoreg = document.getElementById("immRegione2").selectedOptions[0].text;
-        console.log("tes reg in var "+testoreg + " id "+idRegione);
         var prov = document.getElementById("immProvincia2");
         var provtext = document.getElementById("immProvincia2").selectedOptions[0].text;
 
@@ -185,8 +184,7 @@ httpReq.onreadystatechange = function () {
        risultato = JSON.parse(httpReq.responseText);
        let latitudine = risultato.results[0].geometry.location.lat;
        let longitudine = risultato.results[0].geometry.location.lng;
-       //console.log(latitudine+","+longitudine);
-        //Preparo i valori per la query
+
        let values = "('"+alias+"', '"+localStorage.codiceFiscale+"', '"+disponibilita+"', '"+posti+"', '"+regione+"', '"+provincia+"', '"+citta+"', '"+indirizzo+"', '"+accDisabili+"', '"+latitudine+"', "+longitudine+" )";
 
        query = "INSERT INTO Abitazioni (NomeAbitazione, Proprietario,scadenzaDisponibilita,postiTotali, Regione, Provincia, Citta, Indirizzo, AccessoDisabili, Latitudine, Longitudine) VALUES "+values;
@@ -493,7 +491,7 @@ function getCittadini(){
                         "<td>" + indirizzo + "</td>" +
                         "<td>" + accesso + "</td>" +
                         "<td>" + idImmobileAssegnato + "</td>" +
-                        "<td>" + "<button class='btn btn-primary' style='margin: 10px;' onclick=\"window.location.href='"+hrefPerCittadino+"'\">Trova migliore soluzione</button> " + "</td>" +
+                        "<td>" + "<button class='btn btn-primary' style='margin: 10px;' onclick=\"window.location.href='"+hrefPerCittadino+"'\">Gestisci occupanti</button> " + "</td>" +
                         "</tr>";
                 }
             }
