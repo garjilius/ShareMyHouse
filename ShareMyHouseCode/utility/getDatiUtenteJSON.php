@@ -25,10 +25,24 @@ header('Expires: -1');
         private $necessDisabili="";
         private $latitudine="";
         private $longitudine="";
-
+        private $idImmobileAssegnato="";
         /**
          * @return string
          */
+
+        public function getIdImmobileAssegnato()
+        {
+            return $this->idImmobileAssegnato;
+        }
+
+        /**
+         * @param string $latitudine
+         */
+        public function setIdImmobileAssegnato($idImmobileAssegnato)
+        {
+            $this->idImmobileAssegnato = $idImmobileAssegnato;
+        }
+
         public function getLatitudine()
         {
             return $this->latitudine;
@@ -197,7 +211,9 @@ header('Expires: -1');
                 "provincia" => $this->getProvincia(),
                 "regione" => $this->getRegione(),
                 "latitudine" => $this->getLatitudine(),
-                "longitudine" => $this->getLongitudine()
+                "longitudine" => $this->getLongitudine(),
+                "idImmobileAssegnato" => $this->getIdImmobileAssegnato()
+
             );
         }
     }
@@ -224,6 +240,8 @@ for ($i=0;$i<$numrighe;$i++) {
     $utenteTMP->setTipoUtente($riga["tipoUtente"]);
     $utenteTMP->setLatitudine($riga["latitudine"]);
     $utenteTMP->setLongitudine($riga["longitudine"]);
+    $utenteTMP->setIdImmobileAssegnato($riga["idImmobileAssegnato"]);
+
 
     $utenti[$i] = $utenteTMP->toArray();
 

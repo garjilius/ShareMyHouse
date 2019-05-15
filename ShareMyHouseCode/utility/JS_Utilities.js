@@ -7,23 +7,23 @@ function logout() {
 
 function modificaInfoUtente() {
     let infoUtente = document.getElementsByClassName("infoutenteModificabile");
-    let button = document.getElementById("buttonModifica")
+        let button = document.getElementById("buttonModifica")
 
-    if (infoUtente[0].disabled) {
-        button.innerText= "Fatto";
-        for(i = 0; i<infoUtente.length; i++) {
-            infoUtente[i].disabled = false;
+        if (infoUtente[0].disabled) {
+            button.innerText= "Fatto";
+            for(i = 0; i<infoUtente.length; i++) {
+                infoUtente[i].disabled = false;
+            }
+            return;
         }
-        return;
-    }
 
-    if (!infoUtente[0].disabled) {
-        button.innerText = "Modifica";
-        for(i = 0; i<infoUtente.length; i++) {
-            infoUtente[i].disabled = true;
-        }
-        updateDatiUtente();
-        return;
+        if (!infoUtente[0].disabled) {
+            button.innerText = "Modifica";
+            for(i = 0; i<infoUtente.length; i++) {
+                infoUtente[i].disabled = true;
+            }
+            updateDatiUtente();
+            return;
     }
 }
 
@@ -668,14 +668,14 @@ function getImmobiliCittadino() {
                 if((distanza<=maxRange || (maxRange==="")) && filtroRegioneProvinciaSoddisfatto ) {
                     acc.innerHTML = acc.innerHTML +
                         //"<tr class=\"rigaImmobile\" onclick=\"window.location.href='" + hrefimmobile + "'\">" +
-                        "<tr>" +
-                        "<td>" + idImmobile + "</td>" +
-                        "<td>" + regione + "</td>" +
-                        "<td>" + provincia + "</td>" +
-                        "<td>" + citta + "</td>" +
-                        "<td>" + indirizzo + "</td>" +
-                        "<td>" + postiOccupati + "/" + postiTotali + "</td>" +
-                        "<td>"  + "<button class='btn btn-success' style='margin: 5px;' onclick='mostraModale()' data-toggle=\"modal\" data-target=\"#myModal\">Assegna</button> " + "<button class='btn btn-primary' style='margin: 5px;'>Gestisci occupanti</button> " +"</td>" +
+                        "<tr id='aggiungiOccupantiRiga'>" +
+                        "<td id='idImmobileRiga'>" + idImmobile + "</td>" +
+                        "<td id='regioneRiga'>" + regione + "</td>" +
+                        "<td id='provinciaRiga'>" + provincia + "</td>" +
+                        "<td id='cittaRiga'>" + citta + "</td>" +
+                        "<td id='indirizzoRiga'>" + indirizzo + "</td>" +
+                        "<td id='postiRiga'>" + postiOccupati + "/" + postiTotali + "</td>" +
+                        "<td id='bottoniRiga'>"  + "<button id='aggiungiOccupante' class='btn btn-success' style='margin: 5px;' data-toggle=\"modal\" data-target=\"#myModal\">Assegna</button> " + "<button class='btn btn-primary' style='margin: 5px;'>Gestisci occupanti</button> " +"</td>" +
                         "</tr>";
                 }
 
@@ -757,3 +757,7 @@ function salvaCittadino() {
     httpReq.send();
 }
 
+function aggiornaNumeroPosti(query){
+    console.log("query "+query);
+     ajaxConnect(query);
+}

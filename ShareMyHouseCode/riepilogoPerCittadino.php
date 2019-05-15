@@ -74,7 +74,7 @@
         <div class="table-responsive">
             <table id="tavolaSegnalazioni" class="tavolaSegnalazioni table-striped table-bordered table table-hover row-clickable table-responsive">
                 <thead class="thead-dark">
-                    <tr>
+                    <tr id="righeTabella">
                         <th style="width: 5.0%" id="thId">ID   </th>
                         <th style="width: 15.0%" id = "thRegione">Regione</th>
                         <th style="width: 5.0%" id="thProvincia">Provincia</th>
@@ -105,7 +105,7 @@
                     <div class="modal-body">
                         <p>Sei sicuro di voler assegnare l'occupante?</p>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Annulla</button>
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Assegna occupante</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="mostraModale()">Assegna occupante</button>
                     </div>
                 </div>
     </div>
@@ -120,9 +120,14 @@
             function mostraModale() {
                 var httpReq = new XMLHttpRequest();
 
-                var idImmobile = document.getElementById("thId").value;
+               // var x = document.getElementById("tavolaSegnalazioni").querySelector("#thId").value;
 
-                var query = "SELECT * From InfoUtente WHERE idImmobileAssegnato="+idImmobile;
+                var x = document.getElementById("aggiungiOccupante").parentElement.parentElement;
+                var idImmobile = parseInt(document.getElementById("idImmobileRiga").textContent);
+                console.log("id immobile mostra modale "+idImmobile);
+
+                var query = "SELECT postiOccupati,postiTotali From Abitazioni WHERE IDAbitazione="+idImmobile;
+                console.log("id immobile mostra modale "+query);
 
                 mostraModale(query);
 
@@ -130,22 +135,38 @@
                     httpReq.onreadystatechange = function () {
                         if (httpReq.readyState === 4 && httpReq.status === 200) {
                             if (httpReq.responseText !== false) {
-                                utenti = JSON.parse(httpReq.responseText);
+                                immobili = JSON.parse(httpReq.responseText);
 
 
-                                //modalCF.innerHTML = utenti[0].cf;
-                                console.log("entrato");
+                                    postiTotali = parseInt(immobili[0].postiTotali);
+                                    postiOccupati = parseInt(immobili[0].postiOccupati);
 
-                                //$("#modaleUserInfo").modal("show");
+                                    console.log("posti occupati "+postiOccupati);
+                                    console.log("posti totali "+postiTotali);
 
+
+
+                                if (postiOccupati < postiTotali) {
+
+                                    queryCercaUtente = "SELECT idImmobileAssegnato From InfoUtente WHERE CF='"+cf+"'";
+
+                                        postiOccupati = postiOccupati + 1;
+                                        queryAggiornamento = "UPDATE Abitazioni SET postiOccupati=" + postiOccupati + " WHERE IDAbitazione =" + idImmobile;
+                                        aggiornaNumeroPosti(queryAggiornamento);
+
+                                } else {
+                                    window.alert("Questa abitazione ha tutti i posti occupati!");
+                                }
                             }
+
+
                         }
                     }
                 }
 
-                httpReq.open("POST", "/utility/getDatiUtenteJSON.php?v=9o0o10o2", true);
+                httpReq.open("POST", "/utility/getImmobiliJSON.php?v=2", true);
                 httpReq.setRequestHeader('Content-Type', 'application/json');
-                httpReq.send(cf);
+                httpReq.send(query);
 
             }
 
