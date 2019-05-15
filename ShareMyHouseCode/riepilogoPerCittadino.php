@@ -90,6 +90,24 @@
                 </tbody>
             </table>
         </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Conferma operazione</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Sei sicuro di voler assegnare l'occupante?</p>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Annulla</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Assegna occupante</button>
+                    </div>
+                </div>
     </div>
 
         <script type="text/javascript">
@@ -98,6 +116,38 @@
             document.getElementById("intestazionePagina").innerText ="Cerca migliore immobile per:  "+cf ;
             //Carico i dati dell'utente e formo la tabella
             getUtente(cf);
+
+            function mostraModale() {
+                var httpReq = new XMLHttpRequest();
+
+                var idImmobile = document.getElementById("thId").value;
+
+                var query = "SELECT * From InfoUtente WHERE idImmobileAssegnato="+idImmobile;
+
+                mostraModale(query);
+
+                function mostraModale(query) {
+                    httpReq.onreadystatechange = function () {
+                        if (httpReq.readyState === 4 && httpReq.status === 200) {
+                            if (httpReq.responseText !== false) {
+                                utenti = JSON.parse(httpReq.responseText);
+
+
+                                //modalCF.innerHTML = utenti[0].cf;
+                                console.log("entrato");
+
+                                //$("#modaleUserInfo").modal("show");
+
+                            }
+                        }
+                    }
+                }
+
+                httpReq.open("POST", "/utility/getDatiUtenteJSON.php?v=9o0o10o2", true);
+                httpReq.setRequestHeader('Content-Type', 'application/json');
+                httpReq.send(cf);
+
+            }
 
         </script>
 </body>

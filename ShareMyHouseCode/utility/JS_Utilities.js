@@ -648,7 +648,7 @@ function getImmobiliCittadino() {
                 postiOccupati = immobili[i].postiOccupati;
                 latitudineImmobile = immobili[i].latitudine;
                 longitudineImmobile = immobili[i].longitudine;
-                hrefimmobile = "dettagliImmobile.php?idImmobile="+idImmobile;
+                //hrefimmobile = "dettagliImmobile.php?idImmobile="+idImmobile;
 
                 filtroRegioneProvinciaSoddisfatto = true;
                 stessaRegione = document.getElementById("sameRegione").checked;
@@ -667,14 +667,15 @@ function getImmobiliCittadino() {
                 //aggiungo gli immobili alla tabella solo se rispettano il requisito di distanza
                 if((distanza<=maxRange || (maxRange==="")) && filtroRegioneProvinciaSoddisfatto ) {
                     acc.innerHTML = acc.innerHTML +
-                        "<tr class=\"rigaImmobile\" onclick=\"window.location.href='" + hrefimmobile + "'\">" +
+                        //"<tr class=\"rigaImmobile\" onclick=\"window.location.href='" + hrefimmobile + "'\">" +
+                        "<tr>" +
                         "<td>" + idImmobile + "</td>" +
                         "<td>" + regione + "</td>" +
                         "<td>" + provincia + "</td>" +
                         "<td>" + citta + "</td>" +
                         "<td>" + indirizzo + "</td>" +
                         "<td>" + postiOccupati + "/" + postiTotali + "</td>" +
-                        "<td>"  + "<button class='btn btn-success' style='margin: 5px;'>Assegna</button> " + "<button class='btn btn-primary' style='margin: 5px;'>Gestisci occupanti</button> " +"</td>" +
+                        "<td>"  + "<button class='btn btn-success' style='margin: 5px;' onclick='mostraModale()' data-toggle=\"modal\" data-target=\"#myModal\">Assegna</button> " + "<button class='btn btn-primary' style='margin: 5px;'>Gestisci occupanti</button> " +"</td>" +
                         "</tr>";
                 }
 
@@ -755,3 +756,4 @@ function salvaCittadino() {
     httpReq.open("POST", url, true);
     httpReq.send();
 }
+
