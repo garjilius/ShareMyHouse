@@ -94,7 +94,7 @@
 
             </div>
             <div class="col-md-4">
-
+                <BR>
                 <h4>Nome</h4>
                 <h5 ><input id="nomeCittadino" type="text" value=""></h5><BR>
 
@@ -105,15 +105,8 @@
                 <h4><i class="fa fa-map-pin"> Provincia</i></h4>
                 <select id="immProvincia" disabled name="provincia" class="form-control" style="width:60%; margin:auto"> </select><BR>
 
-
-
-                <h4><i class="fa fa-wheelchair"> Accesso Disabili</i></h4>
-                <h5><input id="disabilitaCittadino" type="checkbox" value=""></h5><BR>
-
-
-
-
             </div>
+
             <div class="col-md-4"><BR>
                 <h4>Cognome</h4>
                 <h5 ><input id="cognomeCittadino" type="text" value=""></h5><BR>
@@ -126,6 +119,8 @@
                 <h4><i class="fa fa-map-pin"> Città</i></h4>
                 <h5><input id="cittaCittadino" type="text" value=""></h5><BR>
 
+                <h4><i class="fa fa-wheelchair"> Accesso Disabili</i></h4>
+                <h5><input id="disabilitaCittadino" type="checkbox" value=""></h5><BR>
 
 
             </div>
