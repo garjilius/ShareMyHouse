@@ -45,8 +45,8 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav bottoniStato">
-                        <li role="button" class ="bottoneStato active" daMostrare = "tutte" onclick=show(this)><a href="#">Immobili</a></li>
-                        <li role="button" class ="bottoneStato" daMostrare = "positive"onclick=show(this)><a href="#">Cittadini</a></li>
+                        <li role="button" class ="bottoneStato active" daMostrare = "tutte" ><a href="#">Immobili</a></li>
+                        <li role="button" class ="bottoneStato" daMostrare = "positive"><a href="cittadini.php">Cittadini</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a onclick="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
@@ -91,7 +91,7 @@
                     <fieldset>
                         <legend>Pannello di Controllo</legend><BR><BR>
                         <button id="buttonProprietario" type="button" onclick="mostraModaleProprietario(immobili[0].proprietario)" class="btn btn-info">Informazioni Proprietario</button><BR><BR>
-                        <button id="buttonOccupanti" type="button" onclick="window.location.href='gestisciOccupanti.php'" class="btn btn-warning">Gestisci Occupanti</button><BR>
+                        <button id="buttonOccupanti" type="button" onclick="" class="btn btn-success">Assegna a: MARIO ROSSI</button><BR>
                         <h5>Idoneità concessa <input id="immIdoneo" onclick="gestisciIdoneita()" type="checkbox" value=""></h5><BR>
                         <BR><BR><BR>
                     </fieldset>
