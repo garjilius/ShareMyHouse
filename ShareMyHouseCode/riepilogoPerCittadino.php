@@ -117,18 +117,17 @@
             //Carico i dati dell'utente e formo la tabella
             getUtente(cf);
 
-            function cercaImmobileAssegnato() {
+            var tempC = true;
+
+             function cercaImmobileAssegnato() {
                 var httpReq = new XMLHttpRequest();
 
                 var idImmobile = parseInt(document.getElementById("idImmobileRiga").textContent);
-
                 var query = "SELECT idImmobileAssegnato From InfoUtente WHERE CF='" + cf + "'";
-
-                console.log("id querty  " + query);
 
                 cercaImmobileAssegnato(query);
 
-                function cercaImmobileAssegnato(query) {
+                 function cercaImmobileAssegnato(query) {
                     httpReq.onreadystatechange = function () {
                         if (httpReq.readyState === 4 && httpReq.status === 200) {
                             if (httpReq.responseText !== false) {
@@ -136,12 +135,16 @@
                                 cittadini = JSON.parse(httpReq.responseText);
                                 idImmobileAssegnato = parseInt((cittadini[0].idImmobileAssegnato));
 
+                                //se non hai nessun immobile ancora assegnato, fai questo
+                                //se non hai ancora un immobile assegnato, il campo idImmobileAssegnato è sempre 0
                                 if(idImmobileAssegnato==0){
                                     queryAggiornamento = "UPDATE InfoUtente SET idImmobileAssegnato="+idImmobile+" WHERE CF='" + cf + "'";
                                     aggiornaNumeroPosti(queryAggiornamento);
 
                                 }else{
-                                    console.log("già assegnato");
+                                    tempC=false;
+                                    console.log("perché mi fai questo "+tempC);
+                                    window.alert("Questo cittadino è già stato assegnato!");
                                 }
                             }
                         }
@@ -167,7 +170,7 @@
 
                 mostraModale(query);
 
-                function mostraModale(query) {
+                 function mostraModale(query) {
                     httpReq.onreadystatechange = function () {
                         if (httpReq.readyState === 4 && httpReq.status === 200) {
                             if (httpReq.responseText !== false) {
@@ -176,13 +179,21 @@
                                     postiTotali = parseInt(immobili[0].postiTotali);
                                     postiOccupati = parseInt(immobili[0].postiOccupati);
 
+                                console.log("prima: "+tempC);
                                 cercaImmobileAssegnato();
+
+                                console.log("dopo: "+tempC);
 
                                 if (postiOccupati < postiTotali) {
 
-                                        postiOccupati = postiOccupati + 1;
-                                        queryAggiornamento = "UPDATE Abitazioni INNER JOIN InfoUtente ON Abitazioni.IDAbitazione=InfoUtente.idImmobileAssegnato SET Abitazioni.postiOccupati=" + postiOccupati + " WHERE Abitazioni.IDAbitazione =" + idImmobile+ "";
-                                        aggiornaNumeroPosti(queryAggiornamento);
+                                        if(tempC==false){
+                                            //vuol dire che il cittadino è stato già assegnato, quindi non aggiornare la query
+                                        }else {
+                                            console.log("ma secondo quale logica sei a true? "+temp);
+                                            postiOccupati = postiOccupati + 1;
+                                            queryAggiornamento = "UPDATE Abitazioni INNER JOIN InfoUtente ON Abitazioni.IDAbitazione=InfoUtente.idImmobileAssegnato SET Abitazioni.postiOccupati=" + postiOccupati + " WHERE Abitazioni.IDAbitazione =" + idImmobile+ "";
+                                            aggiornaNumeroPosti(queryAggiornamento);
+                                        }
 
                                 }else if(postiOccupati >= postiTotali){
                                     window.alert("Questa abitazione ha tutti i posti occupati!");
