@@ -84,6 +84,7 @@
                         <div id="googleMap" style="position: relative; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);"></div>
                     </div>
                     </fieldset>
+                    <br><br><br><br>
 
                 </div>
                 <div class="col-md-4"><BR>

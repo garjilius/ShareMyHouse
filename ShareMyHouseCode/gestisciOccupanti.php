@@ -54,7 +54,6 @@
     </div>
 </nav>
 
-<H1>PAGINA DA COSTRUIRE</H1>
 
 <div class="container" id="containerAccordion">
     <BR><BR>
@@ -72,19 +71,20 @@
 </body>
 <SCRIPT>
 
-   // query = "SELECT * From Abitazioni WHERE Proprietario = '"+localStorage.codiceFiscale+"'";
-    function getImmobili(query) {
+    query = "SELECT * From Utente WHERE tipoutente = 2";
+    function getCittadiniQuery(query) {
+        console.log("entro");
         var httpReq = new XMLHttpRequest();
         httpReq.onreadystatechange = function () {
             if (httpReq.readyState === 4 && httpReq.status === 200) {
-                immobili = JSON.parse(httpReq.responseText);
+                cittadini = JSON.parse(httpReq.responseText);
 
                 //Genera gli accordion per gli immobili
-                for(i=0; i<immobili.length;i++) {
-                    destinationSource = "#"+immobili[i].id;
-                    destination = immobili[i].id;
-                    panelBodyID = "panelBody"+immobili[i].id;
-                    titoloAccordionID = "titoloAccordion"+immobili[i].id;
+                for(i=0; i<cittadini.length;i++) {
+                    destinationSource = "#"+cittadini[i].cf;
+                    destination = cittadini[i].cf;
+                    panelBodyID = "panelBody"+cittadini[i].cf;
+                    titoloAccordionID = "titoloAccordion"+cittadini[i].cf;
 
                     acc = document.getElementById("accordion");
                     acc.innerHTML = acc.innerHTML +
@@ -104,7 +104,7 @@
             }
         }
 
-        httpReq.open("POST", "/utility/getImmobiliJSON.php?v=2", true);
+        httpReq.open("POST", "/utility/getCittadiniJSON.php?v=2", true);
         httpReq.setRequestHeader('Content-Type', 'application/json');
         httpReq.send(query);
 
@@ -112,27 +112,27 @@
     }
 
     function popolaCampi() {
-        for (i = 0; i < immobili.length; i++) {
-            titolo = document.getElementById("titoloAccordion" + immobili[i].id);
-            titolo.innerText = immobili[i].nome;
-            panelbody = document.getElementById("panelBody"+immobili[i].id);
-            if(immobili[i].idonea ==1) {
+        for (i = 0; i < cittadini.length; i++) {
+            titolo = document.getElementById("titoloAccordion" + cittadini[i].cf);
+            titolo.innerText = cittadini[i].nome;
+            panelbody = document.getElementById("panelBody"+cittadini[i].cf);
+            if(cittadini[i].idonea ==1) {
                 idoneita = "Si";
             }
             else {
                 idoneita = "No";
             }
 
-            panelbody.innerHTML= "<p>Posti Occupati: "+immobili[i].postiOccupati+"/"+immobili[i].postiTotali+"</p>" +
-                "<p>Resa disponibile fino al: "+immobili[i].disponibilita+"</p>" +
-                "<p>Idoneità Concessa: "+idoneita;
+            panelbody.innerHTML= "<p>Posti Occupati: "+cittadini[i].cf+"/"+cittadini[i].cf+"</p>" +
+                "<p>Resa disponibile fino al: "+cittadini[i].cf+"</p>" +
+                "<p>Idoneità Concessa: "+cittadini[i].cf;
 
             var btnMod = document.createElement("BUTTON");
             btnMod.className = "btn btn-info";
-            btnMod.id = "buttonModifica"+immobili[i].id;
+            btnMod.id = "buttonModifica"+cittadini[i].cf;
             btnMod.innerText ="Modifica Immobile";
             btnMod.style.margin = "5px";
-            btnMod.setAttribute("idAbitazione",immobili[i].id);
+            btnMod.setAttribute("idAbitazione",cittadini[i].cf);
             btnMod.onclick = function(){
                 localStorage.setItem("idAbitazione",this.getAttribute("idAbitazione"));
                 window.location.href='/editImmobile.php?'
@@ -141,8 +141,8 @@
 
             var btnDel = document.createElement("BUTTON");
             btnDel.className = "btn btn-danger";
-            btnDel.id = "buttonDelete"+immobili[i].id;
-            btnDel.setAttribute("idAbitazione",immobili[i].id);
+            btnDel.id = "buttonDelete"+cittadini[i].cf;
+            btnDel.setAttribute("idAbitazione",cittadini[i].cf);
             btnDel.innerText ="Elimina";
             btnDel.onclick = function(){
                 localStorage.setItem("idAbitazione",this.getAttribute("idAbitazione"));
@@ -154,5 +154,6 @@
         }
     }
 
+    getCittadiniQuery(query);
 </SCRIPT>
 </html>

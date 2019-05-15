@@ -93,12 +93,10 @@
 
         <script type="text/javascript">
 
-
             cf =<?=$_GET['cf']?>;
             document.getElementById("intestazionePagina").innerText ="Cerca migliore immobile per:  "+cf ;
             //Carico i dati dell'utente e formo la tabella
             getUtente(cf);
-
 
         </script>
 </body>
