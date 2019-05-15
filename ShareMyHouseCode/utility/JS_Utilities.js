@@ -491,7 +491,7 @@ function getCittadini(){
                         "<td>" + indirizzo + "</td>" +
                         "<td>" + accesso + "</td>" +
                         "<td>" + idImmobileAssegnato + "</td>" +
-                        "<td>" + "<button class='btn btn-primary' style='margin: 10px;' onclick=\"window.location.href='"+hrefPerCittadino+"'\">Gestisci occupanti</button> " + "</td>" +
+                        "<td>" + "<button class='btn btn-primary' style='margin: 10px;' onclick=\"window.location.href='"+hrefPerCittadino+"'\">Trova migliore soluzione</button> " + "</td>" +
                         "</tr>";
                 }
             }
@@ -674,6 +674,7 @@ function getImmobiliCittadino() {
                         "<td>" + citta + "</td>" +
                         "<td>" + indirizzo + "</td>" +
                         "<td>" + postiOccupati + "/" + postiTotali + "</td>" +
+                        "<td>"  + "<button class='btn btn-success' style='margin: 5px;'>Assegna</button> " + "<button class='btn btn-primary' style='margin: 5px;'>Gestisci occupanti</button> " +"</td>" +
                         "</tr>";
                 }
 
