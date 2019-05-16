@@ -83,10 +83,10 @@
                 <th style="width: 5.0%" id="thId">ID</th>
                 <th style="width: 15.0%" id="thRegione">Regione</th>
                 <th style="width: 5.0%" id="thProvincia">Provincia</th>
-                <th style="width: 25.0%" id="thCitta">Citt&agrave</th>
-                <th style="width: 45.0%" id="thIndirizzo">Indirizzo</th>
+                <th style="width: 15.0%" id="thCitta">Citt&agrave</th>
+                <th style="width: 30.0%" id="thIndirizzo">Indirizzo</th>
                 <th style="width: 5.0%" id="thPosti">Posti</th>
-                <th style="width: 5.0%" id="thPosti">Azione</th>
+                <th style="width: 30.0%" id="thAzione">Azione</th>
 
             </tr>
             </thead>
@@ -194,7 +194,7 @@
                     window.location.href = "cittadini.php";
 
                 }else{
-                    console.log("Non aggunto");
+                    console.log("Non aggiunto");
                 }
             } else {
                 //non dovresti mai essere qui
