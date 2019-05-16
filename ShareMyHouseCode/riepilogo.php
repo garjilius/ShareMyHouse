@@ -60,7 +60,7 @@
         </div></div>
 
     <div class ="container search">
-        <input type="text" name="search" id="searchbar" oninput="handleSearch()" placeholder="Search...">
+        <input type="text" name="search" id="searchbar" oninput="handleSearch('rigaImmobile')" placeholder="Search...">
     </div><BR>
 
         <div class="container form-group">

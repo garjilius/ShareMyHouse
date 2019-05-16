@@ -18,8 +18,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="/utility/checklogin.js"></script>
     <script type="text/javascript" src="/utility/getDistance.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
-    <script type="text/javascript"
-            src="/utility/JS_Utilities.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
+    <script type="text/javascript" src="/utility/JS_Utilities.js?v?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
 
     <?php
     header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
@@ -63,7 +62,7 @@
 </div>
 
 <div class="container form-group">
-    <input type="text" name="search" id="searchbar" oninput="handleSearch()" placeholder="Search...">
+    <input type="text" name="search" id="searchbar" oninput="handleSearch('aggiungiOccupantiRiga')" placeholder="Search...">
 </div>
 
 <div class="container form-group" style="font-family: Arial">

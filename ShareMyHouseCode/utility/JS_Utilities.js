@@ -484,7 +484,7 @@ function getCittadini(){
                     hrefPerCittadino = "riepilogoPerCittadino.php?cf=%27"+cfCittadino+"%27";
 
                     acc.innerHTML = acc.innerHTML +
-                        "<tr>" +
+                        "<tr class='cittadinoRiga'>" +
                         "<td>" + cfCittadino + "</td>" +
                         "<td>" + regione + "</td>" +
                         "<td>" + citta + "</td>" +
@@ -591,9 +591,9 @@ function getImmobili() {
     }
 }
 
-function handleSearch() {
+function handleSearch(nomerighe) {
     var ricerca = document.getElementById("searchbar").value;
-    righe = document.getElementsByClassName("rigaImmobile");
+    righe = document.getElementsByClassName(nomerighe);
     for (i = 0; i < righe.length; i++) {
         testoRiga = righe[i].innerText.toLowerCase();
         testoRicerca = ricerca.toLowerCase();
@@ -668,7 +668,7 @@ function getImmobiliCittadino() {
                 if((distanza<=maxRange || (maxRange==="")) && filtroRegioneProvinciaSoddisfatto ) {
                     acc.innerHTML = acc.innerHTML +
                         //"<tr class=\"rigaImmobile\" onclick=\"window.location.href='" + hrefimmobile + "'\">" +
-                        "<tr id='aggiungiOccupantiRiga'>" +
+                        "<tr class='aggiungiOccupantiRiga'>" +
                         "<td id='idImmobileRiga'>" + idImmobile + "</td>" +
                         "<td id='regioneRiga'>" + regione + "</td>" +
                         "<td id='provinciaRiga'>" + provincia + "</td>" +
