@@ -62,16 +62,14 @@
 </div>
 </div>
 
-<div class="container search text-center">
+<div class="container form-group">
     <input type="text" name="search" id="searchbar" oninput="handleSearch()" placeholder="Search...">
 </div>
-<BR>
 
-<div class="container text-center">
-    <h5>KM Massimi dalla residenza: <input id="rangeKm" type="number" min="1" placeholder="km" value=""
-                                           oninput="getImmobiliCittadino()"></h5>
-    <h5>Stessa Provincia <input id="sameProvincia" type="checkbox" onclick="getImmobiliCittadino()" value=""></h5>
-    <h5>Stessa Regione <input id="sameRegione" type="checkbox" value="" onclick="getImmobiliCittadino()"></h5>
+<div class="container form-group" style="font-family: Arial">
+    KM Massimi dalla residenza: <input id="rangeKm" type="number" min="1" placeholder="km" value="" oninput="getImmobiliCittadino()"/>
+    <input id="sameProvincia" type="checkbox" style="margin-left: 15px; margin-right: 5px;" onclick="getImmobiliCittadino()" value="">Stessa provincia</input>
+    <input id="sameRegione" type="checkbox" style="margin-left: 10px; margin-right: 5px;" value="" onclick="getImmobiliCittadino()">Stessa regione</input>
 </div>
 
 <div class="container">
