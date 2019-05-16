@@ -136,6 +136,7 @@
         </div>
     </div>
 
+
     <script type="text/javascript">
 
         cf =<?=$_GET['cf']?>;
@@ -181,13 +182,20 @@
             }
             //assegnazione e update dei dati
             else if (postiOccupati < postiTotali && idVecchioImmobile == 0) {
+                var result = confirm("Vuoi davvero aggiungere questo cittadino?");
+                if (result) {
+                    postiOccupati = postiOccupati + 1;
+                    queryAggiornamento = "UPDATE Abitazioni SET Abitazioni.postiOccupati=" + postiOccupati + " WHERE Abitazioni.IDAbitazione=" + idImmobile;
+                    aggiornaNumeroPosti(queryAggiornamento);
 
-                postiOccupati = postiOccupati + 1;
-                queryAggiornamento = "UPDATE Abitazioni SET Abitazioni.postiOccupati=" + postiOccupati + " WHERE Abitazioni.IDAbitazione=" + idImmobile;
-                aggiornaNumeroPosti(queryAggiornamento);
+                    queryAggiornamento = "UPDATE InfoUtente SET idImmobileAssegnato=" + idImmobile + " WHERE CF='" + cf + "'";
+                    aggiornaNumeroPosti(queryAggiornamento);
 
-                queryAggiornamento = "UPDATE InfoUtente SET idImmobileAssegnato=" + idImmobile + " WHERE CF='" + cf + "'";
-                aggiornaNumeroPosti(queryAggiornamento);
+                    window.location.href = "cittadini.php";
+
+                }else{
+                    console.log("Non aggunto");
+                }
             } else {
                 //non dovresti mai essere qui
                 window.alert("Sito in manutenzione riprovare più tardi");
@@ -228,8 +236,6 @@
                         controlliEUpdate();
 
                     }
-
-
                 }
             }
             httpReq.open("POST", "/utility/getImmobiliJSON.php?v=2", true);
@@ -240,8 +246,21 @@
 
         function removeAbitazioneFromCittadino(element) {
 
-            queryAggiornamento = "UPDATE InfoUtente SET idImmobileAssegnato=0 WHERE CF='" + element + "'";
-            aggiornaNumeroPosti(queryAggiornamento);
+            var result = confirm("Vuoi davvero cancellare?");
+            if (result) {
+                console.log("si");
+                queryAggiornamento = "UPDATE InfoUtente SET idImmobileAssegnato=0 WHERE CF='" + element + "'";
+                aggiornaNumeroPosti(queryAggiornamento);
+
+                queryAggiornamento = "UPDATE Abitazioni SET postiOccupati=postiOccupati-1 WHERE IDAbitazione=" + idImmobile;
+                console.log(": "+queryAggiornamento);
+                aggiornaNumeroPosti(queryAggiornamento);
+
+                window.location.href = "cittadini.php";
+            }else{
+                console.log("no");
+            }
+
         }
 
         function getCittadiniPerIdImmobile() {
@@ -249,8 +268,6 @@
             var httpReq = new XMLHttpRequest();
 
             var query = "SELECT CF From InfoUtente WHERE idImmobileAssegnato=" + idImmobile;
-            console.log("id immobile qui " + idImmobile);
-            console.log("query " + query);
             getCittadiniPerIdImmobile(query);
 
             function getCittadiniPerIdImmobile(query) {
@@ -258,7 +275,6 @@
                     if (httpReq.readyState === 4 && httpReq.status === 200) {
                         if (httpReq.responseText !== false) {
                             cittadini = JSON.parse(httpReq.responseText);
-
 
                             paragrafo = document.getElementById("tabellaCittadini");
                             paragrafo.innerHTML = "";
@@ -270,7 +286,7 @@
                                             cf +
                                         "</td>" +
                                         "<td>" +
-                                            "<button id='" + cf + "' type=\"button\" class=\"btn btn-danger\" onclick='removeAbitazioneFromCittadino(this.id)'>Rimuovi</button>" +
+                                            "<button id='" + cf + "' type=\"button\" class=\"btn btn-danger\" onclick='removeAbitazioneFromCittadino(this.id)' >Rimuovi</button>" +
                                         "</td>" +
                                     "</tr>"
                             }
