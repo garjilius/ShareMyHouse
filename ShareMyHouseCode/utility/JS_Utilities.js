@@ -675,7 +675,7 @@ function getImmobiliCittadino() {
                         "<td id='cittaRiga'>" + citta + "</td>" +
                         "<td id='indirizzoRiga'>" + indirizzo + "</td>" +
                         "<td id='postiRiga'>" + postiOccupati + "/" + postiTotali + "</td>" +
-                        "<td id='bottoniRiga'>"  + "<button id='aggiungiOccupante' onclick='getRigaBottone(this)' class='btn btn-success' style='margin: 5px;' data-toggle=\"modal\" data-target=\"#myModal\">Assegna</button> " + "<button class='btn btn-primary' style='margin: 5px;'>Gestisci occupanti</button> " +"</td>" +
+                        "<td id='bottoniRiga'>"  + "<button id='aggiungiOccupante' onclick='getRigaBottone(this)' class='btn btn-success' style='margin: 5px;' data-toggle=\"modal\" data-target=\"#myModal\">Assegna</button> " + "<button class='btn btn-primary' id='gestisciOccupantiButton' onclick='getRigaBottone(this)' style='margin: 5px;' data-toggle=\"modal\" data-target=\"#myModal2\">Gestisci occupanti</button> " +"</td>" +
                         "</tr>";
                 }
 
@@ -761,3 +761,4 @@ function aggiornaNumeroPosti(query){
     console.log("in aggiorna "+query);
     ajaxConnect(query);
 }
+
