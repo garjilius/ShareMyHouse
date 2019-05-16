@@ -128,9 +128,9 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Occupanti</h4>
                 </div>
-                <div class="modal-body">
-                    <h5 id="testoCfModale"></h5>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="">Rimuovi</button>
+                <div class="modal-body" id="testoCfModale">
+                    <table id="tabellaCittadini"></table>
+                    <!--<button type="button" class="btn btn-danger" data-dismiss="modal">Annulla</button>-->
                 </div>
             </div>
         </div>
@@ -171,13 +171,12 @@
             cercaImmobileAssegnato(query);
         }
 
-        function controlliEUpdate(){
+        function controlliEUpdate() {
 
             //controlli vari
-            if(idVecchioImmobile!=0){
+            if (idVecchioImmobile != 0) {
                 window.alert("Questo cittadino è già stato assegnato!");
-            }
-            else if(postiOccupati >= postiTotali) {
+            } else if (postiOccupati >= postiTotali) {
                 window.alert("Questa abitazione ha tutti i posti occupati!");
             }
             //assegnazione e update dei dati
@@ -187,10 +186,9 @@
                 queryAggiornamento = "UPDATE Abitazioni SET Abitazioni.postiOccupati=" + postiOccupati + " WHERE Abitazioni.IDAbitazione=" + idImmobile;
                 aggiornaNumeroPosti(queryAggiornamento);
 
-                queryAggiornamento = "UPDATE InfoUtente SET idImmobileAssegnato="+idImmobile+" WHERE CF='" + cf + "'";
+                queryAggiornamento = "UPDATE InfoUtente SET idImmobileAssegnato=" + idImmobile + " WHERE CF='" + cf + "'";
                 aggiornaNumeroPosti(queryAggiornamento);
-            }
-            else {
+            } else {
                 //non dovresti mai essere qui
                 window.alert("Sito in manutenzione riprovare più tardi");
             }
@@ -239,6 +237,13 @@
             httpReq.send(query);
         }
 
+
+        function removeAbitazioneFromCittadino(element) {
+
+            queryAggiornamento = "UPDATE InfoUtente SET idImmobileAssegnato=0 WHERE CF='" + element + "'";
+            aggiornaNumeroPosti(queryAggiornamento);
+        }
+
         function getCittadiniPerIdImmobile() {
 
             var httpReq = new XMLHttpRequest();
@@ -254,16 +259,22 @@
                         if (httpReq.responseText !== false) {
                             cittadini = JSON.parse(httpReq.responseText);
 
+
+                            paragrafo = document.getElementById("tabellaCittadini");
+                            paragrafo.innerHTML = "";
                             for (i = 0; i < cittadini.length; i++) {
                                 cf = cittadini[i].cf;
-                                console.log("cf " + cf);
-                                paragrafo = document.getElementById("testoCfModale");
-                                paragrafo.innerText = paragrafo.innerText + cf;
-
+                                paragrafo.innerHTML = paragrafo.innerHTML +
+                                    "<tr>" +
+                                        "<td>" +
+                                            cf +
+                                        "</td>" +
+                                        "<td>" +
+                                            "<button id='" + cf + "' type=\"button\" class=\"btn btn-danger\" onclick='removeAbitazioneFromCittadino(this.id)'>Rimuovi</button>" +
+                                        "</td>" +
+                                    "</tr>"
                             }
-
                         }
-
                     }
                 }
             }

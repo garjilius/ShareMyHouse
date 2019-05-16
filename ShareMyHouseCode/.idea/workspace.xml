@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="d1e909d5-988c-48ad-8864-9c871850fbe9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/riepilogoPerCittadino.php" beforeDir="false" afterPath="$PROJECT_DIR$/riepilogoPerCittadino.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utility/JS_Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/utility/JS_Utilities.js" afterDir="false" />
     </list>
+=======
+    <list default="true" id="d1e909d5-988c-48ad-8864-9c871850fbe9" name="Default Changelist" comment="" />
+>>>>>>> 8a63ffdd0abf2ffaab3b702120471a5cc5939604
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +42,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mieimmobili.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="93">
               <caret line="115" column="54" selection-start-line="115" selection-end-line="116" />
+=======
+            <state relative-caret-position="235">
+              <caret line="48" column="87" selection-start-line="48" selection-start-column="87" selection-end-line="48" selection-end-column="87" />
+>>>>>>> 8a63ffdd0abf2ffaab3b702120471a5cc5939604
             </state>
           </provider>
         </entry>
@@ -133,13 +142,21 @@
       <updated>1557918045447</updated>
       <workItem from="1557918047950" duration="9000" />
       <workItem from="1557938309936" duration="1147000" />
+<<<<<<< HEAD
       <workItem from="1557942624062" duration="560000" />
       <workItem from="1557993145157" duration="12046000" />
+=======
+      <workItem from="1557942624062" duration="980000" />
+>>>>>>> 8a63ffdd0abf2ffaab3b702120471a5cc5939604
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="13770000" />
+=======
+    <option name="totallyTimeSpent" value="2136000" />
+>>>>>>> 8a63ffdd0abf2ffaab3b702120471a5cc5939604
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -189,7 +206,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dettagliImmobile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
+        <state relative-caret-position="235">
           <caret line="48" column="87" selection-start-line="48" selection-start-column="87" selection-end-line="48" selection-end-column="87" />
         </state>
       </provider>
