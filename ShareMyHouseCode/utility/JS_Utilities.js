@@ -653,8 +653,6 @@ function getImmobiliCittadino() {
 
                 hrefimmobile = "dettagliImmobile.php?idImmobile="+idImmobile;
 
-                //hrefimmobile = "dettagliImmobile.php?idImmobile="+idImmobile;
-
                 filtroRegioneProvinciaSoddisfatto = true;
                 stessaRegione = document.getElementById("sameRegione").checked;
                 stessaProvincia = document.getElementById("sameProvincia").checked;
@@ -668,7 +666,6 @@ function getImmobiliCittadino() {
                 }
 
                 distanza = getDistanceFromLatLonInKm(utenti[0].latitudine,utenti[0].longitudine,latitudineImmobile,longitudineImmobile);
-                console.log("idImmobile " +idImmobile + " distanza "+distanza );
                 //aggiungo gli immobili alla tabella solo se rispettano il requisito di distanza
                 if((distanza<=maxRange || (maxRange==="")) && filtroRegioneProvinciaSoddisfatto ) {
                     acc.innerHTML = acc.innerHTML +
@@ -696,7 +693,6 @@ function getImmobiliCittadino() {
     else {
         query = "Select * From Abitazioni WHERE Idonea = 1";
     }
-    console.log(query);
     httpReq.open("POST", "/utility/getImmobiliJSON.php?v=2", true);
     httpReq.setRequestHeader('Content-Type', 'application/json');
     httpReq.send(query);
@@ -718,7 +714,6 @@ function salvaCittadino() {
 
     let disabilitaCittadino = document.getElementById("disabilitaCittadino").checked;
 
-    console.log(regione+provincia);
 
     if(disabilitaCittadino) {
         disabilitaCittadino = 1;
@@ -763,7 +758,6 @@ function salvaCittadino() {
 }
 
 function aggiornaNumeroPosti(query){
-    console.log("in aggiorna "+query);
     ajaxConnect(query);
 }
 
