@@ -91,8 +91,8 @@
                     <fieldset>
                         <legend>Pannello di Controllo</legend><BR><BR>
                         <button id="buttonProprietario" type="button" onclick="mostraModaleProprietario(immobili[0].proprietario)" class="btn btn-info">Informazioni Proprietario</button><BR><BR>
-                        <button id="buttonOccupanti" type="button" onclick="" class="btn btn-success">Assegna a: MARIO ROSSI</button><BR>
-                        <h5>Idoneità concessa <input id="immIdoneo" onclick="gestisciIdoneita()" type="checkbox" value=""></h5><BR>
+                        <button id="buttonOccupanti" type="button" onclick="" class="btn btn-success">Assegna a:</button><BR>
+                        <h5 id="idoneitaCasa">Idoneità concessa <input id="immIdoneo" onclick="gestisciIdoneita()" type="checkbox" value=""></h5><BR>
                         <BR><BR><BR>
                     </fieldset>
 
@@ -148,6 +148,18 @@
     function caricaDati() {
         id =  <?=$_GET['idImmobile']?>;
         query = "Select * FROM Abitazioni WHERE IDAbitazione ="+id;
+
+        var data = localStorage.getItem('paginaProvenienza');
+        var cfProvenienza = localStorage.getItem('cfProvenienza');
+
+        console.log("data "+ data);
+        if(data=='riepilogoPerCittadino'){
+            document.getElementById("idoneitaCasa").style.display = 'none';
+            document.getElementById("buttonOccupanti").innerText = 'Assegna a: '+cfProvenienza;
+        }else{
+            document.getElementById("buttonOccupanti").style.display = 'none';
+        }
+
         var httpReq = new XMLHttpRequest();
         httpReq.onreadystatechange = function () {
             if (httpReq.readyState === 4 && httpReq.status === 200) {

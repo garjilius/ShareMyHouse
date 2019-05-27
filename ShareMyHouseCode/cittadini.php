@@ -111,6 +111,11 @@
             </table>
         </div>
 
+
+        <table id="table"></table>
+
+
+
         <button id="buttonAggiungiCittadino" style="margin: auto; display: block;" type="button" onclick="window.location.href='/addCittadino.php'" class="btn btn-success">Aggiungi cittadino</button>
 
     </div>
@@ -118,7 +123,8 @@
         <script type="text/javascript">
             getCittadini();
         </script>
-</body>
+
+    </body>
 
 
 </html>

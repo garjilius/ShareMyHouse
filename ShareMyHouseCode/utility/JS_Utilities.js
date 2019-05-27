@@ -3,8 +3,6 @@ function logout() {
     window.location = "index.php";
 }
 
-
-
 function modificaInfoUtente() {
     let infoUtente = document.getElementsByClassName("infoutenteModificabile");
         let button = document.getElementById("buttonModifica")
@@ -475,6 +473,10 @@ function getCittadini(){
                     indirizzo = cittadini[i].indirizzo;
                     accessoDisabiliNecessario = cittadini[i].accessoDisabiliNecessario;
                     idImmobileAssegnato = cittadini[i].idImmobileAssegnato;
+
+                    hrefimmobile = "dettagliImmobile.php?idImmobile="+idImmobileAssegnato;
+
+
                     if(accessoDisabiliNecessario==0){
                         accesso = "No";
                     }else{
@@ -509,6 +511,7 @@ function getCittadini(){
 function getImmobili() {
 
     var checkBox = document.getElementById("checkBarrieraArchitettonica");
+    console.log("ci entro");
     var nessunAccesso;
     if (checkBox.checked == true){
         nessunAccesso = true;
@@ -648,6 +651,9 @@ function getImmobiliCittadino() {
                 postiOccupati = immobili[i].postiOccupati;
                 latitudineImmobile = immobili[i].latitudine;
                 longitudineImmobile = immobili[i].longitudine;
+
+                hrefimmobile = "dettagliImmobile.php?idImmobile="+idImmobile;
+
                 //hrefimmobile = "dettagliImmobile.php?idImmobile="+idImmobile;
 
                 filtroRegioneProvinciaSoddisfatto = true;
@@ -669,12 +675,12 @@ function getImmobiliCittadino() {
                     acc.innerHTML = acc.innerHTML +
                         //"<tr class=\"rigaImmobile\" onclick=\"window.location.href='" + hrefimmobile + "'\">" +
                         "<tr class='aggiungiOccupantiRiga'>" +
-                        "<td id='idImmobileRiga'>" + idImmobile + "</td>" +
-                        "<td id='regioneRiga'>" + regione + "</td>" +
-                        "<td id='provinciaRiga'>" + provincia + "</td>" +
-                        "<td id='cittaRiga'>" + citta + "</td>" +
-                        "<td id='indirizzoRiga'>" + indirizzo + "</td>" +
-                        "<td id='postiRiga'>" + postiOccupati + "/" + postiTotali + "</td>" +
+                        "<td id='idImmobileRiga' onclick=\"window.location.href='"+hrefimmobile+"'\">" + idImmobile + "</td>" +
+                        "<td id='regioneRiga' onclick=\"window.location.href='"+hrefimmobile+"'\">" + regione + "</td>" +
+                        "<td id='provinciaRiga' onclick=\"window.location.href='"+hrefimmobile+"'\">" + provincia + "</td>" +
+                        "<td id='cittaRiga' onclick=\"window.location.href='"+hrefimmobile+"'\">" + citta + "</td>" +
+                        "<td id='indirizzoRiga' onclick=\"window.location.href='"+hrefimmobile+"'\">" + indirizzo + "</td>" +
+                        "<td id='postiRiga' onclick=\"window.location.href='"+hrefimmobile+"'\">" + postiOccupati + "/" + postiTotali + "</td>" +
                         "<td id='bottoniRiga'>"  + "<button id='aggiungiOccupante' onclick='getRigaBottone(this)' class='btn btn-success' style='margin: 5px;' data-toggle=\"modal\" data-target=\"#myModal\">Assegna</button> " + "<button class='btn btn-primary' id='gestisciOccupantiButton' onclick='getRigaBottone(this)' style='margin: 5px;' data-toggle=\"modal\" data-target=\"#myModal2\">Gestisci occupanti</button> " +"</td>" +
                         "</tr>";
                 }

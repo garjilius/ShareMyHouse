@@ -141,6 +141,9 @@
         //Carico i dati dell'utente e formo la tabella
         getUtente(cf);
 
+        localStorage.setItem('paginaProvenienza', 'riepilogoPerCittadino');
+        localStorage.setItem('cfProvenienza', cf);
+
         var tempC = true;
         var riga = 0;
         //var idImmobile = document.getElementById("tavolaSegnalazioni").rows[riga].cells[0].innerHTML;
@@ -155,11 +158,10 @@
             //per prendermi l'id della riga
             if (element.id == "gestisciOccupantiButton") {
                 idImmobile = document.getElementById("tavolaSegnalazioni").rows[riga].cells[0].innerHTML;
-                console.log("Id:if " + idImmobile);
+
                 getCittadiniPerIdImmobile();
             } else {
                 idImmobile = document.getElementById("tavolaSegnalazioni").rows[riga].cells[0].innerHTML;
-                console.log("Id: else " + idImmobile);
             }
         }
 
