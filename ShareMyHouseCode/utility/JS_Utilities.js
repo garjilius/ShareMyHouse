@@ -562,7 +562,6 @@ function getImmobili() {
                }
 
                 for (i = 0; i < immobili.length; i++) {
-                    console.log("id "+immobili[i].id);
                     idImmobile = immobili[i].id;
                     regione = immobili[i].regione;
                     provincia = immobili[i].provincia;
@@ -574,7 +573,7 @@ function getImmobili() {
                     hrefimmobile = "dettagliImmobile.php?idImmobile="+idImmobile;
 
                     acc.innerHTML = acc.innerHTML +
-                        "<tr class=\"rigaImmobile\" onclick=\"window.location.href='"+hrefimmobile+"'\">" +
+                        "<tr class=\"rigaImmobile\">" +
                         "<td>" + idImmobile + "</td>" +
                         "<td>" + regione + "</td>" +
                         "<td>" + provincia + "</td>" +
@@ -767,4 +766,5 @@ function aggiornaNumeroPosti(query){
     console.log("in aggiorna "+query);
     ajaxConnect(query);
 }
+
 

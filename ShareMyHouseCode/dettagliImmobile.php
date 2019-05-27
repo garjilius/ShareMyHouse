@@ -91,7 +91,7 @@
                     <fieldset>
                         <legend>Pannello di Controllo</legend><BR><BR>
                         <button id="buttonProprietario" type="button" onclick="mostraModaleProprietario(immobili[0].proprietario)" class="btn btn-info">Informazioni Proprietario</button><BR><BR>
-                        <button id="buttonOccupanti" type="button" onclick="" class="btn btn-success">Assegna a:</button><BR>
+                        <button id="buttonOccupanti" type="button" onclick="assegnazioneCittadino()" class="btn btn-success">Assegna a:</button><BR>
                         <h5 id="idoneitaCasa">Idoneità concessa <input id="immIdoneo" onclick="gestisciIdoneita()" type="checkbox" value=""></h5><BR>
                         <BR><BR><BR>
                     </fieldset>
@@ -144,15 +144,13 @@
 <script>
 
     var immobili ="";
+    var cfProvenienza = localStorage.getItem('cfProvenienza');
+    var data = localStorage.getItem('paginaProvenienza');
 
     function caricaDati() {
         id =  <?=$_GET['idImmobile']?>;
         query = "Select * FROM Abitazioni WHERE IDAbitazione ="+id;
 
-        var data = localStorage.getItem('paginaProvenienza');
-        var cfProvenienza = localStorage.getItem('cfProvenienza');
-
-        console.log("data "+ data);
         if(data=='riepilogoPerCittadino'){
             document.getElementById("idoneitaCasa").style.display = 'none';
             document.getElementById("buttonOccupanti").innerText = 'Assegna a: '+cfProvenienza;
@@ -261,7 +259,81 @@
         ajaxConnect(query);
     }
 
+    function assegnazioneCittadino() {
+        //cerca il cittadino e l'immobile
+        var query = "SELECT idImmobileAssegnato From InfoUtente WHERE CF='" + cfProvenienza + "'";
+        cercaImmobileAssegnato(query);
+    }
 
+    function cercaImmobileAssegnato(query2) {
+        var httpReq1 = new XMLHttpRequest();
+        httpReq1.onreadystatechange = function () {
+            if (httpReq1.readyState === 4 && httpReq1.status === 200) {
+                if (httpReq1.responseText !== false) {
+
+                    cittadini = JSON.parse(httpReq1.responseText);
+                    idVecchioImmobile = parseInt(cittadini[0].idImmobileAssegnato);
+                    console.log("id vecchio immob cerca imm "+idVecchioImmobile);
+                    var query2 = "SELECT postiOccupati,postiTotali From Abitazioni WHERE IDAbitazione=" + id;
+                    getPostiImmobile(query2);
+                }
+            }
+
+        }
+        httpReq1.open("POST", "/utility/getCittadiniJSON.php?v=2", true);
+        httpReq1.setRequestHeader('Content-Type', 'application/json');
+        httpReq1.send(query2);
+    }
+
+    function getPostiImmobile(query) {
+        var httpReq = new XMLHttpRequest();
+        httpReq.onreadystatechange = function () {
+            if (httpReq.readyState === 4 && httpReq.status === 200) {
+                if (httpReq.responseText !== false) {
+                    immobili = JSON.parse(httpReq.responseText);
+
+                    postiTotali = parseInt(immobili[0].postiTotali);
+                    postiOccupati = parseInt(immobili[0].postiOccupati);
+
+                    controlliEUpdate();
+
+                }
+            }
+        }
+        httpReq.open("POST", "/utility/getImmobiliJSON.php?v=2", true);
+        httpReq.setRequestHeader('Content-Type', 'application/json');
+        httpReq.send(query);
+    }
+
+    function controlliEUpdate() {
+
+        //controlli vari
+        if (idVecchioImmobile != 0) {
+            window.alert("Questo cittadino è già stato assegnato!");
+        } else if (postiOccupati >= postiTotali) {
+            window.alert("Questa abitazione ha tutti i posti occupati!");
+        }
+        //assegnazione e update dei dati
+        else if (postiOccupati < postiTotali && idVecchioImmobile == 0) {
+            var result = confirm("Vuoi davvero aggiungere questo cittadino?");
+            if (result) {
+                postiOccupati = postiOccupati + 1;
+                queryAggiornamento = "UPDATE Abitazioni SET Abitazioni.postiOccupati=" + postiOccupati + " WHERE Abitazioni.IDAbitazione=" + id;
+                aggiornaNumeroPosti(queryAggiornamento);
+
+                queryAggiornamento = "UPDATE InfoUtente SET idImmobileAssegnato=" + id + " WHERE CF='" + cfProvenienza + "'";
+                aggiornaNumeroPosti(queryAggiornamento);
+
+                window.location.href = "cittadini.php";
+
+            }else{
+                console.log("Non aggiunto");
+            }
+        } else {
+            //non dovresti mai essere qui
+            window.alert("Sito in manutenzione riprovare più tardi");
+        }
+    }
 
 </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi6OYQpSp_dEjtGzJ3hkeZXBw-wlMBUk0&callback=caricaDati"></script>
