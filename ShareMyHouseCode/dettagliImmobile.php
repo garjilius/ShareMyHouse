@@ -91,7 +91,7 @@
                     <fieldset>
                         <legend>Pannello di Controllo</legend><BR><BR>
                         <button id="buttonProprietario" type="button" onclick="mostraModaleProprietario(immobili[0].proprietario)" class="btn btn-info">Informazioni Proprietario</button><BR><BR>
-                        <button id="buttonOccupanti" type="button" onclick="assegnazioneCittadino()" class="btn btn-success">Assegna a:</button><BR>
+                        <button id="buttonOccupanti" data-toggle="modal" data-target="#myModal" type="button" class="btn btn-success">Assegna a:</button><BR>
                         <h5 id="idoneitaCasa">Idoneità concessa <input id="immIdoneo" onclick="gestisciIdoneita()" type="checkbox" value=""></h5><BR>
                         <BR><BR><BR>
                     </fieldset>
@@ -134,6 +134,27 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Conferma operazione</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Sei sicuro di voler assegnare l'occupante?</p>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Annulla</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal"
+                                onclick="assegnazioneCittadino()">Assegna occupante
+                        </button>
                     </div>
                 </div>
             </div>
