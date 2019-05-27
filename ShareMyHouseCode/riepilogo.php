@@ -113,9 +113,7 @@
 
         <script type="text/javascript">
             var stringaDaPassare = 'riepilogo';
-            console.log("str "+ stringaDaPassare);
             localStorage.setItem('paginaProvenienza', stringaDaPassare);
-            console.log("str 2 "+ localStorage.getItem('paginaProvenienza'));
             getImmobili();
         </script>
 </body>

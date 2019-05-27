@@ -573,7 +573,7 @@ function getImmobili() {
                     hrefimmobile = "dettagliImmobile.php?idImmobile="+idImmobile;
 
                     acc.innerHTML = acc.innerHTML +
-                        "<tr class=\"rigaImmobile\">" +
+                        "<tr class=\"rigaImmobile\" onclick=\"window.location.href='"+hrefimmobile+"'\">" +
                         "<td>" + idImmobile + "</td>" +
                         "<td>" + regione + "</td>" +
                         "<td>" + provincia + "</td>" +
