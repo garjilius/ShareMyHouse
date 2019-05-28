@@ -713,7 +713,7 @@ function salvaCittadino() {
     let cognomeCittadino = document.getElementById("cognomeCittadino").value;
 
     let disabilitaCittadino = document.getElementById("disabilitaCittadino").checked;
-
+    let idImmobileAssegnato = 0;
 
     if(disabilitaCittadino) {
         disabilitaCittadino = 1;
@@ -736,10 +736,11 @@ function salvaCittadino() {
             risultato = JSON.parse(httpReq.responseText);
             let latitudine = risultato.results[0].geometry.location.lat;
             let longitudine = risultato.results[0].geometry.location.lng;
-            let values = "('"+codiceFiscaleCittadino+"', '"+regione+"', '"+provincia+"', '"+cittaCittadino+"', '"+indirizzoCittadino+"', '"+disabilitaCittadino+"', '"+dataNascitaCittadino+"', '"+mailCittadino+"', '"+telefonoCittadino+"', '"+latitudine+"', "+longitudine+" )";
+            let values = "('"+codiceFiscaleCittadino+"', '"+regione+"', '"+provincia+"', '"+cittaCittadino+"', '"+indirizzoCittadino+"', '"+disabilitaCittadino+"', '"+dataNascitaCittadino+"', '"+mailCittadino+"', '"+telefonoCittadino+"', '"+latitudine+"', '"+longitudine+"', '"+idImmobileAssegnato+"')";
             let values2 = "('"+codiceFiscaleCittadino+"', '"+nomeCittadino+"', '"+cognomeCittadino+"', 'vuoto', '2' )";
-            query = "INSERT INTO InfoUtente (CF, Regione, Provincia, Citta, Indirizzo, AccessoDisabiliNecessario, DataNascita, mail, telefono, Latitudine, Longitudine) VALUES "+values;
+            query = "INSERT INTO InfoUtente (CF, Regione, Provincia, Citta, Indirizzo, AccessoDisabiliNecessario, DataNascita, mail, telefono, Latitudine, Longitudine, idImmobileAssegnato) VALUES "+values;
             query2 = "INSERT INTO Utente (CF, Nome, Cognome, password, tipoutente) VALUES "+values2;
+            console.log(query);
 
             ajaxConnect(query);
             ajaxConnect(query2);

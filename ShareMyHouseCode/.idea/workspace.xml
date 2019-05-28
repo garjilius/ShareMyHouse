@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7d248e0-d91d-49e6-9a99-23f42ff54e47" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/dettagliImmobile.php" beforeDir="false" afterPath="$PROJECT_DIR$/dettagliImmobile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utility/JS_Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/utility/JS_Utilities.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,11 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utility/JS_Utilities.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="679" column="205" selection-start-line="679" selection-start-column="159" selection-end-line="679" selection-end-column="205" />
+            <state relative-caret-position="255">
+              <caret line="738" column="276" selection-start-line="738" selection-start-column="276" selection-end-line="738" selection-end-column="276" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
@@ -29,8 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/riepilogoPerCittadino.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1015">
-              <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
+            <state relative-caret-position="2040">
+              <caret line="120" selection-start-line="120" selection-end-line="120" />
             </state>
           </provider>
         </entry>
@@ -44,11 +44,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dettagliImmobile.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="53">
               <caret line="93" column="95" selection-start-line="93" selection-start-column="95" selection-end-line="93" selection-end-column="95" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/addCittadino.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="129" column="63" selection-start-line="129" selection-start-column="63" selection-end-line="129" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -77,12 +86,12 @@
         <option value="$PROJECT_DIR$/cittadini.php" />
         <option value="$PROJECT_DIR$/riepilogoPerCittadino.php" />
         <option value="$PROJECT_DIR$/riepilogo.php" />
-        <option value="$PROJECT_DIR$/utility/JS_Utilities.js" />
         <option value="$PROJECT_DIR$/dettagliImmobile.php" />
+        <option value="$PROJECT_DIR$/utility/JS_Utilities.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="98" />
     <option name="y" value="29" />
     <option name="width" value="1342" />
@@ -143,16 +152,18 @@
       <workItem from="1558937155583" duration="7296000" />
       <workItem from="1558949015239" duration="9000" />
       <workItem from="1558951765253" duration="811000" />
+      <workItem from="1559029436276" duration="858000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8132000" />
+    <option name="totallyTimeSpent" value="8990000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2685325" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27231467" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -201,6 +212,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/riepilogoPerCittadino.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="120" selection-start-line="120" selection-end-line="120" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/riepilogo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1972">
@@ -208,29 +226,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/riepilogoPerCittadino.php">
+    <entry file="file://$PROJECT_DIR$/dettagliImmobile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1015">
-          <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
+        <state relative-caret-position="53">
+          <caret line="93" column="95" selection-start-line="93" selection-start-column="95" selection-end-line="93" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addCittadino.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="129" column="63" selection-start-line="129" selection-start-column="63" selection-end-line="129" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utility/JS_Utilities.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="679" column="205" selection-start-line="679" selection-start-column="159" selection-end-line="679" selection-end-column="205" />
+        <state relative-caret-position="255">
+          <caret line="738" column="276" selection-start-line="738" selection-start-column="276" selection-end-line="738" selection-end-column="276" />
           <folding>
             <element signature="n#style#0;n#button#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#1;n#td#6;n#tr#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dettagliImmobile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="93" column="95" selection-start-line="93" selection-start-column="95" selection-end-line="93" selection-end-column="95" />
         </state>
       </provider>
     </entry>
