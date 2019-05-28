@@ -41,7 +41,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="">Area Utente</a>
+            <a class="navbar-brand" href="riepilogo.php">Area Utente</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav bottoniStato">
@@ -61,7 +61,7 @@
         <div class="row">
             <div class="col-md-4"><BR>
                 <h4><i class="fa fa-id-card-o"> Alias Immobile</i></h4>
-                <h5><input id="immAlias" type="text" value=""></h5><BR>
+                <h5><input id="immAlias" placeholder="Nome Immobile" type="text" value=""></h5><BR>
                 <h4><i class="fa fa-wheelchair"> Accesso Disabili</i></h4>
                 <h5><input id="immDisabili" type="checkbox" value=""></h5><BR>
 
@@ -100,14 +100,14 @@
                 <h4><i class="fa fa-calendar"> Scadenza Disponibilità</i></h4>
                 <h5><input id="immDisponibilita" type="date" placeholder="AAAA-MM-GG " value=""></h5><BR>
                 <h4><i class="fa fa-users"> Posti totali</i></h4>
-                <h5><input id="immPosti" type="number" min="1" max="50" value=""></h5><BR>
+                <h5><input id="immPosti" type="number" min="1" placeholder="1" max="50" value=""></h5><BR>
 
             </div>
             <div class="col-md-4"><BR>
                 <h4><i class="fa fa-map-pin"> Città</i></h4>
-                <h5><input id="immCitta" type="text" value=""></h5><BR>
+                <h5><input id="immCitta" type="text" placeholder="Milano" value=""></h5><BR>
                 <h4><i class="fa fa-map-pin"> Indirizzo</i></h4>
-                <h5 ><input id="immIndirizzo" type="text" value=""></h5><BR>
+                <h5 ><input id="immIndirizzo" type="text" placeholder="Via Verdi, 10" value=""></h5><BR>
             </div>
         </div>
     </div>

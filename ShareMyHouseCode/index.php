@@ -196,7 +196,7 @@
 
                         </div>
                         <div class="col-xs-6 col-sm-4 col-lg-2">
-                            <button type="button" id="buttonInvia" onclick="login()" class="btn btn-default" style="position: absolute; right: 10px;" >Login</button>
+                            <button type="button" id="buttonInvia" onclick="login()" class="btn btn-primary" style="position: absolute; right: 10px;" >Login</button>
                         </div>
                     </div>
                 </div>
@@ -211,7 +211,6 @@
 
                 <div class="form-group">
                     <a style="text-decoration: underline; cursor: pointer" data-toggle="modal" data-target="#primoAccesso">Primo accesso</a>
-                    <a style="text-decoration: underline; float: right; cursor: pointer" data-toggle="modal" data-target="#recuperoPassword" >Password dimenticata?</a> 
                 </div>
             </form>
         </div>

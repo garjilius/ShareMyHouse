@@ -64,7 +64,7 @@
                 <h5><input id="codiceFiscaleCittadino" type="text" placeholder="RSSMRA89L10G813V" value=""></h5><BR>
 
                 <h4><i class="fa fa-calendar"> Data di Nascita</i></h4>
-                <h5 ><input id="dataNascitaCittadino" placeholder="aaaa-mm-gg" type="text" value=""></h5><BR>
+                <h5 ><input id="dataNascitaCittadino" placeholder="aaaa-mm-gg" type="date" value=""></h5><BR>
 
                 <h4><i class="fa fa-map-pin"> Regione</i></h4>
                 <select id="immRegione" onchange="filtroRegioni()" name="regione" class="form-control" style="width:60%; margin:auto">
