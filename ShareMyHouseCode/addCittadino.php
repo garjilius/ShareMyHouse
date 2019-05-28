@@ -41,7 +41,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="">ShareMyHouse</a>
+            <a class="navbar-brand" href="riepilogo.php">ShareMyHouse</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav bottoniStato">
@@ -61,10 +61,10 @@
         <div class="row">
             <div class="col-md-4"><BR>
                 <h4>Codice fiscale</h4>
-                <h5><input id="codiceFiscaleCittadino" type="text" value=""></h5><BR>
+                <h5><input id="codiceFiscaleCittadino" type="text" placeholder="RSSMRA89L10G813V" value=""></h5><BR>
 
                 <h4><i class="fa fa-calendar"> Data di Nascita</i></h4>
-                <h5 ><input id="dataNascitaCittadino" type="text" value=""></h5><BR>
+                <h5 ><input id="dataNascitaCittadino" placeholder="aaaa-mm-gg" type="text" value=""></h5><BR>
 
                 <h4><i class="fa fa-map-pin"> Regione</i></h4>
                 <select id="immRegione" onchange="filtroRegioni()" name="regione" class="form-control" style="width:60%; margin:auto">
@@ -90,16 +90,16 @@
                 </select><BR>
 
                 <h4><i class="fa fa-address-book">&nbsp;Indirizzo</i></h4>
-                <h5><input id="indirizzoCittadino" type="text" value=""></h5><BR>
+                <h5><input id="indirizzoCittadino" type="text" placeholder="Via Verdi, 10" value=""></h5><BR>
 
             </div>
             <div class="col-md-4">
                 <BR>
                 <h4>Nome</h4>
-                <h5 ><input id="nomeCittadino" type="text" value=""></h5><BR>
+                <h5 ><input id="nomeCittadino" placeholder="Mario" type="text" value=""></h5><BR>
 
                 <h4><i class="fa fa-envelope">&nbsp;Mail</i></h4>
-                <h5><input id="mailCittadino" type="" placeholder="" value=""></h5><BR>
+                <h5><input id="mailCittadino" type="" placeholder="prova@example.com" value=""></h5><BR>
 
 
                 <h4><i class="fa fa-map-pin"> Provincia</i></h4>
@@ -109,15 +109,15 @@
 
             <div class="col-md-4"><BR>
                 <h4>Cognome</h4>
-                <h5 ><input id="cognomeCittadino" type="text" value=""></h5><BR>
+                <h5 ><input id="cognomeCittadino" type="text" placeholder="Rossi" value=""></h5><BR>
 
                 <h4><i class="fa fa-phone">&nbsp;Telefono</i></h4>
-                <h5><input id="telefonoCittadino" min="9" max="9" value=""></h5><BR>
+                <h5><input id="telefonoCittadino" min="9" max="9" placeholder="333456789" value=""></h5><BR>
 
 
 
                 <h4><i class="fa fa-map-pin"> Città</i></h4>
-                <h5><input id="cittaCittadino" type="text" value=""></h5><BR>
+                <h5><input id="cittaCittadino" type="text" placeholder="Milano" value=""></h5><BR>
 
                 <h4><i class="fa fa-wheelchair"> Accesso Disabili</i></h4>
                 <h5><input id="disabilitaCittadino" type="checkbox" value=""></h5><BR>
