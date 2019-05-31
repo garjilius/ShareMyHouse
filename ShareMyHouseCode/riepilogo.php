@@ -101,7 +101,7 @@
                         <th style="width: 25.0%" id="thCitta">Citt&agrave</th>
                         <th style="width: 45.0%" id="thIndirizzo">Indirizzo</th>
                         <th style="width: 5.0%" id="thPosti">Posti</th>
-
+                        <th style="width: 5.0%" id="thAzione">Azione</th>
                     </tr>
                 </thead>
                 <tbody id="tavolaSegnalazioniBody">
@@ -109,12 +109,108 @@
                 </tbody>
             </table>
         </div>
+        <div class="modal fade" id="myModal2" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Occupanti</h4>
+                    </div>
+                    <div class="modal-body" id="testoCfModale">
+                        <table id="tabellaCittadini"></table>
+                        <!--<button type="button" class="btn btn-danger" data-dismiss="modal">Annulla</button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
         <script type="text/javascript">
             var stringaDaPassare = 'riepilogo';
             localStorage.setItem('paginaProvenienza', stringaDaPassare);
             getImmobili();
+
+            var tempC = true;
+            var riga = 0;
+            //var idImmobile = document.getElementById("tavolaSegnalazioni").rows[riga].cells[0].innerHTML;
+            var idImmobile;
+            var idVecchioImmobile;
+            var postiOccupati = 0;
+            var postiTotali = 0;
+
+            function getRigaBottone(element) {
+                riga = element.parentNode.parentNode.rowIndex;
+                console.log("riga: " + riga);
+                //per prendermi l'id della riga
+                if (element.id == "gestisciOccupantiButton") {
+                    idImmobile = document.getElementById("tavolaSegnalazioni").rows[riga].cells[0].innerHTML;
+                    getCittadiniPerIdImmobile();
+                } else {
+                    idImmobile = document.getElementById("tavolaSegnalazioni").rows[riga].cells[0].innerHTML;
+                }
+            }
+
+            function getCittadiniPerIdImmobile() {
+
+                var httpReq = new XMLHttpRequest();
+
+                var query = "SELECT CF From InfoUtente WHERE idImmobileAssegnato=" + idImmobile;
+                getCittadiniPerIdImmobile(query);
+
+                function getCittadiniPerIdImmobile(query) {
+                    httpReq.onreadystatechange = function () {
+                        if (httpReq.readyState === 4 && httpReq.status === 200) {
+                            if (httpReq.responseText !== false) {
+                                cittadini = JSON.parse(httpReq.responseText);
+
+                                paragrafo = document.getElementById("tabellaCittadini");
+                                paragrafo.innerHTML = "";
+                                for (i = 0; i < cittadini.length; i++) {
+                                    cf = cittadini[i].cf;
+                                    paragrafo.innerHTML = paragrafo.innerHTML +
+                                        "<tr>" +
+                                        "<td>" +
+                                        cf +
+                                        "</td>" +
+                                        "<td>" +
+                                        "<button id='" + cf + "' type=\"button\" class=\"btn btn-danger\" style='margin-left: 400px; margin-top: 10px;' onclick='removeAbitazioneFromCittadino(this.id)' >Rimuovi</button>" +
+                                        "</td>" +
+                                        "</tr>"
+                                }
+                            }
+                        }
+                    }
+                }
+
+                httpReq.open("POST", "/utility/getCittadiniJSON.php?v=2", true);
+                httpReq.setRequestHeader('Content-Type', 'application/json');
+                httpReq.send(query);
+
+            }
+
+
+            function removeAbitazioneFromCittadino(element) {
+
+                var result = confirm("Vuoi davvero cancellare?");
+                if (result) {
+                    console.log("si");
+                    queryAggiornamento = "UPDATE InfoUtente SET idImmobileAssegnato=0 WHERE CF='" + element + "'";
+                    aggiornaNumeroPosti(queryAggiornamento);
+
+                    queryAggiornamento = "UPDATE Abitazioni SET postiOccupati=postiOccupati-1 WHERE IDAbitazione=" + idImmobile;
+                    console.log(": "+queryAggiornamento);
+                    aggiornaNumeroPosti(queryAggiornamento);
+
+                    window.location.href = "riepilogo.php";
+                }else{
+                    console.log("no");
+                }
+
+            }
+
         </script>
 </body>
 

@@ -571,15 +571,18 @@ function getImmobili() {
                     postiOccupati = immobili[i].postiOccupati;
 
                     hrefimmobile = "dettagliImmobile.php?idImmobile="+idImmobile;
+                    cfCittadino = "casa";
+                    hrefPerCittadino = "riepilogoPerCittadino.php?cf=%27"+cfCittadino+"%27";
 
                     acc.innerHTML = acc.innerHTML +
-                        "<tr class=\"rigaImmobile\" onclick=\"window.location.href='"+hrefimmobile+"'\">" +
-                        "<td>" + idImmobile + "</td>" +
-                        "<td>" + regione + "</td>" +
-                        "<td>" + provincia + "</td>" +
-                        "<td>" + citta + "</td>" +
-                        "<td>" + indirizzo + "</td>" +
-                        "<td>" + postiOccupati + "/" + postiTotali + "</td>" +
+                        "<tr class=\"rigaImmobile\">" +
+                        "<td onclick=\"window.location.href='"+hrefimmobile+"'\">" + idImmobile + "</td>" +
+                        "<td onclick=\"window.location.href='"+hrefimmobile+"'\">" + regione + "</td>" +
+                        "<td onclick=\"window.location.href='"+hrefimmobile+"'\">" + provincia + "</td>" +
+                        "<td onclick=\"window.location.href='"+hrefimmobile+"'\">" + citta + "</td>" +
+                        "<td onclick=\"window.location.href='"+hrefimmobile+"'\">" + indirizzo + "</td>" +
+                        "<td onclick=\"window.location.href='"+hrefimmobile+"'\">" + postiOccupati + "/" + postiTotali + "</td>" +
+                        "<td>" + "<button class='btn btn-primary' id='gestisciOccupantiButton' onclick='getRigaBottone(this)' style='margin: 5px;' data-toggle=\"modal\" data-target=\"#myModal2\">Gestisci occupanti</button> " +"</td>" +
                         "</tr>";
                 }
             }
