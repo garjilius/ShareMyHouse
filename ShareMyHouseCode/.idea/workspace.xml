@@ -17,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/riepilogo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="211" column="13" selection-start-line="211" selection-start-column="13" selection-end-line="211" selection-end-column="13" />
+            <state relative-caret-position="240">
+              <caret line="206" column="53" selection-start-line="206" selection-start-column="53" selection-end-line="206" selection-end-column="53" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
               </folding>
@@ -79,8 +79,9 @@
       <find>agg</find>
       <find>login</find>
       <find>alias</find>
-      <find>gestisciOcc</find>
       <find>getcitt</find>
+      <find>gestisciOcc</find>
+      <find>remove</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -162,12 +163,12 @@
       <workItem from="1558949015239" duration="9000" />
       <workItem from="1558951765253" duration="811000" />
       <workItem from="1559029436276" duration="2326000" />
-      <workItem from="1559286489058" duration="1832000" />
+      <workItem from="1559286489058" duration="1944000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12290000" />
+    <option name="totallyTimeSpent" value="12402000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -269,8 +270,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/riepilogo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="211" column="13" selection-start-line="211" selection-start-column="13" selection-end-line="211" selection-end-column="13" />
+        <state relative-caret-position="240">
+          <caret line="206" column="53" selection-start-line="206" selection-start-column="53" selection-end-line="206" selection-end-column="53" />
           <folding>
             <element signature="n#style#0;n#button#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
           </folding>
