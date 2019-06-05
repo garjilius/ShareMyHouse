@@ -176,7 +176,7 @@
                                         cf +
                                         "</td>" +
                                         "<td>" +
-                                        "<button id='" + cf + "' type=\"button\" class=\"btn btn-danger\" style='margin-left: 400px; margin-top: 10px;' onclick='removeAbitazioneFromCittadino(this.id)' >Rimuovi</button>" +
+                                        "<button id='" + cf + "' type=\"button\" class=\"btn btn-danger\" style='margin-left:70px; margin-top: 10px;' onclick='removeAbitazioneFromCittadino(this.id)' >Rimuovi</button>" +
                                         "</td>" +
                                         "</tr>"
                                 }

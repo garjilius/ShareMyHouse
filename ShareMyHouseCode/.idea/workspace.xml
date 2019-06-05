@@ -4,7 +4,6 @@
     <list default="true" id="d7d248e0-d91d-49e6-9a99-23f42ff54e47" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/riepilogo.php" beforeDir="false" afterPath="$PROJECT_DIR$/riepilogo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/JS_Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/utility/JS_Utilities.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,11 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/riepilogo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="206" column="53" selection-start-line="206" selection-start-column="53" selection-end-line="206" selection-end-column="53" />
-              <folding>
-                <element signature="n#style#0;n#button#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="177">
+              <caret line="178" column="126" selection-start-line="178" selection-start-column="126" selection-end-line="178" selection-end-column="126" />
             </state>
           </provider>
         </entry>
@@ -29,8 +25,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cittadini.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="123" column="19" lean-forward="true" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
+            <state relative-caret-position="2091">
+              <caret line="123" column="19" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -38,14 +34,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility/JS_Utilities.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-179">
+            <state relative-caret-position="9911">
               <caret line="583" column="80" selection-start-line="583" selection-start-column="80" selection-end-line="583" selection-end-column="80" />
-              <folding>
-                <element signature="n#style#0;n#button#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#1;n#td#6;n#tr#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -53,11 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/riepilogoPerCittadino.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="262" column="9" lean-forward="true" selection-start-line="244" selection-end-line="262" selection-end-column="9" />
-              <folding>
-                <element signature="n#style#0;n#button#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="4454">
+              <caret line="262" column="9" selection-start-line="244" selection-end-line="262" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -82,6 +69,7 @@
       <find>getcitt</find>
       <find>gestisciOcc</find>
       <find>remove</find>
+      <find>RIMUOVI</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -112,7 +100,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -129,6 +116,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -164,16 +152,18 @@
       <workItem from="1558951765253" duration="811000" />
       <workItem from="1559029436276" duration="2326000" />
       <workItem from="1559286489058" duration="1944000" />
+      <workItem from="1559727774868" duration="40000" />
+      <workItem from="1559747507745" duration="113000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12402000" />
+    <option name="totallyTimeSpent" value="12555000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27609682" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28517398" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -238,43 +228,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/riepilogo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="178" column="126" selection-start-line="178" selection-start-column="126" selection-end-line="178" selection-end-column="126" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cittadini.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="123" column="19" lean-forward="true" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
+        <state relative-caret-position="2091">
+          <caret line="123" column="19" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utility/JS_Utilities.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-179">
+        <state relative-caret-position="9911">
           <caret line="583" column="80" selection-start-line="583" selection-start-column="80" selection-end-line="583" selection-end-column="80" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#td#6;n#tr#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/riepilogoPerCittadino.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="262" column="9" lean-forward="true" selection-start-line="244" selection-end-line="262" selection-end-column="9" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/riepilogo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="206" column="53" selection-start-line="206" selection-start-column="53" selection-end-line="206" selection-end-column="53" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="4454">
+          <caret line="262" column="9" selection-start-line="244" selection-end-line="262" selection-end-column="9" />
         </state>
       </provider>
     </entry>
